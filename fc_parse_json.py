@@ -2,7 +2,7 @@
 """
 Convert flight schedule JSON and airports CSV into a consolidated CSV format
 with departure airport, arrival airport, flight number, departure time, arrival time
-for flights between September 15, 2025 and December 31, 2025.
+for flights
 """
 
 import json
@@ -82,7 +82,7 @@ def convert_schedule_to_csv(json_file: str, airports_csv: str, output_csv: str):
         schedule_data = json.load(f)
     
     # Define target date range
-    start_date = datetime(2025, 9, 15)
+    start_date = datetime(2025, 7, 15)
     end_date = datetime(2025, 12, 31)
     
     print(f"Processing flights from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}")
@@ -139,7 +139,7 @@ def convert_schedule_to_csv(json_file: str, airports_csv: str, output_csv: str):
     
     # Convert to DataFrame for easier deduplication
     df = pd.DataFrame(flights)
-    df_unique = df.drop_duplicates()
+    df_unique = df.drop_duplicates().sort_values(by=['departure_airport', 'arrival_airport', 'flight_number', 'departure_time'])
     
     print(f"After removing duplicates: {len(df_unique)} unique flight entries")
     
