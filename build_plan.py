@@ -6,10 +6,10 @@ import csv
 from collections import deque
 
 stime = dt(2025, 9, 20)
-etime = dt(2025, 12, 24)
+etime = dt(2025, 12, 21)
 min_layover = datetime.timedelta(minutes=50)
 max_layover = datetime.timedelta(hours=18)
-max_trip_duration = datetime.timedelta(days=3)
+max_trip_duration = datetime.timedelta(days=7)
 num_dest_airports = 25
 max_num_flights = 35
 min_trip_airports = 4
@@ -52,7 +52,7 @@ def build_flight_graph(csv_file):
             if dtime < stime or atime > etime:
                 continue
 
-            flight = Flight(src, dst, fnum, dtime, atime)
+            flight = Flight(src, dst, int(fnum), dtime, atime)
             if src not in flight_graph:
                 flight_graph[src] = []
             flight_graph[src].append(flight)
@@ -96,22 +96,36 @@ def is_valid_endpoint(flight):
     return True
 
 
-def print_trip(trip):
+def trip_numdays(trip):
+    if not trip:
+        return 0
+    start_date = trip[0].dtime.date()
+    end_date = trip[-1].atime.date()
+    return (end_date - start_date).days + 1
+
+
+def trip_duration(trip):
+    if not trip:
+        return datetime.timedelta(0)
+    return trip[-1].atime - trip[0].dtime
+
+
+def trip_print(trip):
     num_unique = set(flight.dst for flight in trip)
     print(f"Trip: {len(trip)} flights, {len(num_unique)} destinations:")
     for i, flight in enumerate(trip):
         if i < len(trip) - 1:  # Not the last flight
             next_flight = trip[i + 1]
             layover = next_flight.dtime - flight.atime
-            print(f"  {flight.src} -> {flight.dst} ({flight.fnum}) "
+            print(f"  {flight.src} -> {flight.dst} (B6 {flight.fnum:04d}) "
                   f"{flight.dtime.strftime('%m.%d %H:%M')} -> "
                   f"{flight.atime.strftime('%m.%d %H:%M')} "
                   f"[layover: {layover}]")
         else:  # Last flight
-            print(f"  {flight.src} -> {flight.dst} ({flight.fnum}) "
+            print(f"  {flight.src} -> {flight.dst} (B6 {flight.fnum:04d}) "
                   f"{flight.dtime.strftime('%m.%d %H:%M')} -> "
                   f"{flight.atime.strftime('%m.%d %H:%M')}")
-    print(f"  Total duration: {trip[-1].atime - trip[0].dtime}")
+    print(f"  Total duration: {trip_duration(trip)}")
     airports = set([flight.src for flight in trip] + [trip[-1].dst])
     print(f"  Airports visited: {sorted(airports)}")
 
@@ -139,26 +153,26 @@ def main():
         if i % 1_000_000 == 0 and valid:
             best_trip, _, _ = max(valid, key=lambda x: (
                 len(x[1]), -x[2].total_seconds()))
-            print_trip(best_trip)
+            trip_print(best_trip)
             print()
 
-        cur_trip, visited_airports = q.popleft()
+        cur_trip, visited_airports = q.pop()
 
         # Check if current trip is a valid endpoint
-        if is_valid_endpoint(cur_trip[-1]):
+        if is_valid_endpoint(cur_trip[-1]) and len(visited_airports) == num_dest_airports:
             if len(visited_airports) >= min_trip_airports:
                 # Check if there's already a shorter trip with the same airports
                 should_add = True
+                cur_aps = {flight.dst for flight in cur_trip}
                 for old_trip, old_aps, old_dur in valid:
-                    cur_aps = {flight.dst for flight in cur_trip}
                     if old_aps == cur_aps:
-                        cur_dur = cur_trip[-1].atime - cur_trip[0].dtime
+                        cur_dur = trip_duration(cur_trip)
                         if cur_dur >= old_dur:
                             should_add = False
                             break
 
                 if should_add:
-                    dur = cur_trip[-1].atime - cur_trip[0].dtime
+                    dur = trip_duration(cur_trip)
                     valid.append((cur_trip.copy(), visited_airports, dur))
 
         # Continue searching if we haven't reached max flights
@@ -178,7 +192,7 @@ def main():
     # Display results
     print(f"Found {len(valid)} valid trips:")
     for i, (trip, num_airports) in enumerate(valid):
-        print_trip(trip)
+        trip_print(trip)
 
 
 if __name__ == "__main__":
