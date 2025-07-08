@@ -6,8 +6,8 @@ import csv
 from collections import deque
 
 stime = dt(2025, 9, 20)
-etime = dt(2025, 12, 30)
-min_layover = datetime.timedelta(minutes=60)
+etime = dt(2025, 12, 24)
+min_layover = datetime.timedelta(minutes=50)
 max_layover = datetime.timedelta(hours=18)
 max_trip_duration = datetime.timedelta(days=3)
 num_dest_airports = 25
