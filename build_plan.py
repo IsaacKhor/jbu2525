@@ -4,6 +4,9 @@ import datetime
 from datetime import datetime as dt
 import csv
 from collections import deque
+import multiprocessing as mp
+from multiprocessing import Pool
+import math
 
 stime = dt(2025, 9, 20)
 etime = dt(2025, 12, 21)
@@ -14,7 +17,7 @@ max_plan_dur = datetime.timedelta(days=45)
 min_dest_airports = 12
 max_dup_airports = 10
 regional_arrival_cutoff = datetime.time(20, 0)
-#home_arrival_cutoff = datetime.time(23, 30)
+# home_arrival_cutoff = datetime.time(23, 30)
 overnight_threshold = datetime.timedelta(hours=3)
 overnight_check_time = datetime.time(3, 0)
 min_trip_gap = datetime.timedelta(days=3)
@@ -184,23 +187,23 @@ def calc_trip_dur(trip):
     return trip[-1].atime - trip[0].dtime
 
 
-def main():
+def search_from_chunk(chunk_data):
+    """Process a chunk of initial flights"""
+    chunk_flights, chunk_id = chunk_data
     graph = build_flight_graph('flights.csv')
     q = deque()
 
-    # Initialize with flights from start airport
-    for flight in graph[start_airport]:
-        if latest_start_time.date() >= flight.dtime.date() >= stime.date():
-            q.appendleft(([flight], {flight.dst}))
+    # Initialize with flights from this chunk
+    for flight in chunk_flights:
+        q.appendleft(([flight], {flight.dst}))
 
     best_plan = None
     i = 0
     while q:
         i += 1
-        if i % 10_000_000 == 0:
-            print(f".", end='', flush=True)
         if i % 1_000_000_000 == 0:
-            print(f"={i//1_000_000_000}B done; {len(q)} queue")
+            print(
+                f"Chunk {chunk_id}: {i//1_000_000_000}B processed", flush=True)
 
         cur_plan, visited_airports = q.pop()
 
@@ -216,13 +219,13 @@ def main():
                 )
                 if not best_plan or is_better_plan(best_plan, new_plan):
                     best_plan = new_plan
-                    print(f"\nBest plan so far: {best_plan}")
+                    print(
+                        f"\nChunk {chunk_id} - Best plan so far: {best_plan}")
             # we're not done, start new trip
             else:
                 for flight in get_new_bos_outgoing(cur_plan[-1].atime, graph):
                     new_visited = visited_airports | {flight.dst}
                     q.append((cur_plan + [flight], new_visited))
-                pass
 
         # Continue searching if we haven't reached max duplicates
         if len(cur_plan) < len(visited_airports) + max_dup_airports:
@@ -235,7 +238,49 @@ def main():
                         new_visited = visited_airports | {next_flight.dst}
                         q.append((cur_plan + [next_flight], new_visited))
 
-    print(f"\nSearch complete. Best plan found:\n{best_plan}")
+    print(
+        f"\nChunk {chunk_id} complete. Processed {i} items. Best plan: {best_plan}")
+    return best_plan
+
+
+def main():
+    print("Building flight graph...")
+    graph = build_flight_graph('flights.csv')
+
+    # Get all initial flights from start airport
+    initial_flights = []
+    for flight in graph[start_airport]:
+        if latest_start_time.date() >= flight.dtime.date() >= stime.date():
+            initial_flights.append(flight)
+
+    print(f"Found {len(initial_flights)} initial flights from {start_airport}")
+
+    num_parallel = mp.cpu_count()
+    # Partition into 128 chunks
+    chunk_size = math.ceil(len(initial_flights) / num_parallel)
+    chunks = []
+
+    for i in range(0, len(initial_flights), chunk_size):
+        chunk = initial_flights[i:i + chunk_size]
+        if chunk:  # Only add non-empty chunks
+            chunks.append((chunk, i // chunk_size))
+
+    print(f"Partitioned into {len(chunks)} chunks of size ~{chunk_size}")
+
+    # Process chunks in parallel
+    with Pool(processes=min(num_parallel, mp.cpu_count())) as pool:
+        print(
+            f"Starting parallel processing with {pool._processes} processes...")
+        results = pool.map(search_from_chunk, chunks)
+
+    # Find the best plan across all chunks
+    best_plan = None
+    for plan in results:
+        if plan and (not best_plan or is_better_plan(best_plan, plan)):
+            best_plan = plan
+
+    print(
+        f"\nSearch complete. Best plan found across all chunks:\n{best_plan}")
 
 
 if __name__ == "__main__":
