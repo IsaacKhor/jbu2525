@@ -164,16 +164,16 @@ def is_valid_endpoint(flight):
 
 
 def is_better_plan(old_plan: ValidPlan, new_plan: ValidPlan):
-    # compare in order: # of days, # of flights, effective duration
-    if new_plan.total_days < old_plan.total_days:
-        return True
-    if new_plan.total_days == old_plan.total_days:
-        if len(new_plan.flights) < len(old_plan.flights):
-            return True
-        if len(new_plan.flights) == len(old_plan.flights):
-            if new_plan.effective_dur < old_plan.effective_dur:
-                return True
-    return False
+    # compare in order: # of destinations, # of days, # of flights, effective duration
+    # destinations is capped at 25
+    old_dest = min(len(old_plan.airports), 25)
+    new_dest = min(len(new_plan.airports), 25)
+
+    old_tupl = (old_dest, old_plan.total_days,
+                len(old_plan.flights), old_plan.effective_dur)
+    new_tupl = (new_dest, new_plan.total_days,
+                len(new_plan.flights), new_plan.effective_dur)
+    return new_tupl > old_tupl
 
 
 def trip_numdays(trip):
