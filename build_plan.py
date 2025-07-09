@@ -9,7 +9,7 @@ from multiprocessing import Pool
 import math
 
 min_dest_airports = 20
-max_dup_airports = 5
+max_dup_airports = 4
 
 stime = dt(2025, 9, 20)
 etime = dt(2025, 12, 21)
@@ -17,17 +17,19 @@ latest_start_time = dt(2025, 11, 30)
 min_layover = datetime.timedelta(minutes=50)
 max_layover = datetime.timedelta(hours=18)
 max_plan_dur = datetime.timedelta(days=45)
-regional_arrival_cutoff = datetime.time(20, 0)
-# home_arrival_cutoff = datetime.time(23, 30)
+regional_arrival_earliest = datetime.time(6, 0)
+regional_arrival_latest = datetime.time(21, 0)
+home_arrival_cutoff = datetime.time(23, 00)
 overnight_threshold = datetime.timedelta(hours=3)
 overnight_check_time = datetime.time(3, 0)
 min_trip_gap = datetime.timedelta(days=3)
-max_trip_gap = datetime.timedelta(days=28)
-allowed_overnight_airports = ['RDU', 'DCA', 'MCO', 'PVD', 'PIT']
+max_trip_gap = datetime.timedelta(days=21)
 
+allowed_overnight_airports = ['RDU', 'DCA', 'MCO', 'PVD', 'PIT']
 start_airport = 'BOS'
 regional_end = ['PVD', 'ORH']
 end_airports = [start_airport] + regional_end
+regional_endtime_exempt = ['PVD']
 
 flight_graph = {}
 
@@ -62,10 +64,16 @@ class ValidPlan:
             if i < len(self.flights) - 1:  # Not the last flight
                 next_flight = self.flights[i + 1]
                 layover = next_flight.dtime - flight.atime
+                overnight_indicator = ""
+                if layover > overnight_threshold:
+                    overnight_check_datetime = dt.combine(
+                        next_flight.atime.date(), overnight_check_time)
+                    if flight.atime <= overnight_check_datetime <= next_flight.dtime:
+                        overnight_indicator = " (overnight)"
                 ret += (f"  {flight.src} -> {flight.dst} (B6 {flight.fnum:04d}) "
                         f"{flight.dtime.strftime('%m.%d %H:%M')} -> "
                         f"{flight.atime.strftime('%m.%d %H:%M')} "
-                        f"[layover: {layover}]\n")
+                        f"[layover: {layover}{overnight_indicator}]\n")
             else:  # Last flight
                 ret += (f"  {flight.src} -> {flight.dst} (B6 {flight.fnum:04d}) "
                         f"{flight.dtime.strftime('%m.%d %H:%M')} -> "
@@ -133,8 +141,8 @@ def calc_effective_duration(flights):
         if i < len(flights) - 1:
             next_flight = flights[i + 1]
             layover_duration = next_flight.dtime - flight.atime
-            # Only add layover if not at start airport
-            if flight.dst != start_airport or layover_duration <= min_trip_gap:
+            # Only add layover if not at start airport or regional
+            if flight.dst not in end_airports or layover_duration <= min_trip_gap:
                 dur += layover_duration
     return dur
 
@@ -152,13 +160,12 @@ def is_valid_endpoint(flight):
     if flight.dst not in end_airports:
         return False
 
-    if flight.atime > etime or flight.dtime < stime:
-        return False
-
     if flight.dst in regional_end:
         # For regional airports, check if arrival time is before cutoff
-        if flight.atime.time() > regional_arrival_cutoff:
-            return False
+        if flight.dst in regional_endtime_exempt or flight.dst == start_airport:
+            return regional_arrival_earliest < flight.atime.time() < home_arrival_cutoff
+        else:
+            return regional_arrival_earliest < flight.atime.time() < regional_arrival_latest
 
     return True
 
@@ -256,8 +263,7 @@ def main():
 
     print(f"Found {len(initial_flights)} initial flights from {start_airport}")
 
-    num_parallel = mp.cpu_count()
-    # Partition into 128 chunks
+    num_parallel = mp.cpu_count() - 2
     chunk_size = math.ceil(len(initial_flights) / num_parallel)
     chunks = []
 
