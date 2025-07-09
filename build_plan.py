@@ -8,14 +8,15 @@ import multiprocessing as mp
 from multiprocessing import Pool
 import math
 
+min_dest_airports = 20
+max_dup_airports = 5
+
 stime = dt(2025, 9, 20)
 etime = dt(2025, 12, 21)
 latest_start_time = dt(2025, 11, 30)
 min_layover = datetime.timedelta(minutes=50)
 max_layover = datetime.timedelta(hours=18)
 max_plan_dur = datetime.timedelta(days=45)
-min_dest_airports = 12
-max_dup_airports = 10
 regional_arrival_cutoff = datetime.time(20, 0)
 # home_arrival_cutoff = datetime.time(23, 30)
 overnight_threshold = datetime.timedelta(hours=3)
