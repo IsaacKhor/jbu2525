@@ -10,15 +10,15 @@ etime = dt(2025, 12, 21)
 latest_start_time = dt(2025, 11, 30)
 min_layover = datetime.timedelta(minutes=50)
 max_layover = datetime.timedelta(hours=18)
-max_plan_dur = datetime.timedelta(days=30)
-min_dest_airports = 10
+max_plan_dur = datetime.timedelta(days=45)
+min_dest_airports = 12
 max_dup_airports = 10
 regional_arrival_cutoff = datetime.time(20, 0)
-home_arrival_cutoff = datetime.time(23, 30)
+#home_arrival_cutoff = datetime.time(23, 30)
 overnight_threshold = datetime.timedelta(hours=3)
 overnight_check_time = datetime.time(3, 0)
 min_trip_gap = datetime.timedelta(days=3)
-max_trip_gap = datetime.timedelta(days=14)
+max_trip_gap = datetime.timedelta(days=28)
 allowed_overnight_airports = ['RDU', 'DCA', 'MCO', 'PVD', 'PIT']
 
 start_airport = 'BOS'
