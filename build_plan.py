@@ -277,7 +277,7 @@ def main():
 
     print(f"Found {len(initial_flights)} initial flights from {start_airport}")
 
-    num_parallel = 1
+    num_parallel = mp.cpu_count() - 1
     chunk_size = math.ceil(len(initial_flights) / num_parallel)
     chunks = []
 
