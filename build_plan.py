@@ -275,6 +275,14 @@ def search_from_chunk(chunk_data):
     return best_plan
 
 
+def bench_one():
+    city_graph = build_city_graph('flights.csv')
+    flight_graph = build_flight_graph(city_graph)
+    print(f'Build flight graph, starting search')
+    search_from_chunk(
+        (list(city_graph[start_airport]), 0, city_graph, flight_graph))
+
+
 def main():
     print("Building city graph...")
     city_graph = build_city_graph('flights.csv')
