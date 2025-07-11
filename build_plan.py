@@ -147,8 +147,6 @@ def build_flight_graph(city_graph):
     for flight in itertools.chain.from_iterable(city_graph.values()):
         outgoing = get_valid_outgoing(flight, city_graph)
         ret[flight] = sorted(outgoing, reverse=True)
-    total_conns = sum(len(v) for v in ret.values())
-    print(f"Flight graph: {len(ret)} flights, {total_conns} connections.")
     return ret
 
 
@@ -233,9 +231,9 @@ def search_from_chunk(chunk_data):
     i = 0
     while q:
         i += 1
-        if i % 1_000_000 == 0:
+        if i % 20_000_000 == 0:
             print(f'.', end='', flush=True)
-        if i % 100_000_000 == 0:
+        if i % 1_000_000_000 == 0:
             print(
                 f"Chunk {chunk_id}: {i/1_000_000_000}B processed. {len(q)} items in queue", flush=True)
 
@@ -254,8 +252,7 @@ def search_from_chunk(chunk_data):
                 )
                 if not best_plan or is_better_plan(best_plan, new_plan):
                     best_plan = new_plan
-                    print(
-                        f"\nChunk {chunk_id} - Best plan so far: {best_plan}")
+                    print(f"\nChunk {chunk_id} new best: {best_plan}")
             # we're not done, start new trip
             else:
                 for flight in get_new_bos_outgoing(cur_flight.atime, city_graph):
@@ -274,15 +271,17 @@ def search_from_chunk(chunk_data):
                 new_visited = visited_airports | {next_flight.dst}
                 q.append((cur_plan + [next_flight], new_visited))
 
-    print(
-        f"\nChunk {chunk_id} complete. Processed {i} items. Best plan: {best_plan}")
+    print(f"\nChunk {chunk_id}: processed {i} items, best plan:\n{best_plan}")
     return best_plan
 
 
 def main():
-    print("Building flight graph...")
+    print("Building city graph...")
     city_graph = build_city_graph('flights.csv')
+    print(f"City graph built with {len(city_graph)} airports.")
     flight_graph = build_flight_graph(city_graph)
+    conns = sum(len(v) for v in flight_graph.values())
+    print(f"Flight graph: {len(flight_graph)} flights, {conns} connections.")
 
     # Get all initial flights from start airport
     initial_flights = []
