@@ -8,22 +8,24 @@ import multiprocessing as mp
 from multiprocessing import Pool
 import math
 
-min_dest_airports = 20
-max_dup_airports = 4
+dest_cap = 25
+min_dest_airports = 18
+max_dup_airports = 2
 
 stime = dt(2025, 9, 20)
 etime = dt(2025, 12, 21)
 latest_start_time = dt(2025, 11, 30)
 min_layover = datetime.timedelta(minutes=50)
-max_layover = datetime.timedelta(hours=18)
-max_plan_dur = datetime.timedelta(days=45)
+max_day_layover = datetime.timedelta(hours=5)
+max_night_layover = datetime.timedelta(hours=18)
+max_plan_dur = datetime.timedelta(days=28)
 regional_arrival_earliest = datetime.time(6, 0)
 regional_arrival_latest = datetime.time(21, 0)
 home_arrival_cutoff = datetime.time(23, 00)
 overnight_threshold = datetime.timedelta(hours=3)
 overnight_check_time = datetime.time(3, 0)
 min_trip_gap = datetime.timedelta(days=3)
-max_trip_gap = datetime.timedelta(days=21)
+max_trip_gap = datetime.timedelta(days=7)
 
 allowed_overnight_airports = ['RDU', 'DCA', 'MCO', 'PVD', 'PIT']
 start_airport = 'BOS'
@@ -45,6 +47,19 @@ class Flight:
     def __repr__(self):
         return f"Flight({self.src} -> {self.dst}, {self.fnum}, {self.dtime}, {self.atime})"
 
+    def __lt__(self, other):
+        return self.dtime < other.dtime
+
+
+def is_overnight(incoming, outgoing):
+    # Check if the layover is overnight
+    layover = outgoing.dtime - incoming.atime
+    if layover > overnight_threshold:
+        overnight_check_datetime = dt.combine(
+            outgoing.dtime.date(), overnight_check_time)
+        return incoming.atime <= overnight_check_datetime <= outgoing.dtime
+    return False
+
 
 class ValidPlan:
     def __init__(self, flights, airports, total_dur, effective_dur):
@@ -53,6 +68,8 @@ class ValidPlan:
         self.total_dur = total_dur
         self.total_days = calc_days_taken(flights)
         self.effective_dur = effective_dur
+        self.num_overnights = sum(1 for i in range(len(flights) - 1)
+                                  if is_overnight(flights[i], flights[i + 1]))
 
     def __repr__(self):
         return f"ValidPlan(flights={len(self.flights)}, airports={len(self.airports)}, total_duration={self.total_dur}, effective_duration={self.effective_dur})"
@@ -64,16 +81,10 @@ class ValidPlan:
             if i < len(self.flights) - 1:  # Not the last flight
                 next_flight = self.flights[i + 1]
                 layover = next_flight.dtime - flight.atime
-                overnight_indicator = ""
-                if layover > overnight_threshold:
-                    overnight_check_datetime = dt.combine(
-                        next_flight.atime.date(), overnight_check_time)
-                    if flight.atime <= overnight_check_datetime <= next_flight.dtime:
-                        overnight_indicator = " (overnight)"
                 ret += (f"  {flight.src} -> {flight.dst} (B6 {flight.fnum:04d}) "
                         f"{flight.dtime.strftime('%m.%d %H:%M')} -> "
                         f"{flight.atime.strftime('%m.%d %H:%M')} "
-                        f"[layover: {layover}{overnight_indicator}]\n")
+                        f"[layover: {layover}{' (night)' if is_overnight(flight, next_flight) else ''}]\n")
             else:  # Last flight
                 ret += (f"  {flight.src} -> {flight.dst} (B6 {flight.fnum:04d}) "
                         f"{flight.dtime.strftime('%m.%d %H:%M')} -> "
@@ -81,6 +92,7 @@ class ValidPlan:
         ret += (f"  Total duration: {self.total_dur}\n"
                 f"  Effective duration: {self.effective_dur}\n"
                 f"  Days taken: {self.total_days}\n"
+                f"  Overnight layovers: {self.num_overnights}\n"
                 f"  Airports visited: {sorted(self.airports)}\n")
         return ret
 
@@ -112,17 +124,17 @@ def get_valid_outgoing(incoming, graph):
     cur = incoming.dst
     for outgoing in graph[cur]:
         layover = outgoing.dtime - incoming.atime
-        if min_layover >= layover or layover >= max_layover:
+        if not (min_layover <= layover <= max_night_layover):
             continue
 
-        # Check if overnight and if airport is allowed
-        # overnight meaning over overnight check threshold and layover period contains overnight_check_time
-        if layover > overnight_threshold:
-            overnight_check_datetime = dt.combine(
-                outgoing.atime.date(), overnight_check_time)
-            if incoming.atime <= overnight_check_datetime <= outgoing.dtime:
-                if cur not in allowed_overnight_airports:
-                    continue
+        if is_overnight(incoming, outgoing):
+            # If overnight, disallow if too long or not in allowed airports
+            if layover > max_night_layover or incoming.dst not in allowed_overnight_airports:
+                continue
+        else:
+            if layover > max_day_layover:
+                continue
+
         ret.append(outgoing)
     return ret
 
@@ -172,15 +184,14 @@ def is_valid_endpoint(flight):
 
 def is_better_plan(old_plan: ValidPlan, new_plan: ValidPlan):
     # compare in order: # of destinations, # of days, # of flights, effective duration
-    # destinations is capped at 25
-    old_dest = min(len(old_plan.airports), 25)
-    new_dest = min(len(new_plan.airports), 25)
+    old_dest = min(len(old_plan.airports), dest_cap)
+    new_dest = min(len(new_plan.airports), dest_cap)
 
-    old_tupl = (old_dest, old_plan.total_days,
-                len(old_plan.flights), old_plan.effective_dur)
-    new_tupl = (new_dest, new_plan.total_days,
-                len(new_plan.flights), new_plan.effective_dur)
-    return new_tupl > old_tupl
+    old_tupl = (-old_dest, old_plan.total_days, len(old_plan.flights),
+                old_plan.num_overnights, old_plan.effective_dur)
+    new_tupl = (-new_dest, new_plan.total_days, len(new_plan.flights),
+                new_plan.num_overnights, new_plan.effective_dur)
+    return new_tupl < old_tupl
 
 
 def trip_numdays(trip):
@@ -209,14 +220,16 @@ def search_from_chunk(chunk_data):
     i = 0
     while q:
         i += 1
-        if i % 1_000_000_000 == 0:
+        if i % 1_000_000 == 0:
+            print(f'.', end='', flush=True)
+        if i % 100_000_000 == 0:
             print(
-                f"Chunk {chunk_id}: {i//1_000_000_000}B processed", flush=True)
+                f"Chunk {chunk_id}: {i/1_000_000_000}B processed. {len(q)} items in queue", flush=True)
 
         cur_plan, visited_airports = q.pop()
 
         # Check if current trip is a valid endpoint
-        if is_valid_endpoint(cur_plan[-1]):
+        if is_valid_endpoint(cur_plan[-1]) and len(cur_plan) <= len(visited_airports) + max_dup_airports:
             # are we done yet
             if len(visited_airports) >= min_dest_airports:
                 new_plan = ValidPlan(
@@ -235,16 +248,17 @@ def search_from_chunk(chunk_data):
                     new_visited = visited_airports | {flight.dst}
                     q.append((cur_plan + [flight], new_visited))
 
-        # Continue searching if we haven't reached max duplicates
-        if len(cur_plan) < len(visited_airports) + max_dup_airports:
-            # Check total trip duration
-            trip_duration = cur_plan[-1].atime - cur_plan[0].dtime
-            if trip_duration <= max_plan_dur:
-                # Get valid outgoing flights
-                if cur_plan[-1].dst in graph:
-                    for next_flight in reversed(get_valid_outgoing(cur_plan[-1], graph)):
-                        new_visited = visited_airports | {next_flight.dst}
-                        q.append((cur_plan + [next_flight], new_visited))
+        # Continue searching if we haven't reached max duplicates or max duration
+        if len(cur_plan) <= len(visited_airports) + max_dup_airports and cur_plan[-1].atime - cur_plan[0].dtime <= max_plan_dur:
+            for next_flight in sorted(get_valid_outgoing(cur_plan[-1], graph), reverse=True):
+                # manually prune out turn-arounds in the first half of the plan
+                if len(cur_plan) < min_dest_airports / 2 and next_flight.dst == cur_plan[-1].src:
+                    continue
+                # ban heading back to start airport before the end
+                if len(cur_plan) < min_dest_airports and next_flight.dst == start_airport:
+                    continue
+                new_visited = visited_airports | {next_flight.dst}
+                q.append((cur_plan + [next_flight], new_visited))
 
     print(
         f"\nChunk {chunk_id} complete. Processed {i} items. Best plan: {best_plan}")
@@ -263,7 +277,7 @@ def main():
 
     print(f"Found {len(initial_flights)} initial flights from {start_airport}")
 
-    num_parallel = mp.cpu_count() - 2
+    num_parallel = 1
     chunk_size = math.ceil(len(initial_flights) / num_parallel)
     chunks = []
 
