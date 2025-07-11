@@ -7,7 +7,9 @@ from collections import deque
 import multiprocessing as mp
 from multiprocessing import Pool
 import math
+import itertools
 
+num_parallel = mp.cpu_count()
 dest_cap = 25
 min_dest_airports = 18
 max_dup_airports = 2
@@ -15,8 +17,9 @@ max_dup_airports = 2
 stime = dt(2025, 9, 20)
 etime = dt(2025, 12, 21)
 latest_start_time = dt(2025, 11, 30)
-min_layover = datetime.timedelta(minutes=50)
+min_day_layover = datetime.timedelta(minutes=50)
 max_day_layover = datetime.timedelta(hours=5)
+# min_night_layover = datetime.timedelta(hours=7)
 max_night_layover = datetime.timedelta(hours=18)
 max_plan_dur = datetime.timedelta(days=28)
 regional_arrival_earliest = datetime.time(6, 0)
@@ -97,7 +100,7 @@ class ValidPlan:
         return ret
 
 
-def build_flight_graph(csv_file):
+def build_city_graph(csv_file) -> dict[str, list[Flight]]:
     # CSV format:
     # departure_airport,arrival_airport,flight_number,departure_time,arrival_time
     flight_graph = {}
@@ -119,12 +122,12 @@ def build_flight_graph(csv_file):
     return flight_graph
 
 
-def get_valid_outgoing(incoming, graph):
+def get_valid_outgoing(incoming, city_graph):
     ret = []
     cur = incoming.dst
-    for outgoing in graph[cur]:
+    for outgoing in city_graph[cur]:
         layover = outgoing.dtime - incoming.atime
-        if not (min_layover <= layover <= max_night_layover):
+        if not (min_day_layover <= layover <= max_night_layover):
             continue
 
         if is_overnight(incoming, outgoing):
@@ -136,6 +139,16 @@ def get_valid_outgoing(incoming, graph):
                 continue
 
         ret.append(outgoing)
+    return ret
+
+
+def build_flight_graph(city_graph):
+    ret = {}
+    for flight in itertools.chain.from_iterable(city_graph.values()):
+        outgoing = get_valid_outgoing(flight, city_graph)
+        ret[flight] = sorted(outgoing, reverse=True)
+    total_conns = sum(len(v) for v in ret.values())
+    print(f"Flight graph: {len(ret)} flights, {total_conns} connections.")
     return ret
 
 
@@ -159,9 +172,9 @@ def calc_effective_duration(flights):
     return dur
 
 
-def get_new_bos_outgoing(intime, graph):
+def get_new_bos_outgoing(intime, city_graph):
     ret = []
-    for outgoing in graph[start_airport]:
+    for outgoing in city_graph[start_airport]:
         gap = outgoing.dtime - intime
         if min_trip_gap <= gap <= max_trip_gap:
             ret.append(outgoing)
@@ -183,14 +196,15 @@ def is_valid_endpoint(flight):
 
 
 def is_better_plan(old_plan: ValidPlan, new_plan: ValidPlan):
-    # compare in order: # of destinations, # of days, # of flights, effective duration
-    old_dest = min(len(old_plan.airports), dest_cap)
-    new_dest = min(len(new_plan.airports), dest_cap)
-
-    old_tupl = (-old_dest, old_plan.total_days, len(old_plan.flights),
-                old_plan.num_overnights, old_plan.effective_dur)
-    new_tupl = (-new_dest, new_plan.total_days, len(new_plan.flights),
-                new_plan.num_overnights, new_plan.effective_dur)
+    # compare in order: # of destinations, # of days used, # of flights + overnight layovers, effective duration
+    old_tupl = (-min(len(old_plan.airports), dest_cap),
+                old_plan.total_days,
+                len(old_plan.flights) + old_plan.num_overnights,
+                old_plan.effective_dur)
+    new_tupl = (-min(len(new_plan.airports), dest_cap),
+                new_plan.total_days,
+                len(new_plan.flights) + new_plan.num_overnights,
+                new_plan.effective_dur)
     return new_tupl < old_tupl
 
 
@@ -208,8 +222,7 @@ def calc_trip_dur(trip):
 
 def search_from_chunk(chunk_data):
     """Process a chunk of initial flights"""
-    chunk_flights, chunk_id = chunk_data
-    graph = build_flight_graph('flights.csv')
+    chunk_flights, chunk_id, city_graph, flight_graph = chunk_data
     q = deque()
 
     # Initialize with flights from this chunk
@@ -227,9 +240,10 @@ def search_from_chunk(chunk_data):
                 f"Chunk {chunk_id}: {i/1_000_000_000}B processed. {len(q)} items in queue", flush=True)
 
         cur_plan, visited_airports = q.pop()
+        cur_flight = cur_plan[-1]
 
         # Check if current trip is a valid endpoint
-        if is_valid_endpoint(cur_plan[-1]) and len(cur_plan) <= len(visited_airports) + max_dup_airports:
+        if is_valid_endpoint(cur_flight) and len(cur_plan) <= len(visited_airports) + max_dup_airports:
             # are we done yet
             if len(visited_airports) >= min_dest_airports:
                 new_plan = ValidPlan(
@@ -244,13 +258,13 @@ def search_from_chunk(chunk_data):
                         f"\nChunk {chunk_id} - Best plan so far: {best_plan}")
             # we're not done, start new trip
             else:
-                for flight in get_new_bos_outgoing(cur_plan[-1].atime, graph):
+                for flight in get_new_bos_outgoing(cur_flight.atime, city_graph):
                     new_visited = visited_airports | {flight.dst}
                     q.append((cur_plan + [flight], new_visited))
 
         # Continue searching if we haven't reached max duplicates or max duration
-        if len(cur_plan) <= len(visited_airports) + max_dup_airports and cur_plan[-1].atime - cur_plan[0].dtime <= max_plan_dur:
-            for next_flight in sorted(get_valid_outgoing(cur_plan[-1], graph), reverse=True):
+        if len(cur_plan) <= len(visited_airports) + max_dup_airports and cur_flight.atime - cur_plan[0].dtime <= max_plan_dur:
+            for next_flight in flight_graph[cur_flight]:
                 # manually prune out turn-arounds in the first half of the plan
                 if len(cur_plan) < min_dest_airports / 2 and next_flight.dst == cur_plan[-1].src:
                     continue
@@ -267,24 +281,24 @@ def search_from_chunk(chunk_data):
 
 def main():
     print("Building flight graph...")
-    graph = build_flight_graph('flights.csv')
+    city_graph = build_city_graph('flights.csv')
+    flight_graph = build_flight_graph(city_graph)
 
     # Get all initial flights from start airport
     initial_flights = []
-    for flight in graph[start_airport]:
+    for flight in city_graph[start_airport]:
         if latest_start_time.date() >= flight.dtime.date() >= stime.date():
             initial_flights.append(flight)
 
     print(f"Found {len(initial_flights)} initial flights from {start_airport}")
 
-    num_parallel = mp.cpu_count() - 1
     chunk_size = math.ceil(len(initial_flights) / num_parallel)
     chunks = []
 
     for i in range(0, len(initial_flights), chunk_size):
         chunk = initial_flights[i:i + chunk_size]
         if chunk:  # Only add non-empty chunks
-            chunks.append((chunk, i // chunk_size))
+            chunks.append((chunk, i // chunk_size, city_graph, flight_graph))
 
     print(f"Partitioned into {len(chunks)} chunks of size ~{chunk_size}")
 
