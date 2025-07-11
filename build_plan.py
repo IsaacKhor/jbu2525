@@ -30,7 +30,8 @@ overnight_check_time = datetime.time(3, 0)
 min_trip_gap = datetime.timedelta(days=3)
 max_trip_gap = datetime.timedelta(days=7)
 
-allowed_overnight_airports = ['RDU', 'DCA', 'MCO', 'PVD', 'PIT']
+# allowed_overnight_airports = ['RDU', 'DCA', 'BUF', 'PVD', 'PIT', 'PBI', 'RSW']
+allowed_overnight_airports = ['RDU', 'DCA', 'BUF', 'PVD', 'PIT']
 start_airport = 'BOS'
 regional_end = ['PVD', 'ORH']
 end_airports = [start_airport] + regional_end
