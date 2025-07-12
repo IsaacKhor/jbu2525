@@ -319,22 +319,9 @@ auto search(u32 worker_num, CityGraph &cg, FlightGraph &fg,
             fmt::print(".");
             fflush(stdout);
         }
-        if (i % 1'000'000'000 == 0) {
-            static auto last_time = std::chrono::steady_clock::now();
-            auto now = std::chrono::steady_clock::now();
-            auto elapsed =
-                std::chrono::duration_cast<std::chrono::milliseconds>(now -
-                                                                      last_time)
-                    .count();
-            if (elapsed > 0) {
-                auto rate =
-                    1000.0 / elapsed; // millions of iterations per second
-                fmt::print(
-                    "Worker {}: processed {}B, {} in queue, {:.1f}M iter/s\n",
-                    worker_num, i / 1'000'000'000, q.size(), rate);
-            }
-            last_time = now;
-        }
+        if (i % 1'000'000'000 == 0)
+            fmt::print("Worker {}: processed {}B, {} in queue\n", worker_num,
+                       i / 1'000'000'000, q.size());
 
         auto cur = q.back();
         q.pop_back();

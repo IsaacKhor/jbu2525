@@ -9,9 +9,9 @@ from multiprocessing import Pool
 import math
 import itertools
 
-num_parallel = mp.cpu_count()
+num_parallel = mp.cpu_count() - 1
 dest_cap = 25
-min_dest_airports = 19
+min_dest_airports = 20
 max_dup_airports = 2
 
 stime = dt(2025, 9, 20)
@@ -239,8 +239,11 @@ def search_from_chunk(chunk_data):
         cur_plan, visited_airports = q.pop()
         cur_flight = cur_plan[-1]
 
+        if cur_flight.atime - cur_plan[0].dtime > max_plan_dur or len(cur_plan) > len(visited_airports) + max_dup_airports:
+            continue
+
         # Check if current trip is a valid endpoint
-        if is_valid_endpoint(cur_flight) and len(cur_plan) <= len(visited_airports) + max_dup_airports:
+        if is_valid_endpoint(cur_flight):
             # are we done yet
             if len(visited_airports) >= min_dest_airports:
                 new_plan = ValidPlan(
@@ -253,22 +256,20 @@ def search_from_chunk(chunk_data):
                     best_plan = new_plan
                     print(f"\nChunk {chunk_id} new best: {best_plan}")
             # we're not done, start new trip
-            else:
+            if len(visited_airports) < dest_cap:
                 for flight in get_new_bos_outgoing(cur_flight.atime, city_graph):
                     new_visited = visited_airports | {flight.dst}
                     q.append((cur_plan + [flight], new_visited))
 
-        # Continue searching if we haven't reached max duplicates or max duration
-        if len(cur_plan) <= len(visited_airports) + max_dup_airports and cur_flight.atime - cur_plan[0].dtime <= max_plan_dur:
-            for next_flight in flight_graph[cur_flight]:
-                # manually prune out turn-arounds in the first half of the plan
-                if len(cur_plan) < min_dest_airports / 2 and next_flight.dst == cur_plan[-1].src:
-                    continue
-                # ban heading back to start airport before the end
-                if len(cur_plan) < min_dest_airports and next_flight.dst == start_airport:
-                    continue
-                new_visited = visited_airports | {next_flight.dst}
-                q.append((cur_plan + [next_flight], new_visited))
+        for next_flight in flight_graph[cur_flight]:
+            # manually prune out turn-arounds in the first half of the plan
+            if len(cur_plan) < min_dest_airports / 2 and next_flight.dst == cur_plan[-1].src:
+                continue
+            # ban heading back to start airport before the end
+            if len(cur_plan) < min_dest_airports and next_flight.dst == start_airport:
+                continue
+            new_visited = visited_airports | {next_flight.dst}
+            q.append((cur_plan + [next_flight], new_visited))
 
     print(f"\nChunk {chunk_id}: processed {i} items, best plan:\n{best_plan}")
     return best_plan
