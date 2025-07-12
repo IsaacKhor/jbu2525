@@ -11,7 +11,7 @@ import itertools
 
 num_parallel = mp.cpu_count()
 dest_cap = 25
-min_dest_airports = 18
+min_dest_airports = 19
 max_dup_airports = 2
 
 stime = dt(2025, 9, 20)
@@ -232,7 +232,7 @@ def search_from_chunk(chunk_data):
     i = 0
     while q:
         i += 1
-        if i % 20_000_000 == 0:
+        if i % 10_000_000 == 0:
             print(f'.', end='', flush=True)
         if i % 1_000_000_000 == 0:
             print(
