@@ -232,8 +232,6 @@ def search_from_chunk(chunk_data):
     i = 0
     while q:
         i += 1
-        if i % 10_000_000 == 0:
-            print(f'.', end='', flush=True)
         if i % 1_000_000_000 == 0:
             print(
                 f"Chunk {chunk_id}: {i/1_000_000_000}B processed. {len(q)} items in queue", flush=True)
