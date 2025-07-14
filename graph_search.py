@@ -11,12 +11,12 @@ import itertools
 
 num_parallel = mp.cpu_count() - 1
 dest_cap = 25
-min_dest_airports = 20
+min_dest_airports = 15
 max_dup_airports = 2
 
-stime = dt(2025, 9, 20)
-etime = dt(2025, 12, 21)
-latest_start_time = dt(2025, 11, 30)
+stime = dt(2025, 8, 1)
+etime = dt(2025, 11, 21)
+latest_start_time = dt(2025, 10, 15)
 min_day_layover = datetime.timedelta(minutes=50)
 max_day_layover = datetime.timedelta(hours=5)
 # min_night_layover = datetime.timedelta(hours=7)
@@ -30,12 +30,11 @@ overnight_check_time = datetime.time(3, 0)
 min_trip_gap = datetime.timedelta(days=3)
 max_trip_gap = datetime.timedelta(days=7)
 
-# allowed_overnight_airports = ['RDU', 'DCA', 'BUF', 'PVD', 'PIT', 'PBI', 'RSW']
 allowed_overnight_airports = ['RDU', 'DCA', 'BUF', 'PVD', 'PIT']
-start_airport = 'BOS'
-regional_end = ['PVD', 'ORH']
+start_airport = 'RDU'
+regional_end = ['AVL', 'ISM']
 end_airports = [start_airport] + regional_end
-regional_endtime_exempt = ['PVD']
+regional_endtime_exempt = []
 
 flight_graph = {}
 

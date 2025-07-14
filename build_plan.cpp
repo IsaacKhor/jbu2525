@@ -22,7 +22,7 @@ using u64 = uint64_t;
 using tp = absl::Time;
 using str = std::string;
 template <typename T> using vec = std::vector<T>;
-template <typename K, typename V> using umap = std::unordered_map<K, V>;
+template <typename K, typename V> using umap = absl::flat_hash_map<K, V>;
 template <typename T> using sptr = std::shared_ptr<T>;
 
 const u32 DEST_CAP = 25;

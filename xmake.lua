@@ -1,6 +1,6 @@
 add_rules('mode.debug', 'mode.releasedbg')
 set_languages('c++23')
-set_toolchains('llvm')
+set_toolchains('clang')
 
 add_requires('fmt', 'rapidcsv', 'abseil')
 
