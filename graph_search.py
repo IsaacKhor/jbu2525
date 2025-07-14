@@ -14,17 +14,17 @@ num_parallel = mp.cpu_count() - 1
 dest_cap = 25
 min_dest_airports = 17
 max_dup_airports = 3
-end_airports = ['RDU', 'AVL', 'ISM']
-# end_airports = ['BOS', 'PVD', 'ORH']
+# end_airports = ['RDU', 'AVL', 'ISM']
+end_airports = ['BOS', 'PVD', 'ORH']
 allowed_overnight_airports = ['RDU', 'DCA', 'BUF', 'PVD', 'PIT']
 
 # ban international airports (i'm a poor international student)
-# banned_airports = ['CUN', 'PJU', 'MBJ', 'NAS', 'POP', 'SDQ', 'STI']
-banned_airports = []
+banned_airports = ['CUN', 'PJU', 'MBJ', 'NAS', 'POP', 'SDQ', 'STI']
+# banned_airports = []
 
 infile = 'flights.csv'
-stime = dt(2025, 8, 1)
-etime = dt(2025, 11, 21)
+stime = dt(2025, 9, 20)
+etime = dt(2025, 12, 10)
 latest_start_time = etime - datetime.timedelta(days=15)
 max_plan_dur = datetime.timedelta(days=45)
 
