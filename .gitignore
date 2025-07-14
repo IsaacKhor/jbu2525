@@ -4,3 +4,4 @@
 .xmake/
 build/
 compile_commands.json
+out/

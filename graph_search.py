@@ -8,35 +8,42 @@ import multiprocessing as mp
 from multiprocessing import Pool
 import math
 import itertools
+import random
 
 num_parallel = mp.cpu_count() - 1
 dest_cap = 25
-min_dest_airports = 15
-max_dup_airports = 2
-# end_airports = ['RDU', 'AVL', 'ISM']
-end_airports = ['BOS', 'PVD', 'ORH']
+min_dest_airports = 17
+max_dup_airports = 3
+end_airports = ['RDU', 'AVL', 'ISM']
+# end_airports = ['BOS', 'PVD', 'ORH']
 allowed_overnight_airports = ['RDU', 'DCA', 'BUF', 'PVD', 'PIT']
+
+# ban international airports (i'm a poor international student)
+# banned_airports = ['CUN', 'PJU', 'MBJ', 'NAS', 'POP', 'SDQ', 'STI']
+banned_airports = []
 
 infile = 'flights.csv'
 stime = dt(2025, 8, 1)
 etime = dt(2025, 11, 21)
-latest_start_time = dt(2025, 10, 15)
+latest_start_time = etime - datetime.timedelta(days=15)
+max_plan_dur = datetime.timedelta(days=45)
+
+# layovers
 min_day_layover = datetime.timedelta(minutes=50)
 max_day_layover = datetime.timedelta(hours=5)
 # min_night_layover = datetime.timedelta(hours=7)
 max_night_layover = datetime.timedelta(hours=18)
-max_plan_dur = datetime.timedelta(days=28)
-regional_arrival_earliest = datetime.time(6, 0)
-regional_arrival_latest = datetime.time(21, 0)
+regional_arrival_earliest = datetime.time(0, 0)
+regional_arrival_latest = datetime.time(23, 59)
 home_arrival_cutoff = datetime.time(23, 00)
 overnight_threshold = datetime.timedelta(hours=3)
 overnight_check_time = datetime.time(3, 0)
 min_trip_gap = datetime.timedelta(days=3)
 max_trip_gap = datetime.timedelta(days=7)
 
+# calculated constants
 start_airport = end_airports[0]
 regional_end = end_airports[1:]
-end_airports = [start_airport] + regional_end
 regional_endtime_exempt = []
 flight_graph = {}
 
@@ -113,6 +120,9 @@ def build_city_graph(csv_file) -> dict[str, list[Flight]]:
             src, dst, fnum, dept_timestr, arr_timestr = row
             dtime = dt.strptime(dept_timestr, '%Y-%m-%d %H:%M:%S')
             atime = dt.strptime(arr_timestr, '%Y-%m-%d %H:%M:%S')
+
+            if src in banned_airports or dst in banned_airports:
+                continue
 
             if dtime < stime or atime > etime:
                 continue
@@ -299,6 +309,7 @@ def main():
             initial_flights.append(flight)
 
     print(f"Found {len(initial_flights)} initial flights from {start_airport}")
+    random.shuffle(initial_flights)
 
     chunk_size = math.ceil(len(initial_flights) / num_parallel)
     chunks = []
