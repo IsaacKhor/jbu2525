@@ -1,0 +1,3147 @@
+Building city graph...
+City graph built with 51 airports.
+Flight graph: 53282 flights, 430536 connections.
+Found 6735 initial flights from BOS
+Partitioned into 15 chunks of size ~449
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 1:20:00]
+  FLL -> LAS (B6 1707) 11.21 07:00 -> 11.21 09:21 [layover: 0:59:00]
+  LAS -> JFK (B6 0448) 11.21 10:20 -> 11.21 18:27 [layover: 3:03:00]
+  JFK -> BQN (B6 2839) 11.21 21:30 -> 11.22 02:19 [layover: 2:14:00]
+  BQN -> MCO (B6 0229) 11.22 04:33 -> 11.22 06:30 [layover: 1:15:00]
+  MCO -> DCA (B6 0824) 11.22 07:45 -> 11.22 09:54 [layover: 1:06:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 0:59:00 (night)]
+  BOS -> RDU (B6 0783) 11.26 21:00 -> 11.26 23:09 [layover: 11:46:00 (night)]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 6 days, 23:57:00 (night)]
+  BOS -> SAV (B6 0349) 12.05 13:01 -> 12.05 15:42 [layover: 0:58:00]
+  SAV -> BOS (B6 0250) 12.05 16:40 -> 12.05 19:10
+  Total duration: 15 days, 0:30:00
+  Effective duration: 4 days, 23:34:00
+  Days taken: 8
+  Overnight layovers: 3
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RDU', 'RSW', 'SAV', 'SJU', 'TPA']
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 1:20:00]
+  FLL -> LAS (B6 1707) 11.21 07:00 -> 11.21 09:21 [layover: 0:59:00]
+  LAS -> JFK (B6 0448) 11.21 10:20 -> 11.21 18:27 [layover: 3:03:00]
+  JFK -> BQN (B6 2839) 11.21 21:30 -> 11.22 02:19 [layover: 2:14:00]
+  BQN -> MCO (B6 0229) 11.22 04:33 -> 11.22 06:30 [layover: 1:15:00]
+  MCO -> DCA (B6 0824) 11.22 07:45 -> 11.22 09:54 [layover: 1:06:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 0:59:00 (night)]
+  BOS -> RDU (B6 0783) 11.26 21:00 -> 11.26 23:09 [layover: 11:46:00 (night)]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 0:22:00 (night)]
+  BOS -> RIC (B6 0381) 12.01 13:26 -> 12.01 15:16 [layover: 0:55:00]
+  RIC -> BOS (B6 0382) 12.01 16:11 -> 12.01 17:46
+  Total duration: 10 days, 23:06:00
+  Effective duration: 4 days, 21:45:00
+  Days taken: 8
+  Overnight layovers: 3
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RDU', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 1:20:00]
+  FLL -> LAS (B6 1707) 11.21 07:00 -> 11.21 09:21 [layover: 0:59:00]
+  LAS -> JFK (B6 0448) 11.21 10:20 -> 11.21 18:27 [layover: 3:03:00]
+  JFK -> BQN (B6 2839) 11.21 21:30 -> 11.22 02:19 [layover: 2:14:00]
+  BQN -> MCO (B6 0229) 11.22 04:33 -> 11.22 06:30 [layover: 1:15:00]
+  MCO -> DCA (B6 0824) 11.22 07:45 -> 11.22 09:54 [layover: 1:06:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 0:59:00 (night)]
+  BOS -> RDU (B6 0783) 11.26 21:00 -> 11.26 23:09 [layover: 11:46:00 (night)]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 4:08:00 (night)]
+  BOS -> PHL (B6 0859) 12.01 17:12 -> 12.01 18:54 [layover: 0:55:00]
+  PHL -> BOS (B6 0860) 12.01 19:49 -> 12.01 21:08
+  Total duration: 11 days, 2:28:00
+  Effective duration: 4 days, 21:21:00
+  Days taken: 8
+  Overnight layovers: 3
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 1:20:00]
+  FLL -> LAS (B6 1707) 11.21 07:00 -> 11.21 09:21 [layover: 0:59:00]
+  LAS -> JFK (B6 0448) 11.21 10:20 -> 11.21 18:27 [layover: 3:03:00]
+  JFK -> BQN (B6 2839) 11.21 21:30 -> 11.22 02:19 [layover: 2:14:00]
+  BQN -> MCO (B6 0229) 11.22 04:33 -> 11.22 06:30 [layover: 1:15:00]
+  MCO -> DCA (B6 0824) 11.22 07:45 -> 11.22 09:54 [layover: 1:06:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 0:59:00 (night)]
+  BOS -> RDU (B6 0783) 11.26 21:00 -> 11.26 23:09 [layover: 11:46:00 (night)]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 6 days, 1:56:00 (night)]
+  BOS -> PHL (B6 0759) 12.04 15:00 -> 12.04 16:37 [layover: 0:55:00]
+  PHL -> BOS (B6 0760) 12.04 17:32 -> 12.04 18:50
+  Total duration: 14 days, 0:10:00
+  Effective duration: 4 days, 21:15:00
+  Days taken: 8
+  Overnight layovers: 3
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 1:20:00]
+  FLL -> LAS (B6 1707) 11.21 07:00 -> 11.21 09:21 [layover: 0:59:00]
+  LAS -> JFK (B6 0448) 11.21 10:20 -> 11.21 18:27 [layover: 3:03:00]
+  JFK -> BQN (B6 2839) 11.21 21:30 -> 11.22 02:19 [layover: 2:14:00]
+  BQN -> MCO (B6 0229) 11.22 04:33 -> 11.22 06:30 [layover: 1:15:00]
+  MCO -> DCA (B6 0824) 11.22 07:45 -> 11.22 09:54 [layover: 1:06:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 0:59:00 (night)]
+  BOS -> RDU (B6 0783) 11.26 21:00 -> 11.26 23:09 [layover: 11:46:00 (night)]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 6:56:00 (night)]
+  BOS -> PHL (B6 0759) 12.01 20:00 -> 12.01 21:33 [layover: 1:00:00]
+  PHL -> BOS (B6 0760) 12.01 22:33 -> 12.01 23:48
+  Total duration: 11 days, 5:08:00
+  Effective duration: 4 days, 21:13:00
+  Days taken: 8
+  Overnight layovers: 3
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 1:20:00]
+  FLL -> LAS (B6 1707) 11.21 07:00 -> 11.21 09:21 [layover: 0:59:00]
+  LAS -> JFK (B6 0448) 11.21 10:20 -> 11.21 18:27 [layover: 3:03:00]
+  JFK -> BQN (B6 2839) 11.21 21:30 -> 11.22 02:19 [layover: 2:14:00]
+  BQN -> MCO (B6 0229) 11.22 04:33 -> 11.22 06:30 [layover: 1:15:00]
+  MCO -> DCA (B6 0824) 11.22 07:45 -> 11.22 09:54 [layover: 1:06:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 9:59:00 (night)]
+  BOS -> RDU (B6 1883) 11.27 06:00 -> 11.27 08:13 [layover: 2:42:00]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 6 days, 23:57:00 (night)]
+  BOS -> SAV (B6 0349) 12.05 13:01 -> 12.05 15:42 [layover: 0:58:00]
+  SAV -> BOS (B6 0250) 12.05 16:40 -> 12.05 19:10
+  Total duration: 15 days, 0:30:00
+  Effective duration: 4 days, 14:34:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RDU', 'RSW', 'SAV', 'SJU', 'TPA']
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 1:20:00]
+  FLL -> LAS (B6 1707) 11.21 07:00 -> 11.21 09:21 [layover: 0:59:00]
+  LAS -> JFK (B6 0448) 11.21 10:20 -> 11.21 18:27 [layover: 3:03:00]
+  JFK -> BQN (B6 2839) 11.21 21:30 -> 11.22 02:19 [layover: 2:14:00]
+  BQN -> MCO (B6 0229) 11.22 04:33 -> 11.22 06:30 [layover: 1:15:00]
+  MCO -> DCA (B6 0824) 11.22 07:45 -> 11.22 09:54 [layover: 1:06:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 9:59:00 (night)]
+  BOS -> RDU (B6 1883) 11.27 06:00 -> 11.27 08:13 [layover: 2:42:00]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 0:22:00 (night)]
+  BOS -> RIC (B6 0381) 12.01 13:26 -> 12.01 15:16 [layover: 0:55:00]
+  RIC -> BOS (B6 0382) 12.01 16:11 -> 12.01 17:46
+  Total duration: 10 days, 23:06:00
+  Effective duration: 4 days, 12:45:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RDU', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 1:20:00]
+  FLL -> LAS (B6 1707) 11.21 07:00 -> 11.21 09:21 [layover: 0:59:00]
+  LAS -> JFK (B6 0448) 11.21 10:20 -> 11.21 18:27 [layover: 3:03:00]
+  JFK -> BQN (B6 2839) 11.21 21:30 -> 11.22 02:19 [layover: 2:14:00]
+  BQN -> MCO (B6 0229) 11.22 04:33 -> 11.22 06:30 [layover: 1:15:00]
+  MCO -> DCA (B6 0824) 11.22 07:45 -> 11.22 09:54 [layover: 1:06:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 9:59:00 (night)]
+  BOS -> RDU (B6 1883) 11.27 06:00 -> 11.27 08:13 [layover: 2:42:00]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 4:08:00 (night)]
+  BOS -> PHL (B6 0859) 12.01 17:12 -> 12.01 18:54 [layover: 0:55:00]
+  PHL -> BOS (B6 0860) 12.01 19:49 -> 12.01 21:08
+  Total duration: 11 days, 2:28:00
+  Effective duration: 4 days, 12:21:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 1:20:00]
+  FLL -> LAS (B6 1707) 11.21 07:00 -> 11.21 09:21 [layover: 0:59:00]
+  LAS -> JFK (B6 0448) 11.21 10:20 -> 11.21 18:27 [layover: 3:03:00]
+  JFK -> BQN (B6 2839) 11.21 21:30 -> 11.22 02:19 [layover: 2:14:00]
+  BQN -> MCO (B6 0229) 11.22 04:33 -> 11.22 06:30 [layover: 1:15:00]
+  MCO -> DCA (B6 0824) 11.22 07:45 -> 11.22 09:54 [layover: 1:06:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 9:59:00 (night)]
+  BOS -> RDU (B6 1883) 11.27 06:00 -> 11.27 08:13 [layover: 2:42:00]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 6 days, 1:56:00 (night)]
+  BOS -> PHL (B6 0759) 12.04 15:00 -> 12.04 16:37 [layover: 0:55:00]
+  PHL -> BOS (B6 0760) 12.04 17:32 -> 12.04 18:50
+  Total duration: 14 days, 0:10:00
+  Effective duration: 4 days, 12:15:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 1:20:00]
+  FLL -> LAS (B6 1707) 11.21 07:00 -> 11.21 09:21 [layover: 0:59:00]
+  LAS -> JFK (B6 0448) 11.21 10:20 -> 11.21 18:27 [layover: 3:03:00]
+  JFK -> BQN (B6 2839) 11.21 21:30 -> 11.22 02:19 [layover: 2:14:00]
+  BQN -> MCO (B6 0229) 11.22 04:33 -> 11.22 06:30 [layover: 1:15:00]
+  MCO -> DCA (B6 0824) 11.22 07:45 -> 11.22 09:54 [layover: 1:06:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 9:59:00 (night)]
+  BOS -> RDU (B6 1883) 11.27 06:00 -> 11.27 08:13 [layover: 2:42:00]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 6:56:00 (night)]
+  BOS -> PHL (B6 0759) 12.01 20:00 -> 12.01 21:33 [layover: 1:00:00]
+  PHL -> BOS (B6 0760) 12.01 22:33 -> 12.01 23:48
+  Total duration: 11 days, 5:08:00
+  Effective duration: 4 days, 12:13:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+Chunk 10: 1.0B processed. 988 items in queue
+Chunk 3: 1.0B processed. 1302 items in queue
+Chunk 13: 1.0B processed. 1166 items in queue
+Chunk 14: 1.0B processed. 892 items in queue
+Chunk 5: 1.0B processed. 964 items in queue
+Chunk 6: 1.0B processed. 1374 items in queue
+Chunk 8: 1.0B processed. 502 items in queue
+Chunk 4: 1.0B processed. 1453 items in queue
+Chunk 9: 1.0B processed. 806 items in queue
+Chunk 7: 1.0B processed. 828 items in queue
+Chunk 12: 1.0B processed. 820 items in queue
+Chunk 1: 1.0B processed. 776 items in queue
+Chunk 0: 1.0B processed. 1187 items in queue
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 1:20:00]
+  FLL -> LAS (B6 1707) 11.21 07:00 -> 11.21 09:21 [layover: 0:59:00]
+  LAS -> JFK (B6 0448) 11.21 10:20 -> 11.21 18:27 [layover: 3:03:00]
+  JFK -> BQN (B6 2839) 11.21 21:30 -> 11.22 02:19 [layover: 2:14:00]
+  BQN -> MCO (B6 0229) 11.22 04:33 -> 11.22 06:30 [layover: 1:15:00]
+  MCO -> DCA (B6 0824) 11.22 07:45 -> 11.22 09:54 [layover: 1:06:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 11:59:00 (night)]
+  BOS -> BUF (B6 0915) 11.27 08:00 -> 11.27 09:36 [layover: 1:59:00]
+  BUF -> JFK (B6 2901) 11.27 11:35 -> 11.27 13:00 [layover: 2:40:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 0:22:00 (night)]
+  BOS -> RIC (B6 0381) 12.01 13:26 -> 12.01 15:16 [layover: 0:55:00]
+  RIC -> BOS (B6 0382) 12.01 16:11 -> 12.01 17:46
+  Total duration: 10 days, 23:06:00
+  Effective duration: 4 days, 10:45:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 1:20:00]
+  FLL -> LAS (B6 1707) 11.21 07:00 -> 11.21 09:21 [layover: 0:59:00]
+  LAS -> JFK (B6 0448) 11.21 10:20 -> 11.21 18:27 [layover: 3:03:00]
+  JFK -> BQN (B6 2839) 11.21 21:30 -> 11.22 02:19 [layover: 2:14:00]
+  BQN -> MCO (B6 0229) 11.22 04:33 -> 11.22 06:30 [layover: 1:15:00]
+  MCO -> DCA (B6 0824) 11.22 07:45 -> 11.22 09:54 [layover: 1:06:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 11:59:00 (night)]
+  BOS -> BUF (B6 0915) 11.27 08:00 -> 11.27 09:36 [layover: 1:59:00]
+  BUF -> JFK (B6 2901) 11.27 11:35 -> 11.27 13:00 [layover: 2:40:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 4:08:00 (night)]
+  BOS -> PHL (B6 0859) 12.01 17:12 -> 12.01 18:54 [layover: 0:55:00]
+  PHL -> BOS (B6 0860) 12.01 19:49 -> 12.01 21:08
+  Total duration: 11 days, 2:28:00
+  Effective duration: 4 days, 10:21:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 1:20:00]
+  FLL -> LAS (B6 1707) 11.21 07:00 -> 11.21 09:21 [layover: 0:59:00]
+  LAS -> JFK (B6 0448) 11.21 10:20 -> 11.21 18:27 [layover: 3:03:00]
+  JFK -> BQN (B6 2839) 11.21 21:30 -> 11.22 02:19 [layover: 2:14:00]
+  BQN -> MCO (B6 0229) 11.22 04:33 -> 11.22 06:30 [layover: 1:15:00]
+  MCO -> DCA (B6 0824) 11.22 07:45 -> 11.22 09:54 [layover: 1:06:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 11:59:00 (night)]
+  BOS -> BUF (B6 0915) 11.27 08:00 -> 11.27 09:36 [layover: 1:59:00]
+  BUF -> JFK (B6 2901) 11.27 11:35 -> 11.27 13:00 [layover: 2:40:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 6 days, 1:56:00 (night)]
+  BOS -> PHL (B6 0759) 12.04 15:00 -> 12.04 16:37 [layover: 0:55:00]
+  PHL -> BOS (B6 0760) 12.04 17:32 -> 12.04 18:50
+  Total duration: 14 days, 0:10:00
+  Effective duration: 4 days, 10:15:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 1:20:00]
+  FLL -> LAS (B6 1707) 11.21 07:00 -> 11.21 09:21 [layover: 0:59:00]
+  LAS -> JFK (B6 0448) 11.21 10:20 -> 11.21 18:27 [layover: 3:03:00]
+  JFK -> BQN (B6 2839) 11.21 21:30 -> 11.22 02:19 [layover: 2:14:00]
+  BQN -> MCO (B6 0229) 11.22 04:33 -> 11.22 06:30 [layover: 1:15:00]
+  MCO -> DCA (B6 0824) 11.22 07:45 -> 11.22 09:54 [layover: 1:06:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 11:59:00 (night)]
+  BOS -> BUF (B6 0915) 11.27 08:00 -> 11.27 09:36 [layover: 1:59:00]
+  BUF -> JFK (B6 2901) 11.27 11:35 -> 11.27 13:00 [layover: 2:40:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 6:56:00 (night)]
+  BOS -> PHL (B6 0759) 12.01 20:00 -> 12.01 21:33 [layover: 1:00:00]
+  PHL -> BOS (B6 0760) 12.01 22:33 -> 12.01 23:48
+  Total duration: 11 days, 5:08:00
+  Effective duration: 4 days, 10:13:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RSW', 'SJU', 'TPA']
+
+Chunk 11: 1.0B processed. 943 items in queue
+Chunk 2: 1.0B processed. 756 items in queue
+Chunk 10: 2.0B processed. 1517 items in queue
+Chunk 3: 2.0B processed. 794 items in queue
+Chunk 13: 2.0B processed. 990 items in queue
+Chunk 14: 2.0B processed. 989 items in queue
+Chunk 6: 2.0B processed. 1322 items in queue
+Chunk 5: 2.0B processed. 835 items in queue
+Chunk 4: 2.0B processed. 557 items in queue
+Chunk 8: 2.0B processed. 1065 items in queue
+Chunk 9: 2.0B processed. 774 items in queue
+Chunk 7: 2.0B processed. 1019 items in queue
+Chunk 10: 3.0B processed. 1485 items in queue
+Chunk 12: 2.0B processed. 1112 items in queue
+Chunk 1: 2.0B processed. 1440 items in queue
+Chunk 0: 2.0B processed. 901 items in queue
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 4:08:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.22 17:03 -> 11.22 20:01 [layover: 3 days, 12:20:00 (night)]
+  BOS -> RIC (B6 1281) 11.26 08:21 -> 11.26 10:16 [layover: 4:04:00]
+  RIC -> MCO (B6 1469) 11.26 14:20 -> 11.26 16:30 [layover: 4:00:00]
+  MCO -> LAS (B6 2821) 11.26 20:30 -> 11.26 22:49 [layover: 1:01:00]
+  LAS -> JFK (B6 0948) 11.26 23:50 -> 11.27 07:45 [layover: 1:35:00]
+  JFK -> BUF (B6 2902) 11.27 09:20 -> 11.27 10:50 [layover: 0:51:00]
+  BUF -> FLL (B6 2465) 11.27 11:41 -> 11.27 14:45 [layover: 1:45:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 4:08:00 (night)]
+  BOS -> PHL (B6 0859) 12.01 17:12 -> 12.01 18:54 [layover: 0:55:00]
+  PHL -> BOS (B6 0860) 12.01 19:49 -> 12.01 21:08
+  Total duration: 11 days, 2:28:00
+  Effective duration: 4 days, 10:00:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 4:08:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.22 17:03 -> 11.22 20:01 [layover: 3 days, 12:20:00 (night)]
+  BOS -> RIC (B6 1281) 11.26 08:21 -> 11.26 10:16 [layover: 4:04:00]
+  RIC -> MCO (B6 1469) 11.26 14:20 -> 11.26 16:30 [layover: 4:00:00]
+  MCO -> LAS (B6 2821) 11.26 20:30 -> 11.26 22:49 [layover: 1:01:00]
+  LAS -> JFK (B6 0948) 11.26 23:50 -> 11.27 07:45 [layover: 1:35:00]
+  JFK -> BUF (B6 2902) 11.27 09:20 -> 11.27 10:50 [layover: 0:51:00]
+  BUF -> FLL (B6 2465) 11.27 11:41 -> 11.27 14:45 [layover: 1:45:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 6 days, 1:56:00 (night)]
+  BOS -> PHL (B6 0759) 12.04 15:00 -> 12.04 16:37 [layover: 0:55:00]
+  PHL -> BOS (B6 0760) 12.04 17:32 -> 12.04 18:50
+  Total duration: 14 days, 0:10:00
+  Effective duration: 4 days, 9:54:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.20 18:40 -> 11.20 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.20 23:40 -> 11.21 05:40 [layover: 4:08:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.22 17:03 -> 11.22 20:01 [layover: 3 days, 12:20:00 (night)]
+  BOS -> RIC (B6 1281) 11.26 08:21 -> 11.26 10:16 [layover: 4:04:00]
+  RIC -> MCO (B6 1469) 11.26 14:20 -> 11.26 16:30 [layover: 4:00:00]
+  MCO -> LAS (B6 2821) 11.26 20:30 -> 11.26 22:49 [layover: 1:01:00]
+  LAS -> JFK (B6 0948) 11.26 23:50 -> 11.27 07:45 [layover: 1:35:00]
+  JFK -> BUF (B6 2902) 11.27 09:20 -> 11.27 10:50 [layover: 0:51:00]
+  BUF -> FLL (B6 2465) 11.27 11:41 -> 11.27 14:45 [layover: 1:45:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 6:56:00 (night)]
+  BOS -> PHL (B6 0759) 12.01 20:00 -> 12.01 21:33 [layover: 1:00:00]
+  PHL -> BOS (B6 0760) 12.01 22:33 -> 12.01 23:48
+  Total duration: 11 days, 5:08:00
+  Effective duration: 4 days, 9:52:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RIC', 'RSW', 'SJU', 'TPA']
+
+Chunk 11: 2.0B processed. 931 items in queue
+Chunk 3: 3.0B processed. 1474 items in queue
+Chunk 13: 3.0B processed. 1109 items in queue
+Chunk 2: 2.0B processed. 1140 items in queue
+Chunk 14: 3.0B processed. 1015 items in queue
+Chunk 6: 3.0B processed. 1077 items in queue
+Chunk 5: 3.0B processed. 809 items in queue
+Chunk 4: 3.0B processed. 737 items in queue
+Chunk 10: 4.0B processed. 1237 items in queue
+Chunk 8: 3.0B processed. 1217 items in queue
+Chunk 9: 3.0B processed. 908 items in queue
+Chunk 1: 3.0B processed. 1130 items in queue
+Chunk 13: 4.0B processed. 1033 items in queue
+Chunk 7: 3.0B processed. 932 items in queue
+Chunk 12: 3.0B processed. 1181 items in queue
+Chunk 3: 4.0B processed. 1667 items in queue
+Chunk 0: 3.0B processed. 1049 items in queue
+Chunk 5: 4.0B processed. 582 items in queue
+Chunk 11: 3.0B processed. 847 items in queue
+Chunk 6: 4.0B processed. 822 items in queue
+Chunk 14: 4.0B processed. 875 items in queue
+Chunk 10: 5.0B processed. 1191 items in queue
+
+Chunk 2 new best: Plan: 22 flights, 20 destinations:
+  BOS -> CHS (B6 0267) 11.28 06:09 -> 11.28 08:46 [layover: 3:20:00]
+  CHS -> JFK (B6 2474) 11.28 12:06 -> 11.28 13:58 [layover: 2:39:00]
+  JFK -> RDU (B6 0685) 11.28 16:37 -> 11.28 18:22 [layover: 17:25:00 (night)]
+  RDU -> SJU (B6 2929) 11.29 11:47 -> 11.29 16:13 [layover: 1:57:00]
+  SJU -> DCA (B6 1348) 11.29 18:10 -> 11.29 21:21 [layover: 15:48:00 (night)]
+  DCA -> PBI (B6 0023) 11.30 13:09 -> 11.30 15:46 [layover: 1:49:00]
+  PBI -> PVD (B6 2388) 11.30 17:35 -> 11.30 20:27 [layover: 6 days, 20:33:00 (night)]
+  BOS -> PHX (B6 0369) 12.07 17:00 -> 12.07 21:04 [layover: 2:36:00]
+  PHX -> FLL (B6 0858) 12.07 23:40 -> 12.08 05:40 [layover: 2:50:00]
+  FLL -> PHL (B6 2276) 12.08 08:30 -> 12.08 11:08 [layover: 0:52:00]
+  PHL -> FLL (B6 2275) 12.08 12:00 -> 12.08 14:42 [layover: 4:43:00]
+  FLL -> BUF (B6 0866) 12.08 19:25 -> 12.08 22:28 [layover: 16:47:00 (night)]
+  BUF -> MCO (B6 1085) 12.09 15:15 -> 12.09 18:02 [layover: 2:28:00]
+  MCO -> LAS (B6 2821) 12.09 20:30 -> 12.09 22:49 [layover: 1:10:00]
+  LAS -> FLL (B6 0608) 12.09 23:59 -> 12.10 07:33 [layover: 4:12:00]
+  FLL -> ORH (B6 2020) 12.10 11:45 -> 12.10 14:45 [layover: 6 days, 23:15:00 (night)]
+  BOS -> LAX (B6 0487) 12.17 14:00 -> 12.17 17:25 [layover: 3:25:00]
+  LAX -> EWR (B6 1574) 12.17 20:50 -> 12.18 05:00 [layover: 2:05:00]
+  EWR -> RSW (B6 1811) 12.18 07:05 -> 12.18 10:25 [layover: 2:05:00]
+  RSW -> BDL (B6 2204) 12.18 12:30 -> 12.18 15:27 [layover: 0:58:00]
+  BDL -> TPA (B6 0633) 12.18 16:25 -> 12.18 19:44 [layover: 2:02:00]
+  TPA -> BOS (B6 0392) 12.18 21:46 -> 12.19 00:51
+  Total duration: 20 days, 18:42:00
+  Effective duration: 6 days, 22:54:00
+  Days taken: 10
+  Overnight layovers: 5
+  Airports visited: ['BDL', 'BOS', 'BUF', 'CHS', 'DCA', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+Chunk 2: 3.0B processed. 1416 items in queue
+Chunk 8: 4.0B processed. 1433 items in queue
+Chunk 4: 4.0B processed. 1045 items in queue
+Chunk 13: 5.0B processed. 956 items in queue
+Chunk 1: 4.0B processed. 810 items in queue
+Chunk 9: 4.0B processed. 585 items in queue
+Chunk 12: 4.0B processed. 660 items in queue
+Chunk 3: 5.0B processed. 1278 items in queue
+Chunk 10: 6.0B processed. 1493 items in queue
+Chunk 7: 4.0B processed. 973 items in queue
+Chunk 6: 5.0B processed. 1007 items in queue
+Chunk 14: 5.0B processed. 922 items in queue
+Chunk 5: 5.0B processed. 710 items in queue
+Chunk 0: 4.0B processed. 949 items in queue
+Chunk 11: 4.0B processed. 1102 items in queue
+Chunk 13: 6.0B processed. 1252 items in queue
+Chunk 8: 5.0B processed. 993 items in queue
+Chunk 4: 5.0B processed. 1042 items in queue
+Chunk 2: 4.0B processed. 1459 items in queue
+Chunk 12: 5.0B processed. 1234 items in queue
+Chunk 10: 7.0B processed. 878 items in queue
+Chunk 1: 5.0B processed. 1527 items in queue
+Chunk 3: 6.0B processed. 828 items in queue
+Chunk 5: 6.0B processed. 884 items in queue
+Chunk 9: 5.0B processed. 1273 items in queue
+Chunk 14: 6.0B processed. 1112 items in queue
+Chunk 6: 6.0B processed. 900 items in queue
+Chunk 7: 5.0B processed. 1004 items in queue
+Chunk 13: 7.0B processed. 1260 items in queue
+Chunk 10: 8.0B processed. 1144 items in queue
+Chunk 12: 6.0B processed. 1517 items in queue
+Chunk 0: 5.0B processed. 820 items in queue
+Chunk 8: 6.0B processed. 1001 items in queue
+Chunk 4: 6.0B processed. 1189 items in queue
+Chunk 3: 7.0B processed. 607 items in queue
+Chunk 1: 6.0B processed. 1098 items in queue
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.21 18:40 -> 11.21 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.21 23:40 -> 11.22 05:40 [layover: 2:50:00]
+  FLL -> ISP (B6 1114) 11.22 08:30 -> 11.22 11:18 [layover: 3:32:00]
+  ISP -> PBI (B6 0545) 11.22 14:50 -> 11.22 17:38 [layover: 0:52:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 9:59:00 (night)]
+  BOS -> RDU (B6 1883) 11.27 06:00 -> 11.27 08:13 [layover: 2:42:00]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 6 days, 6:16:00 (night)]
+  BOS -> LAS (B6 0177) 12.04 19:20 -> 12.04 22:19 [layover: 1:40:00]
+  LAS -> FLL (B6 0608) 12.04 23:59 -> 12.05 07:33 [layover: 0:57:00]
+  FLL -> RIC (B6 0146) 12.05 08:30 -> 12.05 10:43 [layover: 1:17:00]
+  RIC -> MCO (B6 1469) 12.05 12:00 -> 12.05 14:15 [layover: 0:50:00]
+  MCO -> DCA (B6 2324) 12.05 15:05 -> 12.05 17:17 [layover: 1:42:00]
+  DCA -> BOS (B6 2854) 12.05 18:59 -> 12.05 20:29
+  Total duration: 14 days, 1:49:00
+  Effective duration: 4 days, 9:34:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'DCA', 'EWR', 'FLL', 'HPN', 'ISP', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RDU', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.21 18:40 -> 11.21 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.21 23:40 -> 11.22 05:40 [layover: 2:50:00]
+  FLL -> ISP (B6 1114) 11.22 08:30 -> 11.22 11:18 [layover: 3:32:00]
+  ISP -> PBI (B6 0545) 11.22 14:50 -> 11.22 17:38 [layover: 0:52:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 9:59:00 (night)]
+  BOS -> PHL (B6 0159) 11.27 06:00 -> 11.27 07:39 [layover: 4:06:00]
+  PHL -> FLL (B6 2275) 11.27 11:45 -> 11.27 14:27 [layover: 2:03:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 2:11:00 (night)]
+  BOS -> RDU (B6 0483) 12.01 15:15 -> 12.01 17:28 [layover: 1:49:00]
+  RDU -> JFK (B6 0886) 12.01 19:17 -> 12.01 21:00 [layover: 0:52:00]
+  JFK -> BQN (B6 2839) 12.01 21:52 -> 12.02 02:40 [layover: 2:21:00]
+  BQN -> MCO (B6 0229) 12.02 05:01 -> 12.02 06:55 [layover: 1:55:00]
+  MCO -> DCA (B6 0824) 12.02 08:50 -> 12.02 11:02 [layover: 1:33:00]
+  DCA -> BOS (B6 1954) 12.02 12:35 -> 12.02 14:05
+  Total duration: 10 days, 19:25:00
+  Effective duration: 4 days, 7:15:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'ISP', 'JFK', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 11 new best: Plan: 22 flights, 20 destinations:
+  BOS -> PHX (B6 1970) 11.21 18:40 -> 11.21 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.21 23:40 -> 11.22 05:40 [layover: 2:50:00]
+  FLL -> ISP (B6 1114) 11.22 08:30 -> 11.22 11:18 [layover: 3:32:00]
+  ISP -> PBI (B6 0545) 11.22 14:50 -> 11.22 17:38 [layover: 0:52:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.23 17:03 -> 11.23 20:01 [layover: 3 days, 17:59:00 (night)]
+  BOS -> LAX (B6 0487) 11.27 14:00 -> 11.27 17:25 [layover: 3:25:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 3:11:00 (night)]
+  BOS -> DCA (B6 2055) 12.01 16:15 -> 12.01 17:59 [layover: 0:56:00]
+  DCA -> MCO (B6 2523) 12.01 18:55 -> 12.01 21:23 [layover: 2:36:00]
+  MCO -> BQN (B6 0430) 12.01 23:59 -> 12.02 03:40 [layover: 2:20:00]
+  BQN -> JFK (B6 2838) 12.02 06:00 -> 12.02 09:00 [layover: 1:30:00]
+  JFK -> SYR (B6 2101) 12.02 10:30 -> 12.02 11:43 [layover: 1:02:00]
+  SYR -> JFK (B6 2802) 12.02 12:45 -> 12.02 13:58 [layover: 1:42:00]
+  JFK -> BUF (B6 1202) 12.02 15:40 -> 12.02 17:07 [layover: 2:28:00]
+  BUF -> BOS (B6 0916) 12.02 19:35 -> 12.02 20:58
+  Total duration: 11 days, 2:18:00
+  Effective duration: 4 days, 5:08:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'ISP', 'JFK', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RSW', 'SJU', 'SYR', 'TPA']
+
+Chunk 11: 5.0B processed. 1311 items in queue
+
+Chunk 2 new best: Plan: 22 flights, 20 destinations:
+  BOS -> CHS (B6 0267) 11.28 06:09 -> 11.28 08:46 [layover: 3:20:00]
+  CHS -> JFK (B6 2474) 11.28 12:06 -> 11.28 13:58 [layover: 3:17:00]
+  JFK -> BUF (B6 1202) 11.28 17:15 -> 11.28 18:47 [layover: 14:18:00 (night)]
+  BUF -> FLL (B6 0865) 11.29 09:05 -> 11.29 12:10 [layover: 4:20:00]
+  FLL -> LAX (B6 0301) 11.29 16:30 -> 11.29 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.29 20:50 -> 11.30 05:00 [layover: 2:45:00]
+  EWR -> RSW (B6 1811) 11.30 07:45 -> 11.30 10:59 [layover: 3:02:00]
+  RSW -> PVD (B6 1892) 11.30 14:01 -> 11.30 16:58 [layover: 5 days, 15:02:00 (night)]
+  BOS -> STT (B6 0907) 12.06 08:00 -> 12.06 13:00 [layover: 1:05:00]
+  STT -> SJU (B6 0908) 12.06 14:05 -> 12.06 14:51 [layover: 4:00:00]
+  SJU -> DCA (B6 1348) 12.06 18:51 -> 12.06 21:59 [layover: 9:01:00 (night)]
+  DCA -> PBI (B6 1423) 12.07 07:00 -> 12.07 09:29 [layover: 1:01:00]
+  PBI -> BDL (B6 1142) 12.07 10:30 -> 12.07 13:22 [layover: 2:18:00]
+  BDL -> MCO (B6 1437) 12.07 15:40 -> 12.07 18:41 [layover: 1:49:00]
+  MCO -> LAS (B6 2821) 12.07 20:30 -> 12.07 22:49 [layover: 1:10:00]
+  LAS -> FLL (B6 0608) 12.07 23:59 -> 12.08 07:33 [layover: 4:12:00]
+  FLL -> ORH (B6 2020) 12.08 11:45 -> 12.08 14:45 [layover: 4 days, 5:15:00 (night)]
+  BOS -> RDU (B6 0783) 12.12 20:00 -> 12.12 22:12 [layover: 9:03:00 (night)]
+  RDU -> FLL (B6 2625) 12.13 07:15 -> 12.13 09:32 [layover: 3:28:00]
+  FLL -> LGA (B6 0372) 12.13 13:00 -> 12.13 15:50 [layover: 0:55:00]
+  LGA -> TPA (B6 0047) 12.13 16:45 -> 12.13 19:49 [layover: 0:56:00]
+  TPA -> BOS (B6 1192) 12.13 20:45 -> 12.13 23:44
+  Total duration: 15 days, 17:35:00
+  Effective duration: 5 days, 21:18:00
+  Days taken: 8
+  Overnight layovers: 5
+  Airports visited: ['BDL', 'BOS', 'BUF', 'CHS', 'DCA', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PVD', 'RDU', 'RSW', 'SJU', 'STT', 'TPA']
+
+
+Chunk 2 new best: Plan: 22 flights, 20 destinations:
+  BOS -> CHS (B6 0267) 11.28 06:09 -> 11.28 08:46 [layover: 3:20:00]
+  CHS -> JFK (B6 2474) 11.28 12:06 -> 11.28 13:58 [layover: 3:17:00]
+  JFK -> BUF (B6 1202) 11.28 17:15 -> 11.28 18:47 [layover: 14:18:00 (night)]
+  BUF -> FLL (B6 0865) 11.29 09:05 -> 11.29 12:10 [layover: 4:20:00]
+  FLL -> LAX (B6 0301) 11.29 16:30 -> 11.29 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.29 20:50 -> 11.30 05:00 [layover: 2:45:00]
+  EWR -> RSW (B6 1811) 11.30 07:45 -> 11.30 10:59 [layover: 3:02:00]
+  RSW -> PVD (B6 1892) 11.30 14:01 -> 11.30 16:58 [layover: 5 days, 15:02:00 (night)]
+  BOS -> STT (B6 0907) 12.06 08:00 -> 12.06 13:00 [layover: 1:05:00]
+  STT -> SJU (B6 0908) 12.06 14:05 -> 12.06 14:51 [layover: 4:00:00]
+  SJU -> DCA (B6 1348) 12.06 18:51 -> 12.06 21:59 [layover: 9:01:00 (night)]
+  DCA -> PBI (B6 1423) 12.07 07:00 -> 12.07 09:29 [layover: 1:01:00]
+  PBI -> BDL (B6 1142) 12.07 10:30 -> 12.07 13:22 [layover: 2:18:00]
+  BDL -> MCO (B6 1437) 12.07 15:40 -> 12.07 18:41 [layover: 1:49:00]
+  MCO -> LAS (B6 2821) 12.07 20:30 -> 12.07 22:49 [layover: 1:10:00]
+  LAS -> FLL (B6 0608) 12.07 23:59 -> 12.08 07:33 [layover: 4:12:00]
+  FLL -> ORH (B6 2020) 12.08 11:45 -> 12.08 14:45 [layover: 4 days, 2:15:00 (night)]
+  BOS -> PHX (B6 0369) 12.12 17:00 -> 12.12 21:04 [layover: 2:36:00]
+  PHX -> FLL (B6 0858) 12.12 23:40 -> 12.13 05:40 [layover: 4:25:00]
+  FLL -> LGA (B6 0472) 12.13 10:05 -> 12.13 12:55 [layover: 3:50:00]
+  LGA -> TPA (B6 0047) 12.13 16:45 -> 12.13 19:49 [layover: 0:56:00]
+  TPA -> BOS (B6 1192) 12.13 20:45 -> 12.13 23:44
+  Total duration: 15 days, 17:35:00
+  Effective duration: 6 days, 0:18:00
+  Days taken: 8
+  Overnight layovers: 4
+  Airports visited: ['BDL', 'BOS', 'BUF', 'CHS', 'DCA', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RSW', 'SJU', 'STT', 'TPA']
+
+
+Chunk 2 new best: Plan: 22 flights, 20 destinations:
+  BOS -> CHS (B6 0267) 11.28 06:09 -> 11.28 08:46 [layover: 3:20:00]
+  CHS -> JFK (B6 2474) 11.28 12:06 -> 11.28 13:58 [layover: 3:17:00]
+  JFK -> BUF (B6 1202) 11.28 17:15 -> 11.28 18:47 [layover: 14:18:00 (night)]
+  BUF -> FLL (B6 0865) 11.29 09:05 -> 11.29 12:10 [layover: 4:20:00]
+  FLL -> LAX (B6 0301) 11.29 16:30 -> 11.29 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.29 20:50 -> 11.30 05:00 [layover: 2:45:00]
+  EWR -> RSW (B6 1811) 11.30 07:45 -> 11.30 10:59 [layover: 3:02:00]
+  RSW -> PVD (B6 1892) 11.30 14:01 -> 11.30 16:58 [layover: 5 days, 16:32:00 (night)]
+  BOS -> STT (B6 0807) 12.06 09:30 -> 12.06 14:29 [layover: 1:41:00]
+  STT -> SJU (B6 0808) 12.06 16:10 -> 12.06 16:54 [layover: 1:57:00]
+  SJU -> DCA (B6 1348) 12.06 18:51 -> 12.06 21:59 [layover: 9:01:00 (night)]
+  DCA -> PBI (B6 1423) 12.07 07:00 -> 12.07 09:29 [layover: 1:01:00]
+  PBI -> BDL (B6 1142) 12.07 10:30 -> 12.07 13:22 [layover: 2:18:00]
+  BDL -> MCO (B6 1437) 12.07 15:40 -> 12.07 18:41 [layover: 1:49:00]
+  MCO -> LAS (B6 2821) 12.07 20:30 -> 12.07 22:49 [layover: 1:10:00]
+  LAS -> FLL (B6 0608) 12.07 23:59 -> 12.08 07:33 [layover: 4:12:00]
+  FLL -> ORH (B6 2020) 12.08 11:45 -> 12.08 14:45 [layover: 4 days, 2:15:00 (night)]
+  BOS -> PHX (B6 0369) 12.12 17:00 -> 12.12 21:04 [layover: 2:36:00]
+  PHX -> FLL (B6 0858) 12.12 23:40 -> 12.13 05:40 [layover: 4:25:00]
+  FLL -> LGA (B6 0472) 12.13 10:05 -> 12.13 12:55 [layover: 3:50:00]
+  LGA -> TPA (B6 0047) 12.13 16:45 -> 12.13 19:49 [layover: 0:56:00]
+  TPA -> BOS (B6 1192) 12.13 20:45 -> 12.13 23:44
+  Total duration: 15 days, 17:35:00
+  Effective duration: 5 days, 22:48:00
+  Days taken: 8
+  Overnight layovers: 4
+  Airports visited: ['BDL', 'BOS', 'BUF', 'CHS', 'DCA', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RSW', 'SJU', 'STT', 'TPA']
+
+Chunk 2: 5.0B processed. 752 items in queue
+Chunk 14: 7.0B processed. 1252 items in queue
+Chunk 6: 7.0B processed. 757 items in queue
+Chunk 5: 7.0B processed. 992 items in queue
+Chunk 13: 8.0B processed. 755 items in queue
+Chunk 7: 6.0B processed. 1089 items in queue
+Chunk 10: 9.0B processed. 1454 items in queue
+Chunk 9: 6.0B processed. 890 items in queue
+Chunk 12: 7.0B processed. 1286 items in queue
+Chunk 8: 7.0B processed. 829 items in queue
+Chunk 3: 8.0B processed. 1087 items in queue
+Chunk 4: 7.0B processed. 1272 items in queue
+Chunk 1: 7.0B processed. 1107 items in queue
+Chunk 0: 6.0B processed. 906 items in queue
+Chunk 5: 8.0B processed. 844 items in queue
+Chunk 6: 8.0B processed. 1048 items in queue
+Chunk 14: 8.0B processed. 529 items in queue
+Chunk 10: 10.0B processed. 1062 items in queue
+Chunk 13: 9.0B processed. 860 items in queue
+Chunk 11: 6.0B processed. 817 items in queue
+Chunk 2: 6.0B processed. 1085 items in queue
+Chunk 12: 8.0B processed. 1023 items in queue
+Chunk 7: 7.0B processed. 957 items in queue
+Chunk 9: 7.0B processed. 1029 items in queue
+Chunk 3: 9.0B processed. 849 items in queue
+Chunk 8: 8.0B processed. 741 items in queue
+Chunk 4: 8.0B processed. 698 items in queue
+Chunk 1: 8.0B processed. 1209 items in queue
+Chunk 5: 9.0B processed. 984 items in queue
+Chunk 6: 9.0B processed. 1077 items in queue
+Chunk 10: 11.0B processed. 1227 items in queue
+Chunk 14: 9.0B processed. 809 items in queue
+Chunk 13: 10.0B processed. 1343 items in queue
+Chunk 0: 7.0B processed. 1626 items in queue
+Chunk 12: 9.0B processed. 1089 items in queue
+Chunk 9: 8.0B processed. 798 items in queue
+Chunk 2: 7.0B processed. 1056 items in queue
+Chunk 7: 8.0B processed. 878 items in queue
+Chunk 3: 10.0B processed. 946 items in queue
+Chunk 11: 7.0B processed. 920 items in queue
+Chunk 6: 10.0B processed. 1170 items in queue
+Chunk 4: 9.0B processed. 1203 items in queue
+Chunk 1: 9.0B processed. 1148 items in queue
+Chunk 10: 12.0B processed. 1161 items in queue
+Chunk 13: 11.0B processed. 1313 items in queue
+Chunk 8: 9.0B processed. 856 items in queue
+Chunk 5: 10.0B processed. 1053 items in queue
+Chunk 14: 10.0B processed. 977 items in queue
+Chunk 12: 10.0B processed. 810 items in queue
+Chunk 0: 8.0B processed. 1082 items in queue
+Chunk 9: 9.0B processed. 861 items in queue
+Chunk 3: 11.0B processed. 1070 items in queue
+Chunk 7: 9.0B processed. 560 items in queue
+Chunk 10: 13.0B processed. 723 items in queue
+Chunk 6: 11.0B processed. 1121 items in queue
+Chunk 13: 12.0B processed. 1440 items in queue
+Chunk 11: 8.0B processed. 958 items in queue
+Chunk 1: 10.0B processed. 1296 items in queue
+Chunk 8: 10.0B processed. 996 items in queue
+Chunk 4: 10.0B processed. 926 items in queue
+Chunk 5: 11.0B processed. 1056 items in queue
+
+Chunk 2 new best: Plan: 22 flights, 20 destinations:
+  BOS -> CHS (B6 0267) 11.29 06:00 -> 11.29 08:37 [layover: 3:29:00]
+  CHS -> JFK (B6 2474) 11.29 12:06 -> 11.29 13:58 [layover: 1:42:00]
+  JFK -> LAX (B6 0723) 11.29 15:40 -> 11.29 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.29 20:50 -> 11.30 05:00 [layover: 1:00:00]
+  EWR -> FLL (B6 1505) 11.30 06:00 -> 11.30 09:03 [layover: 1:04:00]
+  FLL -> LGA (B6 0472) 11.30 10:07 -> 11.30 12:57 [layover: 1:53:00]
+  LGA -> TPA (B6 0047) 11.30 14:50 -> 11.30 17:51 [layover: 2:52:00]
+  TPA -> PVD (B6 1690) 11.30 20:43 -> 11.30 23:30 [layover: 5:30:00 (night)]
+  PVD -> RSW (B6 1891) 12.01 05:00 -> 12.01 08:31 [layover: 1:34:00]
+  RSW -> ORH (B6 2834) 12.01 10:05 -> 12.01 13:04 [layover: 4 days, 18:56:00 (night)]
+  BOS -> STT (B6 0907) 12.06 08:00 -> 12.06 13:00 [layover: 1:05:00]
+  STT -> SJU (B6 0908) 12.06 14:05 -> 12.06 14:51 [layover: 4:00:00]
+  SJU -> DCA (B6 1348) 12.06 18:51 -> 12.06 21:59 [layover: 9:01:00 (night)]
+  DCA -> PBI (B6 1423) 12.07 07:00 -> 12.07 09:29 [layover: 1:01:00]
+  PBI -> BDL (B6 1142) 12.07 10:30 -> 12.07 13:22 [layover: 2:18:00]
+  BDL -> MCO (B6 1437) 12.07 15:40 -> 12.07 18:41 [layover: 1:49:00]
+  MCO -> LAS (B6 2821) 12.07 20:30 -> 12.07 22:49 [layover: 1:10:00]
+  LAS -> JFK (B6 0948) 12.07 23:59 -> 12.08 07:54 [layover: 2:36:00]
+  JFK -> SYR (B6 2101) 12.08 10:30 -> 12.08 11:43 [layover: 1:02:00]
+  SYR -> JFK (B6 2802) 12.08 12:45 -> 12.08 13:58 [layover: 1:42:00]
+  JFK -> BUF (B6 1202) 12.08 15:40 -> 12.08 17:07 [layover: 2:28:00]
+  BUF -> BOS (B6 0916) 12.08 19:35 -> 12.08 20:58
+  Total duration: 9 days, 14:58:00
+  Effective duration: 4 days, 20:02:00
+  Days taken: 6
+  Overnight layovers: 3
+  Airports visited: ['BDL', 'BOS', 'BUF', 'CHS', 'DCA', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PVD', 'RSW', 'SJU', 'STT', 'SYR', 'TPA']
+
+
+Chunk 2 new best: Plan: 22 flights, 20 destinations:
+  BOS -> CHS (B6 0267) 11.29 06:00 -> 11.29 08:37 [layover: 3:29:00]
+  CHS -> JFK (B6 2474) 11.29 12:06 -> 11.29 13:58 [layover: 1:42:00]
+  JFK -> LAX (B6 0723) 11.29 15:40 -> 11.29 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.29 20:50 -> 11.30 05:00 [layover: 1:00:00]
+  EWR -> FLL (B6 1505) 11.30 06:00 -> 11.30 09:03 [layover: 1:04:00]
+  FLL -> LGA (B6 0472) 11.30 10:07 -> 11.30 12:57 [layover: 1:53:00]
+  LGA -> TPA (B6 0047) 11.30 14:50 -> 11.30 17:51 [layover: 2:52:00]
+  TPA -> PVD (B6 1690) 11.30 20:43 -> 11.30 23:30 [layover: 5:30:00 (night)]
+  PVD -> RSW (B6 1891) 12.01 05:00 -> 12.01 08:31 [layover: 1:34:00]
+  RSW -> ORH (B6 2834) 12.01 10:05 -> 12.01 13:04 [layover: 4 days, 20:26:00 (night)]
+  BOS -> STT (B6 0807) 12.06 09:30 -> 12.06 14:29 [layover: 1:41:00]
+  STT -> SJU (B6 0808) 12.06 16:10 -> 12.06 16:54 [layover: 1:57:00]
+  SJU -> DCA (B6 1348) 12.06 18:51 -> 12.06 21:59 [layover: 9:01:00 (night)]
+  DCA -> PBI (B6 1423) 12.07 07:00 -> 12.07 09:29 [layover: 1:01:00]
+  PBI -> BDL (B6 1142) 12.07 10:30 -> 12.07 13:22 [layover: 2:18:00]
+  BDL -> MCO (B6 1437) 12.07 15:40 -> 12.07 18:41 [layover: 1:49:00]
+  MCO -> LAS (B6 2821) 12.07 20:30 -> 12.07 22:49 [layover: 1:10:00]
+  LAS -> JFK (B6 0948) 12.07 23:59 -> 12.08 07:54 [layover: 2:36:00]
+  JFK -> SYR (B6 2101) 12.08 10:30 -> 12.08 11:43 [layover: 1:02:00]
+  SYR -> JFK (B6 2802) 12.08 12:45 -> 12.08 13:58 [layover: 1:42:00]
+  JFK -> BUF (B6 1202) 12.08 15:40 -> 12.08 17:07 [layover: 2:28:00]
+  BUF -> BOS (B6 0916) 12.08 19:35 -> 12.08 20:58
+  Total duration: 9 days, 14:58:00
+  Effective duration: 4 days, 18:32:00
+  Days taken: 6
+  Overnight layovers: 3
+  Airports visited: ['BDL', 'BOS', 'BUF', 'CHS', 'DCA', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PVD', 'RSW', 'SJU', 'STT', 'SYR', 'TPA']
+
+Chunk 2: 8.0B processed. 759 items in queue
+Chunk 14: 11.0B processed. 862 items in queue
+Chunk 12: 11.0B processed. 1007 items in queue
+Chunk 10: 14.0B processed. 765 items in queue
+Chunk 3: 12.0B processed. 1183 items in queue
+Chunk 9: 10.0B processed. 810 items in queue
+Chunk 0: 9.0B processed. 1105 items in queue
+Chunk 7: 10.0B processed. 740 items in queue
+Chunk 6: 12.0B processed. 1187 items in queue
+Chunk 13: 13.0B processed. 1265 items in queue
+Chunk 5: 12.0B processed. 1194 items in queue
+Chunk 1: 11.0B processed. 883 items in queue
+Chunk 4: 11.0B processed. 1299 items in queue
+Chunk 14: 12.0B processed. 1157 items in queue
+Chunk 10: 15.0B processed. 915 items in queue
+Chunk 11: 9.0B processed. 896 items in queue
+Chunk 8: 11.0B processed. 1324 items in queue
+Chunk 12: 12.0B processed. 880 items in queue
+Chunk 2: 9.0B processed. 987 items in queue
+Chunk 3: 13.0B processed. 1557 items in queue
+Chunk 9: 11.0B processed. 1245 items in queue
+Chunk 6: 13.0B processed. 1125 items in queue
+Chunk 7: 11.0B processed. 1297 items in queue
+Chunk 10: 16.0B processed. 962 items in queue
+Chunk 5: 13.0B processed. 1154 items in queue
+Chunk 13: 14.0B processed. 974 items in queue
+Chunk 0: 10.0B processed. 733 items in queue
+Chunk 1: 12.0B processed. 1199 items in queue
+Chunk 14: 13.0B processed. 939 items in queue
+Chunk 8: 12.0B processed. 1193 items in queue
+Chunk 4: 12.0B processed. 751 items in queue
+Chunk 11: 10.0B processed. 783 items in queue
+Chunk 12: 13.0B processed. 1028 items in queue
+Chunk 3: 14.0B processed. 1373 items in queue
+Chunk 6: 14.0B processed. 1114 items in queue
+Chunk 9: 12.0B processed. 955 items in queue
+Chunk 10: 17.0B processed. 892 items in queue
+Chunk 13: 15.0B processed. 951 items in queue
+Chunk 7: 12.0B processed. 911 items in queue
+Chunk 2: 10.0B processed. 861 items in queue
+Chunk 5: 14.0B processed. 808 items in queue
+Chunk 14: 14.0B processed. 1141 items in queue
+Chunk 8: 13.0B processed. 987 items in queue
+Chunk 1: 13.0B processed. 1298 items in queue
+Chunk 0: 11.0B processed. 860 items in queue
+Chunk 4: 13.0B processed. 1300 items in queue
+Chunk 3: 15.0B processed. 937 items in queue
+Chunk 6: 15.0B processed. 848 items in queue
+Chunk 11: 11.0B processed. 1078 items in queue
+Chunk 10: 18.0B processed. 1418 items in queue
+Chunk 13: 16.0B processed. 905 items in queue
+Chunk 12: 14.0B processed. 770 items in queue
+Chunk 9: 13.0B processed. 1000 items in queue
+Chunk 7: 13.0B processed. 539 items in queue
+Chunk 5: 15.0B processed. 1034 items in queue
+Chunk 14: 15.0B processed. 1204 items in queue
+Chunk 8: 14.0B processed. 908 items in queue
+Chunk 1: 14.0B processed. 1015 items in queue
+Chunk 2: 11.0B processed. 863 items in queue
+Chunk 4: 14.0B processed. 1089 items in queue
+Chunk 10: 19.0B processed. 1266 items in queue
+Chunk 0: 12.0B processed. 1103 items in queue
+Chunk 3: 16.0B processed. 1114 items in queue
+Chunk 13: 17.0B processed. 1045 items in queue
+Chunk 6: 16.0B processed. 1033 items in queue
+Chunk 11: 12.0B processed. 910 items in queue
+Chunk 14: 16.0B processed. 1045 items in queue
+Chunk 7: 14.0B processed. 1195 items in queue
+Chunk 9: 14.0B processed. 1146 items in queue
+Chunk 12: 15.0B processed. 1161 items in queue
+Chunk 8: 15.0B processed. 1436 items in queue
+Chunk 5: 16.0B processed. 1108 items in queue
+Chunk 1: 15.0B processed. 662 items in queue
+Chunk 10: 20.0B processed. 1035 items in queue
+Chunk 4: 15.0B processed. 605 items in queue
+Chunk 13: 18.0B processed. 1435 items in queue
+Chunk 3: 17.0B processed. 915 items in queue
+Chunk 6: 17.0B processed. 1560 items in queue
+Chunk 2: 12.0B processed. 879 items in queue
+Chunk 0: 13.0B processed. 910 items in queue
+Chunk 14: 17.0B processed. 1001 items in queue
+Chunk 9: 15.0B processed. 1267 items in queue
+Chunk 10: 21.0B processed. 1270 items in queue
+Chunk 7: 15.0B processed. 1230 items in queue
+Chunk 5: 17.0B processed. 1021 items in queue
+Chunk 8: 16.0B processed. 621 items in queue
+Chunk 11: 13.0B processed. 1008 items in queue
+Chunk 12: 16.0B processed. 801 items in queue
+Chunk 1: 16.0B processed. 1008 items in queue
+Chunk 13: 19.0B processed. 1065 items in queue
+Chunk 3: 18.0B processed. 1274 items in queue
+Chunk 4: 16.0B processed. 831 items in queue
+Chunk 6: 18.0B processed. 714 items in queue
+Chunk 14: 18.0B processed. 1104 items in queue
+Chunk 10: 22.0B processed. 796 items in queue
+Chunk 5: 18.0B processed. 1367 items in queue
+Chunk 7: 16.0B processed. 699 items in queue
+Chunk 8: 17.0B processed. 1383 items in queue
+Chunk 0: 14.0B processed. 723 items in queue
+Chunk 9: 16.0B processed. 991 items in queue
+Chunk 2: 13.0B processed. 1120 items in queue
+Chunk 13: 20.0B processed. 745 items in queue
+Chunk 1: 17.0B processed. 1186 items in queue
+Chunk 11: 14.0B processed. 788 items in queue
+Chunk 3: 19.0B processed. 999 items in queue
+Chunk 12: 17.0B processed. 871 items in queue
+Chunk 4: 17.0B processed. 1087 items in queue
+Chunk 6: 19.0B processed. 983 items in queue
+Chunk 10: 23.0B processed. 939 items in queue
+Chunk 14: 19.0B processed. 857 items in queue
+Chunk 8: 18.0B processed. 1056 items in queue
+Chunk 7: 17.0B processed. 1139 items in queue
+Chunk 5: 19.0B processed. 1048 items in queue
+Chunk 9: 17.0B processed. 800 items in queue
+Chunk 13: 21.0B processed. 1333 items in queue
+Chunk 10: 24.0B processed. 1056 items in queue
+Chunk 0: 15.0B processed. 1128 items in queue
+Chunk 3: 20.0B processed. 1295 items in queue
+Chunk 2: 14.0B processed. 1087 items in queue
+Chunk 1: 18.0B processed. 1074 items in queue
+Chunk 6: 20.0B processed. 731 items in queue
+Chunk 11: 15.0B processed. 1149 items in queue
+Chunk 4: 18.0B processed. 1012 items in queue
+Chunk 12: 18.0B processed. 914 items in queue
+Chunk 14: 20.0B processed. 924 items in queue
+Chunk 8: 19.0B processed. 891 items in queue
+Chunk 7: 18.0B processed. 1012 items in queue
+Chunk 5: 20.0B processed. 741 items in queue
+Chunk 10: 25.0B processed. 815 items in queue
+Chunk 13: 22.0B processed. 1200 items in queue
+Chunk 9: 18.0B processed. 916 items in queue
+Chunk 3: 21.0B processed. 937 items in queue
+Chunk 6: 21.0B processed. 1025 items in queue
+Chunk 1: 19.0B processed. 1146 items in queue
+Chunk 11: 16.0B processed. 1366 items in queue
+Chunk 0: 16.0B processed. 824 items in queue
+Chunk 4: 19.0B processed. 820 items in queue
+Chunk 2: 15.0B processed. 1090 items in queue
+Chunk 14: 21.0B processed. 1396 items in queue
+Chunk 10: 26.0B processed. 1306 items in queue
+Chunk 12: 19.0B processed. 585 items in queue
+Chunk 8: 20.0B processed. 623 items in queue
+Chunk 5: 21.0B processed. 1064 items in queue
+Chunk 7: 19.0B processed. 837 items in queue
+Chunk 9: 19.0B processed. 1113 items in queue
+Chunk 13: 23.0B processed. 1069 items in queue
+Chunk 3: 22.0B processed. 1043 items in queue
+Chunk 6: 22.0B processed. 1179 items in queue
+Chunk 1: 20.0B processed. 1204 items in queue
+Chunk 11: 17.0B processed. 646 items in queue
+Chunk 4: 20.0B processed. 1312 items in queue
+Chunk 10: 27.0B processed. 988 items in queue
+Chunk 14: 22.0B processed. 962 items in queue
+Chunk 0: 17.0B processed. 1023 items in queue
+Chunk 7: 20.0B processed. 734 items in queue
+Chunk 5: 22.0B processed. 924 items in queue
+Chunk 8: 21.0B processed. 574 items in queue
+Chunk 12: 20.0B processed. 738 items in queue
+Chunk 13: 24.0B processed. 1398 items in queue
+Chunk 2: 16.0B processed. 812 items in queue
+Chunk 6: 23.0B processed. 978 items in queue
+Chunk 3: 23.0B processed. 1135 items in queue
+Chunk 9: 20.0B processed. 929 items in queue
+Chunk 10: 28.0B processed. 1222 items in queue
+Chunk 1: 21.0B processed. 703 items in queue
+Chunk 11: 18.0B processed. 1314 items in queue
+Chunk 4: 21.0B processed. 789 items in queue
+Chunk 14: 23.0B processed. 1366 items in queue
+Chunk 8: 22.0B processed. 1540 items in queue
+Chunk 5: 23.0B processed. 985 items in queue
+Chunk 7: 21.0B processed. 930 items in queue
+Chunk 12: 21.0B processed. 1360 items in queue
+Chunk 13: 25.0B processed. 1025 items in queue
+Chunk 0: 18.0B processed. 1381 items in queue
+Chunk 3: 24.0B processed. 727 items in queue
+Chunk 6: 24.0B processed. 1545 items in queue
+Chunk 10: 29.0B processed. 902 items in queue
+Chunk 9: 21.0B processed. 825 items in queue
+Chunk 2: 17.0B processed. 1067 items in queue
+Chunk 11: 19.0B processed. 758 items in queue
+Chunk 1: 22.0B processed. 1209 items in queue
+Chunk 4: 22.0B processed. 1068 items in queue
+Chunk 14: 24.0B processed. 890 items in queue
+Chunk 12: 22.0B processed. 843 items in queue
+Chunk 5: 24.0B processed. 916 items in queue
+Chunk 7: 22.0B processed. 694 items in queue
+Chunk 8: 23.0B processed. 1462 items in queue
+Chunk 13: 26.0B processed. 795 items in queue
+Chunk 10: 30.0B processed. 839 items in queue
+Chunk 6: 25.0B processed. 1083 items in queue
+Chunk 3: 25.0B processed. 1144 items in queue
+Chunk 0: 19.0B processed. 1176 items in queue
+Chunk 9: 22.0B processed. 921 items in queue
+Chunk 11: 20.0B processed. 814 items in queue
+Chunk 14: 25.0B processed. 795 items in queue
+Chunk 1: 23.0B processed. 841 items in queue
+Chunk 12: 23.0B processed. 785 items in queue
+Chunk 4: 23.0B processed. 813 items in queue
+Chunk 5: 25.0B processed. 804 items in queue
+Chunk 7: 23.0B processed. 1613 items in queue
+Chunk 8: 24.0B processed. 1337 items in queue
+Chunk 2: 18.0B processed. 833 items in queue
+Chunk 10: 31.0B processed. 949 items in queue
+Chunk 13: 27.0B processed. 642 items in queue
+Chunk 6: 26.0B processed. 744 items in queue
+Chunk 3: 26.0B processed. 1174 items in queue
+Chunk 9: 23.0B processed. 572 items in queue
+Chunk 0: 20.0B processed. 1287 items in queue
+Chunk 12: 24.0B processed. 941 items in queue
+Chunk 5: 26.0B processed. 571 items in queue
+Chunk 11: 21.0B processed. 766 items in queue
+Chunk 14: 26.0B processed. 781 items in queue
+Chunk 1: 24.0B processed. 980 items in queue
+Chunk 7: 24.0B processed. 878 items in queue
+Chunk 10: 32.0B processed. 1001 items in queue
+Chunk 4: 24.0B processed. 1537 items in queue
+Chunk 8: 25.0B processed. 817 items in queue
+Chunk 13: 28.0B processed. 1140 items in queue
+Chunk 6: 27.0B processed. 1048 items in queue
+Chunk 3: 27.0B processed. 893 items in queue
+Chunk 2: 19.0B processed. 1069 items in queue
+Chunk 12: 25.0B processed. 964 items in queue
+Chunk 9: 24.0B processed. 922 items in queue
+Chunk 10: 33.0B processed. 1248 items in queue
+Chunk 14: 27.0B processed. 928 items in queue
+Chunk 13: 29.0B processed. 925 items in queue
+Chunk 5: 27.0B processed. 888 items in queue
+Chunk 0: 21.0B processed. 860 items in queue
+Chunk 7: 25.0B processed. 798 items in queue
+Chunk 4: 25.0B processed. 787 items in queue
+Chunk 1: 25.0B processed. 1581 items in queue
+Chunk 8: 26.0B processed. 815 items in queue
+Chunk 11: 22.0B processed. 640 items in queue
+Chunk 6: 28.0B processed. 1101 items in queue
+Chunk 3: 28.0B processed. 1539 items in queue
+Chunk 10: 34.0B processed. 722 items in queue
+Chunk 12: 26.0B processed. 656 items in queue
+Chunk 5: 28.0B processed. 894 items in queue
+Chunk 14: 28.0B processed. 1313 items in queue
+Chunk 13: 30.0B processed. 1007 items in queue
+Chunk 9: 25.0B processed. 792 items in queue
+Chunk 7: 26.0B processed. 956 items in queue
+Chunk 2: 20.0B processed. 756 items in queue
+Chunk 1: 26.0B processed. 1267 items in queue
+Chunk 4: 26.0B processed. 1434 items in queue
+Chunk 8: 27.0B processed. 1157 items in queue
+Chunk 6: 29.0B processed. 1223 items in queue
+Chunk 0: 22.0B processed. 1217 items in queue
+Chunk 10: 35.0B processed. 819 items in queue
+Chunk 3: 29.0B processed. 975 items in queue
+Chunk 11: 23.0B processed. 1375 items in queue
+Chunk 12: 27.0B processed. 937 items in queue
+Chunk 9: 26.0B processed. 1100 items in queue
+Chunk 14: 29.0B processed. 1151 items in queue
+Chunk 5: 29.0B processed. 813 items in queue
+Chunk 13: 31.0B processed. 700 items in queue
+Chunk 7: 27.0B processed. 902 items in queue
+Chunk 1: 27.0B processed. 815 items in queue
+Chunk 6: 30.0B processed. 1224 items in queue
+Chunk 4: 27.0B processed. 983 items in queue
+Chunk 10: 36.0B processed. 718 items in queue
+Chunk 8: 28.0B processed. 922 items in queue
+Chunk 2: 21.0B processed. 1019 items in queue
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.22 17:03 -> 11.22 20:01 [layover: 3 days, 12:20:00 (night)]
+  BOS -> RIC (B6 1281) 11.26 08:21 -> 11.26 10:16 [layover: 4:04:00]
+  RIC -> MCO (B6 1469) 11.26 14:20 -> 11.26 16:30 [layover: 3:15:00]
+  MCO -> BUF (B6 1586) 11.26 19:45 -> 11.26 22:25 [layover: 10:40:00 (night)]
+  BUF -> FLL (B6 0865) 11.27 09:05 -> 11.27 12:10 [layover: 4:20:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 6 days, 23:57:00 (night)]
+  BOS -> SAV (B6 0349) 12.05 13:01 -> 12.05 15:42 [layover: 0:58:00]
+  SAV -> BOS (B6 0250) 12.05 16:40 -> 12.05 19:10
+  Total duration: 15 days, 7:33:00
+  Effective duration: 4 days, 19:16:00
+  Days taken: 7
+  Overnight layovers: 3
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PVD', 'RIC', 'RSW', 'SAV', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.22 17:03 -> 11.22 20:01 [layover: 3 days, 12:20:00 (night)]
+  BOS -> RIC (B6 1281) 11.26 08:21 -> 11.26 10:16 [layover: 4:04:00]
+  RIC -> MCO (B6 1469) 11.26 14:20 -> 11.26 16:30 [layover: 3:15:00]
+  MCO -> BUF (B6 1586) 11.26 19:45 -> 11.26 22:25 [layover: 10:40:00 (night)]
+  BUF -> FLL (B6 0865) 11.27 09:05 -> 11.27 12:10 [layover: 4:20:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 2:11:00 (night)]
+  BOS -> RDU (B6 0483) 12.01 15:15 -> 12.01 17:28 [layover: 0:57:00]
+  RDU -> BOS (B6 0384) 12.01 18:25 -> 12.01 20:26
+  Total duration: 11 days, 8:49:00
+  Effective duration: 4 days, 18:18:00
+  Days taken: 7
+  Overnight layovers: 3
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PVD', 'RDU', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.22 17:03 -> 11.22 20:01 [layover: 3 days, 12:20:00 (night)]
+  BOS -> RIC (B6 1281) 11.26 08:21 -> 11.26 10:16 [layover: 4:04:00]
+  RIC -> MCO (B6 1469) 11.26 14:20 -> 11.26 16:30 [layover: 3:15:00]
+  MCO -> BUF (B6 1586) 11.26 19:45 -> 11.26 22:25 [layover: 10:40:00 (night)]
+  BUF -> FLL (B6 0865) 11.27 09:05 -> 11.27 12:10 [layover: 4:20:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 6 days, 3:51:00 (night)]
+  BOS -> RDU (B6 2783) 12.04 16:55 -> 12.04 19:10 [layover: 0:55:00]
+  RDU -> BOS (B6 1484) 12.04 20:05 -> 12.04 22:00
+  Total duration: 14 days, 10:23:00
+  Effective duration: 4 days, 18:12:00
+  Days taken: 7
+  Overnight layovers: 3
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PVD', 'RDU', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.22 17:03 -> 11.22 20:01 [layover: 3 days, 12:20:00 (night)]
+  BOS -> RIC (B6 1281) 11.26 08:21 -> 11.26 10:16 [layover: 4:04:00]
+  RIC -> MCO (B6 1469) 11.26 14:20 -> 11.26 16:30 [layover: 3:15:00]
+  MCO -> BUF (B6 1586) 11.26 19:45 -> 11.26 22:25 [layover: 10:40:00 (night)]
+  BUF -> FLL (B6 0865) 11.27 09:05 -> 11.27 12:10 [layover: 4:20:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 5:51:00 (night)]
+  BOS -> RDU (B6 2783) 12.01 18:55 -> 12.01 21:12 [layover: 0:57:00]
+  RDU -> BOS (B6 1484) 12.01 22:09 -> 12.01 23:59
+  Total duration: 11 days, 12:22:00
+  Effective duration: 4 days, 18:11:00
+  Days taken: 7
+  Overnight layovers: 3
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PVD', 'RDU', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.22 17:03 -> 11.22 20:01 [layover: 3 days, 12:20:00 (night)]
+  BOS -> RIC (B6 1281) 11.26 08:21 -> 11.26 10:16 [layover: 4:04:00]
+  RIC -> MCO (B6 1469) 11.26 14:20 -> 11.26 16:30 [layover: 3:15:00]
+  MCO -> BUF (B6 1586) 11.26 19:45 -> 11.26 22:25 [layover: 10:40:00 (night)]
+  BUF -> FLL (B6 0865) 11.27 09:05 -> 11.27 12:10 [layover: 4:20:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 2:46:00 (night)]
+  BOS -> PIT (B6 0985) 12.01 15:50 -> 12.01 17:40 [layover: 1:00:00]
+  PIT -> BOS (B6 0986) 12.01 18:40 -> 12.01 20:17
+  Total duration: 11 days, 8:40:00
+  Effective duration: 4 days, 17:34:00
+  Days taken: 7
+  Overnight layovers: 3
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PIT', 'PVD', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.22 17:03 -> 11.22 20:01 [layover: 3 days, 12:20:00 (night)]
+  BOS -> RIC (B6 1281) 11.26 08:21 -> 11.26 10:16 [layover: 4:04:00]
+  RIC -> MCO (B6 1469) 11.26 14:20 -> 11.26 16:30 [layover: 3:15:00]
+  MCO -> BUF (B6 1586) 11.26 19:45 -> 11.26 22:25 [layover: 10:40:00 (night)]
+  BUF -> FLL (B6 0865) 11.27 09:05 -> 11.27 12:10 [layover: 4:20:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 0:03:00 (night)]
+  BOS -> PIT (B6 0385) 12.01 13:07 -> 12.01 14:56 [layover: 0:56:00]
+  PIT -> BOS (B6 0586) 12.01 15:52 -> 12.01 17:30
+  Total duration: 11 days, 5:53:00
+  Effective duration: 4 days, 17:30:00
+  Days taken: 7
+  Overnight layovers: 3
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PIT', 'PVD', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.22 17:03 -> 11.22 20:01 [layover: 3 days, 12:20:00 (night)]
+  BOS -> RIC (B6 1281) 11.26 08:21 -> 11.26 10:16 [layover: 4:04:00]
+  RIC -> MCO (B6 1469) 11.26 14:20 -> 11.26 16:30 [layover: 3:15:00]
+  MCO -> BUF (B6 1586) 11.26 19:45 -> 11.26 22:25 [layover: 10:40:00 (night)]
+  BUF -> FLL (B6 0865) 11.27 09:05 -> 11.27 12:10 [layover: 4:20:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 4:08:00 (night)]
+  BOS -> PHL (B6 0859) 12.01 17:12 -> 12.01 18:54 [layover: 0:55:00]
+  PHL -> BOS (B6 0860) 12.01 19:49 -> 12.01 21:08
+  Total duration: 11 days, 9:31:00
+  Effective duration: 4 days, 17:03:00
+  Days taken: 7
+  Overnight layovers: 3
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PVD', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.22 17:03 -> 11.22 20:01 [layover: 3 days, 12:20:00 (night)]
+  BOS -> RIC (B6 1281) 11.26 08:21 -> 11.26 10:16 [layover: 4:04:00]
+  RIC -> MCO (B6 1469) 11.26 14:20 -> 11.26 16:30 [layover: 3:15:00]
+  MCO -> BUF (B6 1586) 11.26 19:45 -> 11.26 22:25 [layover: 10:40:00 (night)]
+  BUF -> FLL (B6 0865) 11.27 09:05 -> 11.27 12:10 [layover: 4:20:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 6 days, 1:56:00 (night)]
+  BOS -> PHL (B6 0759) 12.04 15:00 -> 12.04 16:37 [layover: 0:55:00]
+  PHL -> BOS (B6 0760) 12.04 17:32 -> 12.04 18:50
+  Total duration: 14 days, 7:13:00
+  Effective duration: 4 days, 16:57:00
+  Days taken: 7
+  Overnight layovers: 3
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PVD', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.22 17:03 -> 11.22 20:01 [layover: 3 days, 12:20:00 (night)]
+  BOS -> RIC (B6 1281) 11.26 08:21 -> 11.26 10:16 [layover: 4:04:00]
+  RIC -> MCO (B6 1469) 11.26 14:20 -> 11.26 16:30 [layover: 3:15:00]
+  MCO -> BUF (B6 1586) 11.26 19:45 -> 11.26 22:25 [layover: 10:40:00 (night)]
+  BUF -> FLL (B6 0865) 11.27 09:05 -> 11.27 12:10 [layover: 4:20:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 6:56:00 (night)]
+  BOS -> PHL (B6 0759) 12.01 20:00 -> 12.01 21:33 [layover: 1:00:00]
+  PHL -> BOS (B6 0760) 12.01 22:33 -> 12.01 23:48
+  Total duration: 11 days, 12:11:00
+  Effective duration: 4 days, 16:55:00
+  Days taken: 7
+  Overnight layovers: 3
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PVD', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.22 17:03 -> 11.22 20:01 [layover: 4 days, 9:59:00 (night)]
+  BOS -> RDU (B6 1883) 11.27 06:00 -> 11.27 08:13 [layover: 2:42:00]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 6 days, 19:16:00 (night)]
+  BOS -> RIC (B6 1281) 12.05 08:20 -> 12.05 10:15 [layover: 1:45:00]
+  RIC -> MCO (B6 1469) 12.05 12:00 -> 12.05 14:15 [layover: 4:10:00]
+  MCO -> BUF (B6 1586) 12.05 18:25 -> 12.05 21:07 [layover: 8:58:00 (night)]
+  BUF -> BOS (B6 0216) 12.06 06:05 -> 12.06 07:25
+  Total duration: 15 days, 19:48:00
+  Effective duration: 4 days, 14:33:00
+  Days taken: 7
+  Overnight layovers: 3
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PVD', 'RDU', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 2:42:00]
+  HPN -> MCO (B6 0595) 11.22 14:29 -> 11.22 17:27 [layover: 2:38:00]
+  MCO -> BUF (B6 1586) 11.22 20:05 -> 11.22 22:45 [layover: 8:00:00 (night)]
+  BUF -> MCO (B6 0085) 11.23 06:45 -> 11.23 09:37 [layover: 2:19:00]
+  MCO -> PVD (B6 2876) 11.23 11:56 -> 11.23 14:41 [layover: 3 days, 15:19:00 (night)]
+  BOS -> RDU (B6 1883) 11.27 06:00 -> 11.27 08:13 [layover: 2:42:00]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 0:22:00 (night)]
+  BOS -> RIC (B6 0381) 12.01 13:26 -> 12.01 15:16 [layover: 0:55:00]
+  RIC -> BOS (B6 0382) 12.01 16:11 -> 12.01 17:46
+  Total duration: 11 days, 6:09:00
+  Effective duration: 4 days, 14:28:00
+  Days taken: 7
+  Overnight layovers: 3
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PVD', 'RDU', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 2:42:00]
+  HPN -> MCO (B6 0595) 11.22 14:29 -> 11.22 17:27 [layover: 2:38:00]
+  MCO -> BUF (B6 1586) 11.22 20:05 -> 11.22 22:45 [layover: 8:00:00 (night)]
+  BUF -> MCO (B6 0085) 11.23 06:45 -> 11.23 09:37 [layover: 2:19:00]
+  MCO -> PVD (B6 2876) 11.23 11:56 -> 11.23 14:41 [layover: 3 days, 15:19:00 (night)]
+  BOS -> RDU (B6 1883) 11.27 06:00 -> 11.27 08:13 [layover: 2:42:00]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 4:08:00 (night)]
+  BOS -> PHL (B6 0859) 12.01 17:12 -> 12.01 18:54 [layover: 0:55:00]
+  PHL -> BOS (B6 0860) 12.01 19:49 -> 12.01 21:08
+  Total duration: 11 days, 9:31:00
+  Effective duration: 4 days, 14:04:00
+  Days taken: 7
+  Overnight layovers: 3
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 2:42:00]
+  HPN -> MCO (B6 0595) 11.22 14:29 -> 11.22 17:27 [layover: 2:38:00]
+  MCO -> BUF (B6 1586) 11.22 20:05 -> 11.22 22:45 [layover: 8:00:00 (night)]
+  BUF -> MCO (B6 0085) 11.23 06:45 -> 11.23 09:37 [layover: 2:19:00]
+  MCO -> PVD (B6 2876) 11.23 11:56 -> 11.23 14:41 [layover: 3 days, 15:19:00 (night)]
+  BOS -> RDU (B6 1883) 11.27 06:00 -> 11.27 08:13 [layover: 2:42:00]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 6 days, 1:56:00 (night)]
+  BOS -> PHL (B6 0759) 12.04 15:00 -> 12.04 16:37 [layover: 0:55:00]
+  PHL -> BOS (B6 0760) 12.04 17:32 -> 12.04 18:50
+  Total duration: 14 days, 7:13:00
+  Effective duration: 4 days, 13:58:00
+  Days taken: 7
+  Overnight layovers: 3
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 2:42:00]
+  HPN -> MCO (B6 0595) 11.22 14:29 -> 11.22 17:27 [layover: 2:38:00]
+  MCO -> BUF (B6 1586) 11.22 20:05 -> 11.22 22:45 [layover: 8:00:00 (night)]
+  BUF -> MCO (B6 0085) 11.23 06:45 -> 11.23 09:37 [layover: 2:19:00]
+  MCO -> PVD (B6 2876) 11.23 11:56 -> 11.23 14:41 [layover: 3 days, 15:19:00 (night)]
+  BOS -> RDU (B6 1883) 11.27 06:00 -> 11.27 08:13 [layover: 2:42:00]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 6:56:00 (night)]
+  BOS -> PHL (B6 0759) 12.01 20:00 -> 12.01 21:33 [layover: 1:00:00]
+  PHL -> BOS (B6 0760) 12.01 22:33 -> 12.01 23:48
+  Total duration: 11 days, 12:11:00
+  Effective duration: 4 days, 13:56:00
+  Days taken: 7
+  Overnight layovers: 3
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 2:10:00]
+  TPA -> LGA (B6 0048) 11.22 10:20 -> 11.22 12:54 [layover: 3:03:00]
+  LGA -> MCO (B6 0499) 11.22 15:57 -> 11.22 19:00 [layover: 4:59:00]
+  MCO -> PSE (B6 0767) 11.22 23:59 -> 11.23 03:53 [layover: 1:17:00]
+  PSE -> MCO (B6 0768) 11.23 05:10 -> 11.23 07:20 [layover: 1:45:00]
+  MCO -> ORH (B6 0488) 11.23 09:05 -> 11.23 11:52 [layover: 5 days, 18:08:00 (night)]
+  BOS -> RDU (B6 1883) 11.29 06:00 -> 11.29 08:13 [layover: 2:42:00]
+  RDU -> JFK (B6 0686) 11.29 10:55 -> 11.29 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.29 15:40 -> 11.29 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.29 20:50 -> 11.30 05:00 [layover: 2:45:00]
+  EWR -> RSW (B6 1811) 11.30 07:45 -> 11.30 10:59 [layover: 3:02:00]
+  RSW -> PVD (B6 1892) 11.30 14:01 -> 11.30 16:58 [layover: 6 days, 20:03:00 (night)]
+  BOS -> SAV (B6 0349) 12.07 13:01 -> 12.07 15:42 [layover: 0:58:00]
+  SAV -> BOS (B6 0250) 12.07 16:40 -> 12.07 19:10
+  Total duration: 17 days, 7:33:00
+  Effective duration: 4 days, 17:22:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'DCA', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PSE', 'PVD', 'RDU', 'RSW', 'SAV', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 2:10:00]
+  TPA -> LGA (B6 0048) 11.22 10:20 -> 11.22 12:54 [layover: 3:03:00]
+  LGA -> MCO (B6 0499) 11.22 15:57 -> 11.22 19:00 [layover: 4:59:00]
+  MCO -> PSE (B6 0767) 11.22 23:59 -> 11.23 03:53 [layover: 1:17:00]
+  PSE -> MCO (B6 0768) 11.23 05:10 -> 11.23 07:20 [layover: 1:45:00]
+  MCO -> ORH (B6 0488) 11.23 09:05 -> 11.23 11:52 [layover: 5 days, 18:08:00 (night)]
+  BOS -> RDU (B6 1883) 11.29 06:00 -> 11.29 08:13 [layover: 2:42:00]
+  RDU -> JFK (B6 0686) 11.29 10:55 -> 11.29 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.29 15:40 -> 11.29 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.29 20:50 -> 11.30 05:00 [layover: 2:45:00]
+  EWR -> RSW (B6 1811) 11.30 07:45 -> 11.30 10:59 [layover: 3:02:00]
+  RSW -> PVD (B6 1892) 11.30 14:01 -> 11.30 16:58 [layover: 6 days, 23:17:00 (night)]
+  BOS -> RIC (B6 1081) 12.07 16:15 -> 12.07 18:03 [layover: 0:57:00]
+  RIC -> BOS (B6 1182) 12.07 19:00 -> 12.07 20:37
+  Total duration: 17 days, 9:00:00
+  Effective duration: 4 days, 15:35:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'DCA', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PSE', 'PVD', 'RDU', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 2:10:00]
+  TPA -> LGA (B6 0048) 11.22 10:20 -> 11.22 12:54 [layover: 3:03:00]
+  LGA -> MCO (B6 0499) 11.22 15:57 -> 11.22 19:00 [layover: 4:59:00]
+  MCO -> PSE (B6 0767) 11.22 23:59 -> 11.23 03:53 [layover: 1:17:00]
+  PSE -> MCO (B6 0768) 11.23 05:10 -> 11.23 07:20 [layover: 1:45:00]
+  MCO -> ORH (B6 0488) 11.23 09:05 -> 11.23 11:52 [layover: 5 days, 18:08:00 (night)]
+  BOS -> RDU (B6 1883) 11.29 06:00 -> 11.29 08:13 [layover: 2:42:00]
+  RDU -> JFK (B6 0686) 11.29 10:55 -> 11.29 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.29 15:40 -> 11.29 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.29 20:50 -> 11.30 05:00 [layover: 2:45:00]
+  EWR -> RSW (B6 1811) 11.30 07:45 -> 11.30 10:59 [layover: 3:02:00]
+  RSW -> PVD (B6 1892) 11.30 14:01 -> 11.30 16:58 [layover: 6 days, 22:02:00 (night)]
+  BOS -> PHL (B6 0759) 12.07 15:00 -> 12.07 16:37 [layover: 0:55:00]
+  PHL -> BOS (B6 0760) 12.07 17:32 -> 12.07 18:50
+  Total duration: 17 days, 7:13:00
+  Effective duration: 4 days, 15:03:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'DCA', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PHL', 'PSE', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 2:10:00]
+  TPA -> LGA (B6 0048) 11.22 10:20 -> 11.22 12:54 [layover: 3:03:00]
+  LGA -> MCO (B6 0499) 11.22 15:57 -> 11.22 19:00 [layover: 4:59:00]
+  MCO -> PSE (B6 0767) 11.22 23:59 -> 11.23 03:53 [layover: 1:17:00]
+  PSE -> MCO (B6 0768) 11.23 05:10 -> 11.23 07:20 [layover: 1:45:00]
+  MCO -> ORH (B6 0488) 11.23 09:05 -> 11.23 11:52 [layover: 5 days, 18:08:00 (night)]
+  BOS -> RDU (B6 1883) 11.29 06:00 -> 11.29 08:13 [layover: 2:42:00]
+  RDU -> JFK (B6 0686) 11.29 10:55 -> 11.29 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.29 15:40 -> 11.29 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.29 20:50 -> 11.30 05:00 [layover: 2:45:00]
+  EWR -> RSW (B6 1811) 11.30 07:45 -> 11.30 10:59 [layover: 3:02:00]
+  RSW -> PVD (B6 1892) 11.30 14:01 -> 11.30 16:58 [layover: 6 days, 18:34:00 (night)]
+  BOS -> BUF (B6 0715) 12.07 11:32 -> 12.07 13:04 [layover: 0:56:00]
+  BUF -> BOS (B6 0716) 12.07 14:00 -> 12.07 15:20
+  Total duration: 17 days, 3:43:00
+  Effective duration: 4 days, 15:01:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PSE', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 2:10:00]
+  TPA -> LGA (B6 0048) 11.22 10:20 -> 11.22 12:54 [layover: 3:03:00]
+  LGA -> MCO (B6 0499) 11.22 15:57 -> 11.22 19:00 [layover: 4:59:00]
+  MCO -> PSE (B6 0767) 11.22 23:59 -> 11.23 03:53 [layover: 1:17:00]
+  PSE -> MCO (B6 0768) 11.23 05:10 -> 11.23 07:20 [layover: 1:45:00]
+  MCO -> ORH (B6 0488) 11.23 09:05 -> 11.23 11:52 [layover: 5 days, 20:23:00 (night)]
+  BOS -> BUF (B6 0915) 11.29 08:15 -> 11.29 09:50 [layover: 1:45:00]
+  BUF -> JFK (B6 2901) 11.29 11:35 -> 11.29 13:00 [layover: 2:40:00]
+  JFK -> LAX (B6 0723) 11.29 15:40 -> 11.29 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.29 20:50 -> 11.30 05:00 [layover: 2:45:00]
+  EWR -> RSW (B6 1811) 11.30 07:45 -> 11.30 10:59 [layover: 3:02:00]
+  RSW -> PVD (B6 1892) 11.30 14:01 -> 11.30 16:58 [layover: 6 days, 23:17:00 (night)]
+  BOS -> RIC (B6 1081) 12.07 16:15 -> 12.07 18:03 [layover: 0:57:00]
+  RIC -> BOS (B6 1182) 12.07 19:00 -> 12.07 20:37
+  Total duration: 17 days, 9:00:00
+  Effective duration: 4 days, 13:20:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PSE', 'PVD', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 2:10:00]
+  TPA -> LGA (B6 0048) 11.22 10:20 -> 11.22 12:54 [layover: 3:03:00]
+  LGA -> MCO (B6 0499) 11.22 15:57 -> 11.22 19:00 [layover: 4:59:00]
+  MCO -> PSE (B6 0767) 11.22 23:59 -> 11.23 03:53 [layover: 1:17:00]
+  PSE -> MCO (B6 0768) 11.23 05:10 -> 11.23 07:20 [layover: 1:45:00]
+  MCO -> ORH (B6 0488) 11.23 09:05 -> 11.23 11:52 [layover: 5 days, 20:23:00 (night)]
+  BOS -> BUF (B6 0915) 11.29 08:15 -> 11.29 09:50 [layover: 1:45:00]
+  BUF -> JFK (B6 2901) 11.29 11:35 -> 11.29 13:00 [layover: 2:40:00]
+  JFK -> LAX (B6 0723) 11.29 15:40 -> 11.29 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.29 20:50 -> 11.30 05:00 [layover: 2:45:00]
+  EWR -> RSW (B6 1811) 11.30 07:45 -> 11.30 10:59 [layover: 3:02:00]
+  RSW -> PVD (B6 1892) 11.30 14:01 -> 11.30 16:58 [layover: 6 days, 22:02:00 (night)]
+  BOS -> PHL (B6 0759) 12.07 15:00 -> 12.07 16:37 [layover: 0:55:00]
+  PHL -> BOS (B6 0760) 12.07 17:32 -> 12.07 18:50
+  Total duration: 17 days, 7:13:00
+  Effective duration: 4 days, 12:48:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PHL', 'PSE', 'PVD', 'RSW', 'SJU', 'TPA']
+Chunk 3: 30.0B processed. 1324 items in queue
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 2:10:00]
+  TPA -> LGA (B6 0048) 11.22 10:20 -> 11.22 12:54 [layover: 3:03:00]
+  LGA -> MCO (B6 0499) 11.22 15:57 -> 11.22 19:00 [layover: 4:59:00]
+  MCO -> PSE (B6 0767) 11.22 23:59 -> 11.23 03:53 [layover: 1:17:00]
+  PSE -> MCO (B6 0768) 11.23 05:10 -> 11.23 07:20 [layover: 4:36:00]
+  MCO -> PVD (B6 2876) 11.23 11:56 -> 11.23 14:41 [layover: 3 days, 17:19:00 (night)]
+  BOS -> BUF (B6 0915) 11.27 08:00 -> 11.27 09:36 [layover: 1:59:00]
+  BUF -> JFK (B6 2901) 11.27 11:35 -> 11.27 13:00 [layover: 2:40:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 0:22:00 (night)]
+  BOS -> RIC (B6 0381) 12.01 13:26 -> 12.01 15:16 [layover: 0:55:00]
+  RIC -> BOS (B6 0382) 12.01 16:11 -> 12.01 17:46
+  Total duration: 11 days, 6:09:00
+  Effective duration: 4 days, 12:28:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PSE', 'PVD', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 2:10:00]
+  TPA -> LGA (B6 0048) 11.22 10:20 -> 11.22 12:54 [layover: 3:03:00]
+  LGA -> MCO (B6 0499) 11.22 15:57 -> 11.22 19:00 [layover: 4:59:00]
+  MCO -> PSE (B6 0767) 11.22 23:59 -> 11.23 03:53 [layover: 1:17:00]
+  PSE -> MCO (B6 0768) 11.23 05:10 -> 11.23 07:20 [layover: 4:36:00]
+  MCO -> PVD (B6 2876) 11.23 11:56 -> 11.23 14:41 [layover: 3 days, 17:19:00 (night)]
+  BOS -> BUF (B6 0915) 11.27 08:00 -> 11.27 09:36 [layover: 1:59:00]
+  BUF -> JFK (B6 2901) 11.27 11:35 -> 11.27 13:00 [layover: 2:40:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 4:08:00 (night)]
+  BOS -> PHL (B6 0859) 12.01 17:12 -> 12.01 18:54 [layover: 0:55:00]
+  PHL -> BOS (B6 0860) 12.01 19:49 -> 12.01 21:08
+  Total duration: 11 days, 9:31:00
+  Effective duration: 4 days, 12:04:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PHL', 'PSE', 'PVD', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 2:10:00]
+  TPA -> LGA (B6 0048) 11.22 10:20 -> 11.22 12:54 [layover: 3:03:00]
+  LGA -> MCO (B6 0499) 11.22 15:57 -> 11.22 19:00 [layover: 4:59:00]
+  MCO -> PSE (B6 0767) 11.22 23:59 -> 11.23 03:53 [layover: 1:17:00]
+  PSE -> MCO (B6 0768) 11.23 05:10 -> 11.23 07:20 [layover: 4:36:00]
+  MCO -> PVD (B6 2876) 11.23 11:56 -> 11.23 14:41 [layover: 3 days, 17:19:00 (night)]
+  BOS -> BUF (B6 0915) 11.27 08:00 -> 11.27 09:36 [layover: 1:59:00]
+  BUF -> JFK (B6 2901) 11.27 11:35 -> 11.27 13:00 [layover: 2:40:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 6 days, 1:56:00 (night)]
+  BOS -> PHL (B6 0759) 12.04 15:00 -> 12.04 16:37 [layover: 0:55:00]
+  PHL -> BOS (B6 0760) 12.04 17:32 -> 12.04 18:50
+  Total duration: 14 days, 7:13:00
+  Effective duration: 4 days, 11:58:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PHL', 'PSE', 'PVD', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 1:55:00]
+  JFK -> LAS (B6 0711) 11.20 19:38 -> 11.20 22:40 [layover: 1:19:00]
+  LAS -> FLL (B6 0608) 11.20 23:59 -> 11.21 07:33 [layover: 2:15:00]
+  FLL -> DCA (B6 1680) 11.21 09:48 -> 11.21 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 2:10:00]
+  TPA -> LGA (B6 0048) 11.22 10:20 -> 11.22 12:54 [layover: 3:03:00]
+  LGA -> MCO (B6 0499) 11.22 15:57 -> 11.22 19:00 [layover: 4:59:00]
+  MCO -> PSE (B6 0767) 11.22 23:59 -> 11.23 03:53 [layover: 1:17:00]
+  PSE -> MCO (B6 0768) 11.23 05:10 -> 11.23 07:20 [layover: 4:36:00]
+  MCO -> PVD (B6 2876) 11.23 11:56 -> 11.23 14:41 [layover: 3 days, 17:19:00 (night)]
+  BOS -> BUF (B6 0915) 11.27 08:00 -> 11.27 09:36 [layover: 1:59:00]
+  BUF -> JFK (B6 2901) 11.27 11:35 -> 11.27 13:00 [layover: 2:40:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 6:56:00 (night)]
+  BOS -> PHL (B6 0759) 12.01 20:00 -> 12.01 21:33 [layover: 1:00:00]
+  PHL -> BOS (B6 0760) 12.01 22:33 -> 12.01 23:48
+  Total duration: 11 days, 12:11:00
+  Effective duration: 4 days, 11:56:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BUF', 'DCA', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PHL', 'PSE', 'PVD', 'RSW', 'SJU', 'TPA']
+
+Chunk 0: 23.0B processed. 1180 items in queue
+Chunk 12: 28.0B processed. 565 items in queue
+Chunk 9: 27.0B processed. 973 items in queue
+Chunk 5: 30.0B processed. 682 items in queue
+Chunk 14: 30.0B processed. 1057 items in queue
+Chunk 13: 32.0B processed. 1060 items in queue
+Chunk 10: 37.0B processed. 1175 items in queue
+Chunk 7: 28.0B processed. 801 items in queue
+Chunk 6: 31.0B processed. 980 items in queue
+Chunk 4: 28.0B processed. 1021 items in queue
+Chunk 11: 24.0B processed. 871 items in queue
+Chunk 8: 29.0B processed. 1055 items in queue
+Chunk 1: 28.0B processed. 992 items in queue
+Chunk 2: 22.0B processed. 1116 items in queue
+Chunk 0: 24.0B processed. 859 items in queue
+Chunk 3: 31.0B processed. 918 items in queue
+Chunk 12: 29.0B processed. 933 items in queue
+Chunk 10: 38.0B processed. 1122 items in queue
+Chunk 5: 31.0B processed. 1042 items in queue
+Chunk 9: 28.0B processed. 1182 items in queue
+Chunk 13: 33.0B processed. 916 items in queue
+Chunk 14: 31.0B processed. 847 items in queue
+Chunk 6: 32.0B processed. 1062 items in queue
+Chunk 4: 29.0B processed. 763 items in queue
+Chunk 7: 29.0B processed. 1088 items in queue
+Chunk 8: 30.0B processed. 1246 items in queue
+Chunk 1: 29.0B processed. 1229 items in queue
+Chunk 11: 25.0B processed. 849 items in queue
+Chunk 2: 23.0B processed. 689 items in queue
+Chunk 3: 32.0B processed. 1319 items in queue
+Chunk 10: 39.0B processed. 1206 items in queue
+Chunk 0: 25.0B processed. 939 items in queue
+Chunk 5: 32.0B processed. 1017 items in queue
+Chunk 12: 30.0B processed. 1159 items in queue
+Chunk 14: 32.0B processed. 848 items in queue
+Chunk 13: 34.0B processed. 1142 items in queue
+Chunk 6: 33.0B processed. 851 items in queue
+Chunk 9: 29.0B processed. 810 items in queue
+
+Chunk 4 new best: Plan: 22 flights, 20 destinations:
+  BOS -> DTW (B6 1037) 11.03 08:30 -> 11.03 10:47 [layover: 3:53:00]
+  DTW -> JFK (B6 1120) 11.03 14:40 -> 11.03 16:26 [layover: 2:49:00]
+  JFK -> BUF (B6 0102) 11.03 19:15 -> 11.03 20:51 [layover: 9:54:00 (night)]
+  BUF -> FLL (B6 0865) 11.04 06:45 -> 11.04 09:50 [layover: 1:55:00]
+  FLL -> ORH (B6 2020) 11.04 11:45 -> 11.04 14:45 [layover: 6 days, 23:15:00 (night)]
+  BOS -> LAX (B6 0487) 11.11 14:00 -> 11.11 17:25 [layover: 3:25:00]
+  LAX -> EWR (B6 1574) 11.11 20:50 -> 11.12 05:00 [layover: 4:05:00]
+  EWR -> RSW (B6 1811) 11.12 09:05 -> 11.12 12:15 [layover: 1:20:00]
+  RSW -> PVD (B6 1892) 11.12 13:35 -> 11.12 16:30 [layover: 6 days, 23:50:00 (night)]
+  BOS -> DCA (B6 2055) 11.19 16:20 -> 11.19 18:04 [layover: 15:56:00 (night)]
+  DCA -> FLL (B6 0579) 11.20 10:00 -> 11.20 12:38 [layover: 3:07:00]
+  FLL -> LAS (B6 0507) 11.20 15:45 -> 11.20 18:13 [layover: 3:57:00]
+  LAS -> MCO (B6 2822) 11.20 22:10 -> 11.21 06:05 [layover: 0:57:00]
+  MCO -> ISP (B6 0546) 11.21 07:02 -> 11.21 09:42 [layover: 2:23:00]
+  ISP -> PBI (B6 0345) 11.21 12:05 -> 11.21 14:53 [layover: 2:38:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 3:23:00]
+  FLL -> PHX (B6 0657) 11.22 19:25 -> 11.22 22:30 [layover: 1:15:00]
+  PHX -> BOS (B6 1969) 11.22 23:45 -> 11.23 06:29
+  Total duration: 19 days, 21:59:00
+  Effective duration: 5 days, 22:54:00
+  Days taken: 9
+  Overnight layovers: 4
+  Airports visited: ['BDL', 'BOS', 'BUF', 'DCA', 'DTW', 'EWR', 'FLL', 'HPN', 'ISP', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RSW', 'SJU', 'TPA']
+
+Chunk 4: 30.0B processed. 1270 items in queue
+Chunk 8: 31.0B processed. 1517 items in queue
+Chunk 7: 30.0B processed. 984 items in queue
+Chunk 10: 40.0B processed. 1131 items in queue
+Chunk 1: 30.0B processed. 1272 items in queue
+Chunk 3: 33.0B processed. 869 items in queue
+Chunk 11: 26.0B processed. 1000 items in queue
+Chunk 2: 24.0B processed. 785 items in queue
+Chunk 5: 33.0B processed. 957 items in queue
+Chunk 14: 33.0B processed. 582 items in queue
+Chunk 0: 26.0B processed. 846 items in queue
+Chunk 13: 35.0B processed. 524 items in queue
+Chunk 6: 34.0B processed. 888 items in queue
+Chunk 9: 30.0B processed. 1131 items in queue
+Chunk 12: 31.0B processed. 1067 items in queue
+Chunk 4: 31.0B processed. 1118 items in queue
+Chunk 10: 41.0B processed. 1322 items in queue
+Chunk 7: 31.0B processed. 1385 items in queue
+Chunk 8: 32.0B processed. 786 items in queue
+Chunk 3: 34.0B processed. 1058 items in queue
+Chunk 1: 31.0B processed. 1148 items in queue
+Chunk 5: 34.0B processed. 1081 items in queue
+Chunk 11: 27.0B processed. 1045 items in queue
+Chunk 9: 31.0B processed. 763 items in queue
+Chunk 6: 35.0B processed. 901 items in queue
+
+Chunk 4 new best: Plan: 22 flights, 20 destinations:
+  BOS -> DTW (B6 1037) 11.05 08:30 -> 11.05 10:47 [layover: 3:53:00]
+  DTW -> JFK (B6 1120) 11.05 14:40 -> 11.05 16:26 [layover: 1:49:00]
+  JFK -> PHX (B6 0735) 11.05 18:15 -> 11.05 21:57 [layover: 1:10:00]
+  PHX -> FLL (B6 0858) 11.05 23:07 -> 11.06 05:07 [layover: 1:53:00]
+  FLL -> LAS (B6 1707) 11.06 07:00 -> 11.06 09:21 [layover: 1:10:00]
+  LAS -> JFK (B6 0448) 11.06 10:31 -> 11.06 18:37 [layover: 3:22:00]
+  JFK -> RDU (B6 1185) 11.06 21:59 -> 11.06 23:46 [layover: 7:29:00 (night)]
+  RDU -> FLL (B6 2625) 11.07 07:15 -> 11.07 09:32 [layover: 2:13:00]
+  FLL -> ORH (B6 2020) 11.07 11:45 -> 11.07 14:45 [layover: 6 days, 23:15:00 (night)]
+  BOS -> LAX (B6 0487) 11.14 14:00 -> 11.14 17:25 [layover: 3:25:00]
+  LAX -> EWR (B6 1574) 11.14 20:50 -> 11.15 05:00 [layover: 4:05:00]
+  EWR -> RSW (B6 1811) 11.15 09:05 -> 11.15 12:15 [layover: 1:20:00]
+  RSW -> PVD (B6 1892) 11.15 13:35 -> 11.15 16:30 [layover: 6 days, 15:40:00 (night)]
+  BOS -> DCA (B6 1555) 11.22 08:10 -> 11.22 09:57 [layover: 1:03:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 2:42:00]
+  HPN -> MCO (B6 0595) 11.23 14:29 -> 11.23 17:27 [layover: 2:18:00]
+  MCO -> BUF (B6 1586) 11.23 19:45 -> 11.23 22:25 [layover: 9:10:00 (night)]
+  BUF -> BOS (B6 0216) 11.24 07:35 -> 11.24 08:54
+  Total duration: 19 days, 0:24:00
+  Effective duration: 5 days, 9:29:00
+  Days taken: 8
+  Overnight layovers: 4
+  Airports visited: ['BDL', 'BOS', 'BUF', 'DCA', 'DTW', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 4 new best: Plan: 22 flights, 20 destinations:
+  BOS -> DTW (B6 1037) 11.05 08:30 -> 11.05 10:47 [layover: 3:53:00]
+  DTW -> JFK (B6 1120) 11.05 14:40 -> 11.05 16:26 [layover: 1:49:00]
+  JFK -> PHX (B6 0735) 11.05 18:15 -> 11.05 21:57 [layover: 1:10:00]
+  PHX -> FLL (B6 0858) 11.05 23:07 -> 11.06 05:07 [layover: 1:53:00]
+  FLL -> LAS (B6 1707) 11.06 07:00 -> 11.06 09:21 [layover: 1:10:00]
+  LAS -> JFK (B6 0448) 11.06 10:31 -> 11.06 18:37 [layover: 3:22:00]
+  JFK -> RDU (B6 1185) 11.06 21:59 -> 11.06 23:46 [layover: 7:29:00 (night)]
+  RDU -> FLL (B6 2625) 11.07 07:15 -> 11.07 09:32 [layover: 2:13:00]
+  FLL -> ORH (B6 2020) 11.07 11:45 -> 11.07 14:45 [layover: 6 days, 23:15:00 (night)]
+  BOS -> LAX (B6 0487) 11.14 14:00 -> 11.14 17:25 [layover: 3:25:00]
+  LAX -> EWR (B6 1574) 11.14 20:50 -> 11.15 05:00 [layover: 4:05:00]
+  EWR -> RSW (B6 1811) 11.15 09:05 -> 11.15 12:15 [layover: 1:20:00]
+  RSW -> PVD (B6 1892) 11.15 13:35 -> 11.15 16:30 [layover: 5 days, 17:30:00 (night)]
+  BOS -> DCA (B6 1455) 11.21 10:00 -> 11.21 11:41 [layover: 1:28:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 2:42:00]
+  HPN -> MCO (B6 0595) 11.22 14:29 -> 11.22 17:27 [layover: 2:38:00]
+  MCO -> BUF (B6 1586) 11.22 20:05 -> 11.22 22:45 [layover: 8:50:00 (night)]
+  BUF -> BOS (B6 0216) 11.23 07:35 -> 11.23 08:54
+  Total duration: 18 days, 0:24:00
+  Effective duration: 5 days, 7:39:00
+  Days taken: 8
+  Overnight layovers: 4
+  Airports visited: ['BDL', 'BOS', 'BUF', 'DCA', 'DTW', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 4 new best: Plan: 22 flights, 20 destinations:
+  BOS -> DTW (B6 1037) 11.05 08:30 -> 11.05 10:47 [layover: 3:53:00]
+  DTW -> JFK (B6 1120) 11.05 14:40 -> 11.05 16:26 [layover: 1:49:00]
+  JFK -> PHX (B6 0735) 11.05 18:15 -> 11.05 21:57 [layover: 1:10:00]
+  PHX -> FLL (B6 0858) 11.05 23:07 -> 11.06 05:07 [layover: 3:23:00]
+  FLL -> RIC (B6 0146) 11.06 08:30 -> 11.06 10:43 [layover: 1:17:00]
+  RIC -> MCO (B6 1469) 11.06 12:00 -> 11.06 14:15 [layover: 4:08:00]
+  MCO -> BUF (B6 1586) 11.06 18:23 -> 11.06 21:05 [layover: 9:40:00 (night)]
+  BUF -> FLL (B6 0865) 11.07 06:45 -> 11.07 09:50 [layover: 1:55:00]
+  FLL -> ORH (B6 2020) 11.07 11:45 -> 11.07 14:45 [layover: 6 days, 23:15:00 (night)]
+  BOS -> LAX (B6 0487) 11.14 14:00 -> 11.14 17:25 [layover: 3:25:00]
+  LAX -> EWR (B6 1574) 11.14 20:50 -> 11.15 05:00 [layover: 4:05:00]
+  EWR -> RSW (B6 1811) 11.15 09:05 -> 11.15 12:15 [layover: 1:20:00]
+  RSW -> PVD (B6 1892) 11.15 13:35 -> 11.15 16:30 [layover: 5 days, 17:30:00 (night)]
+  BOS -> DCA (B6 1455) 11.21 10:00 -> 11.21 11:41 [layover: 1:28:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 4:29:00]
+  FLL -> RDU (B6 2626) 11.22 20:31 -> 11.22 22:38 [layover: 7:07:00 (night)]
+  RDU -> BOS (B6 0984) 11.23 05:45 -> 11.23 07:45
+  Total duration: 17 days, 23:15:00
+  Effective duration: 5 days, 6:30:00
+  Days taken: 8
+  Overnight layovers: 4
+  Airports visited: ['BDL', 'BOS', 'BUF', 'DCA', 'DTW', 'EWR', 'FLL', 'HPN', 'JFK', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RDU', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 4 new best: Plan: 22 flights, 20 destinations:
+  BOS -> DTW (B6 1037) 11.05 08:30 -> 11.05 10:47 [layover: 3:53:00]
+  DTW -> JFK (B6 1120) 11.05 14:40 -> 11.05 16:26 [layover: 1:49:00]
+  JFK -> PHX (B6 0735) 11.05 18:15 -> 11.05 21:57 [layover: 1:10:00]
+  PHX -> FLL (B6 0858) 11.05 23:07 -> 11.06 05:07 [layover: 3:23:00]
+  FLL -> RIC (B6 0146) 11.06 08:30 -> 11.06 10:43 [layover: 4:40:00]
+  RIC -> MCO (B6 0969) 11.06 15:23 -> 11.06 17:34 [layover: 2:56:00]
+  MCO -> LAS (B6 2821) 11.06 20:30 -> 11.06 22:49 [layover: 1:10:00]
+  LAS -> FLL (B6 0608) 11.06 23:59 -> 11.07 07:33 [layover: 4:12:00]
+  FLL -> ORH (B6 2020) 11.07 11:45 -> 11.07 14:45 [layover: 6 days, 23:15:00 (night)]
+  BOS -> LAX (B6 0487) 11.14 14:00 -> 11.14 17:25 [layover: 3:25:00]
+  LAX -> EWR (B6 1574) 11.14 20:50 -> 11.15 05:00 [layover: 4:05:00]
+  EWR -> RSW (B6 1811) 11.15 09:05 -> 11.15 12:15 [layover: 1:20:00]
+  RSW -> PVD (B6 1892) 11.15 13:35 -> 11.15 16:30 [layover: 6 days, 15:40:00 (night)]
+  BOS -> DCA (B6 1555) 11.22 08:10 -> 11.22 09:57 [layover: 1:03:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.23 09:00 -> 11.23 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.23 13:00 -> 11.23 16:02 [layover: 4:29:00]
+  FLL -> RDU (B6 2626) 11.23 20:31 -> 11.23 22:38 [layover: 7:07:00 (night)]
+  RDU -> BOS (B6 0984) 11.24 05:45 -> 11.24 07:45
+  Total duration: 18 days, 23:15:00
+  Effective duration: 5 days, 8:20:00
+  Days taken: 8
+  Overnight layovers: 3
+  Airports visited: ['BDL', 'BOS', 'DCA', 'DTW', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RDU', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 4 new best: Plan: 22 flights, 20 destinations:
+  BOS -> DTW (B6 1037) 11.05 08:30 -> 11.05 10:47 [layover: 3:53:00]
+  DTW -> JFK (B6 1120) 11.05 14:40 -> 11.05 16:26 [layover: 1:49:00]
+  JFK -> PHX (B6 0735) 11.05 18:15 -> 11.05 21:57 [layover: 1:10:00]
+  PHX -> FLL (B6 0858) 11.05 23:07 -> 11.06 05:07 [layover: 3:23:00]
+  FLL -> RIC (B6 0146) 11.06 08:30 -> 11.06 10:43 [layover: 4:40:00]
+  RIC -> MCO (B6 0969) 11.06 15:23 -> 11.06 17:34 [layover: 2:56:00]
+  MCO -> LAS (B6 2821) 11.06 20:30 -> 11.06 22:49 [layover: 1:10:00]
+  LAS -> FLL (B6 0608) 11.06 23:59 -> 11.07 07:33 [layover: 4:12:00]
+  FLL -> ORH (B6 2020) 11.07 11:45 -> 11.07 14:45 [layover: 6 days, 23:15:00 (night)]
+  BOS -> LAX (B6 0487) 11.14 14:00 -> 11.14 17:25 [layover: 3:25:00]
+  LAX -> EWR (B6 1574) 11.14 20:50 -> 11.15 05:00 [layover: 4:05:00]
+  EWR -> RSW (B6 1811) 11.15 09:05 -> 11.15 12:15 [layover: 1:20:00]
+  RSW -> PVD (B6 1892) 11.15 13:35 -> 11.15 16:30 [layover: 5 days, 17:30:00 (night)]
+  BOS -> DCA (B6 1455) 11.21 10:00 -> 11.21 11:41 [layover: 1:28:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 4:29:00]
+  FLL -> RDU (B6 2626) 11.22 20:31 -> 11.22 22:38 [layover: 7:07:00 (night)]
+  RDU -> BOS (B6 0984) 11.23 05:45 -> 11.23 07:45
+  Total duration: 17 days, 23:15:00
+  Effective duration: 5 days, 6:30:00
+  Days taken: 8
+  Overnight layovers: 3
+  Airports visited: ['BDL', 'BOS', 'DCA', 'DTW', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RDU', 'RIC', 'RSW', 'SJU', 'TPA']
+Chunk 13: 36.0B processed. 991 items in queue
+Chunk 14: 34.0B processed. 1353 items in queue
+Chunk 0: 27.0B processed. 804 items in queue
+Chunk 10: 42.0B processed. 992 items in queue
+Chunk 2: 25.0B processed. 530 items in queue
+
+Chunk 4: 32.0B processed. 949 items in queue
+Chunk 12: 32.0B processed. 1214 items in queue
+Chunk 8: 33.0B processed. 1555 items in queue
+Chunk 3: 35.0B processed. 1111 items in queue
+Chunk 7: 32.0B processed. 880 items in queue
+Chunk 1: 32.0B processed. 1026 items in queue
+Chunk 5: 35.0B processed. 1347 items in queue
+Chunk 10: 43.0B processed. 887 items in queue
+Chunk 14: 35.0B processed. 917 items in queue
+Chunk 11: 28.0B processed. 1043 items in queue
+Chunk 6: 36.0B processed. 1102 items in queue
+Chunk 13: 37.0B processed. 957 items in queue
+Chunk 9: 32.0B processed. 1004 items in queue
+Chunk 0: 28.0B processed. 944 items in queue
+
+Chunk 4 new best: Plan: 22 flights, 20 destinations:
+  BOS -> DTW (B6 1037) 11.05 08:30 -> 11.05 10:47 [layover: 3:53:00]
+  DTW -> JFK (B6 1120) 11.05 14:40 -> 11.05 16:26 [layover: 2:49:00]
+  JFK -> BUF (B6 0102) 11.05 19:15 -> 11.05 20:51 [layover: 9:54:00 (night)]
+  BUF -> FLL (B6 0865) 11.06 06:45 -> 11.06 09:50 [layover: 1:55:00]
+  FLL -> ORH (B6 2020) 11.06 11:45 -> 11.06 14:45 [layover: 6 days, 16:45:00 (night)]
+  BOS -> RDU (B6 1883) 11.13 07:30 -> 11.13 09:42 [layover: 2:58:00]
+  RDU -> FLL (B6 0625) 11.13 12:40 -> 11.13 14:47 [layover: 1:23:00]
+  FLL -> LAX (B6 0301) 11.13 16:10 -> 11.13 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.13 20:50 -> 11.14 05:00 [layover: 4:05:00]
+  EWR -> RSW (B6 1811) 11.14 09:05 -> 11.14 12:15 [layover: 1:20:00]
+  RSW -> PVD (B6 1892) 11.14 13:35 -> 11.14 16:30 [layover: 6 days, 15:40:00 (night)]
+  BOS -> DCA (B6 1555) 11.21 08:10 -> 11.21 09:57 [layover: 3:12:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 2:42:00]
+  HPN -> MCO (B6 0595) 11.22 14:29 -> 11.22 17:27 [layover: 3:03:00]
+  MCO -> LAS (B6 2821) 11.22 20:30 -> 11.22 22:49 [layover: 1:01:00]
+  LAS -> JFK (B6 0948) 11.22 23:50 -> 11.23 07:45 [layover: 1:13:00]
+  JFK -> CHS (B6 1273) 11.23 08:58 -> 11.23 11:19 [layover: 2:26:00]
+  CHS -> BOS (B6 2368) 11.23 13:45 -> 11.23 15:57
+  Total duration: 18 days, 7:27:00
+  Effective duration: 4 days, 23:02:00
+  Days taken: 7
+  Overnight layovers: 3
+  Airports visited: ['BDL', 'BOS', 'BUF', 'CHS', 'DCA', 'DTW', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 4 new best: Plan: 22 flights, 20 destinations:
+  BOS -> DTW (B6 1037) 11.05 08:30 -> 11.05 10:47 [layover: 3:53:00]
+  DTW -> JFK (B6 1120) 11.05 14:40 -> 11.05 16:26 [layover: 2:49:00]
+  JFK -> BUF (B6 0102) 11.05 19:15 -> 11.05 20:51 [layover: 9:54:00 (night)]
+  BUF -> FLL (B6 0865) 11.06 06:45 -> 11.06 09:50 [layover: 1:55:00]
+  FLL -> ORH (B6 2020) 11.06 11:45 -> 11.06 14:45 [layover: 6 days, 16:45:00 (night)]
+  BOS -> RDU (B6 1883) 11.13 07:30 -> 11.13 09:42 [layover: 2:58:00]
+  RDU -> FLL (B6 0625) 11.13 12:40 -> 11.13 14:47 [layover: 1:23:00]
+  FLL -> LAX (B6 0301) 11.13 16:10 -> 11.13 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.13 20:50 -> 11.14 05:00 [layover: 4:05:00]
+  EWR -> RSW (B6 1811) 11.14 09:05 -> 11.14 12:15 [layover: 1:20:00]
+  RSW -> PVD (B6 1892) 11.14 13:35 -> 11.14 16:30 [layover: 6 days, 17:30:00 (night)]
+  BOS -> DCA (B6 1455) 11.21 10:00 -> 11.21 11:41 [layover: 1:28:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 2:42:00]
+  HPN -> MCO (B6 0595) 11.22 14:29 -> 11.22 17:27 [layover: 3:03:00]
+  MCO -> LAS (B6 2821) 11.22 20:30 -> 11.22 22:49 [layover: 1:01:00]
+  LAS -> JFK (B6 0948) 11.22 23:50 -> 11.23 07:45 [layover: 1:13:00]
+  JFK -> CHS (B6 1273) 11.23 08:58 -> 11.23 11:19 [layover: 2:26:00]
+  CHS -> BOS (B6 2368) 11.23 13:45 -> 11.23 15:57
+  Total duration: 18 days, 7:27:00
+  Effective duration: 4 days, 21:12:00
+  Days taken: 7
+  Overnight layovers: 3
+  Airports visited: ['BDL', 'BOS', 'BUF', 'CHS', 'DCA', 'DTW', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+Chunk 4: 33.0B processed. 1241 items in queue
+Chunk 2: 26.0B processed. 968 items in queue
+Chunk 8: 34.0B processed. 864 items in queue
+Chunk 7: 33.0B processed. 925 items in queue
+Chunk 3: 36.0B processed. 1409 items in queue
+Chunk 12: 33.0B processed. 886 items in queue
+Chunk 5: 36.0B processed. 809 items in queue
+Chunk 1: 33.0B processed. 986 items in queue
+Chunk 10: 44.0B processed. 1455 items in queue
+Chunk 9: 33.0B processed. 1101 items in queue
+Chunk 6: 37.0B processed. 595 items in queue
+Chunk 13: 38.0B processed. 1109 items in queue
+Chunk 14: 36.0B processed. 819 items in queue
+Chunk 11: 29.0B processed. 1000 items in queue
+
+Chunk 4 new best: Plan: 22 flights, 20 destinations:
+  BOS -> DTW (B6 1037) 11.05 08:30 -> 11.05 10:47 [layover: 3:53:00]
+  DTW -> JFK (B6 1120) 11.05 14:40 -> 11.05 16:26 [layover: 3:21:00]
+  JFK -> LAS (B6 0711) 11.05 19:47 -> 11.05 22:49 [layover: 1:10:00]
+  LAS -> FLL (B6 0608) 11.05 23:59 -> 11.06 07:33 [layover: 4:12:00]
+  FLL -> ORH (B6 2020) 11.06 11:45 -> 11.06 14:45 [layover: 6 days, 16:45:00 (night)]
+  BOS -> RDU (B6 1883) 11.13 07:30 -> 11.13 09:42 [layover: 2:58:00]
+  RDU -> FLL (B6 0625) 11.13 12:40 -> 11.13 14:47 [layover: 1:23:00]
+  FLL -> LAX (B6 0301) 11.13 16:10 -> 11.13 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.13 20:50 -> 11.14 05:00 [layover: 4:05:00]
+  EWR -> RSW (B6 1811) 11.14 09:05 -> 11.14 12:15 [layover: 1:20:00]
+  RSW -> PVD (B6 1892) 11.14 13:35 -> 11.14 16:30 [layover: 6 days, 15:40:00 (night)]
+  BOS -> DCA (B6 1555) 11.21 08:10 -> 11.21 09:57 [layover: 3:12:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 2:10:00]
+  TPA -> LGA (B6 0048) 11.22 10:20 -> 11.22 12:54 [layover: 3:03:00]
+  LGA -> MCO (B6 0499) 11.22 15:57 -> 11.22 19:00 [layover: 4:59:00]
+  MCO -> BQN (B6 0430) 11.22 23:59 -> 11.23 03:40 [layover: 2:20:00]
+  BQN -> JFK (B6 2838) 11.23 06:00 -> 11.23 09:00 [layover: 4:17:00]
+  JFK -> MSY (B6 0575) 11.23 13:17 -> 11.23 15:39 [layover: 4:04:00]
+  MSY -> BOS (B6 1300) 11.23 19:43 -> 11.23 23:51
+  Total duration: 18 days, 15:21:00
+  Effective duration: 5 days, 6:56:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'DTW', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'MSY', 'ORH', 'PBI', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 4 new best: Plan: 22 flights, 20 destinations:
+  BOS -> DTW (B6 1037) 11.05 08:30 -> 11.05 10:47 [layover: 3:53:00]
+  DTW -> JFK (B6 1120) 11.05 14:40 -> 11.05 16:26 [layover: 3:21:00]
+  JFK -> LAS (B6 0711) 11.05 19:47 -> 11.05 22:49 [layover: 1:10:00]
+  LAS -> FLL (B6 0608) 11.05 23:59 -> 11.06 07:33 [layover: 4:12:00]
+  FLL -> ORH (B6 2020) 11.06 11:45 -> 11.06 14:45 [layover: 6 days, 16:45:00 (night)]
+  BOS -> RDU (B6 1883) 11.13 07:30 -> 11.13 09:42 [layover: 2:58:00]
+  RDU -> FLL (B6 0625) 11.13 12:40 -> 11.13 14:47 [layover: 1:23:00]
+  FLL -> LAX (B6 0301) 11.13 16:10 -> 11.13 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.13 20:50 -> 11.14 05:00 [layover: 4:05:00]
+  EWR -> RSW (B6 1811) 11.14 09:05 -> 11.14 12:15 [layover: 1:20:00]
+  RSW -> PVD (B6 1892) 11.14 13:35 -> 11.14 16:30 [layover: 6 days, 17:30:00 (night)]
+  BOS -> DCA (B6 1455) 11.21 10:00 -> 11.21 11:41 [layover: 1:28:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 2:10:00]
+  TPA -> LGA (B6 0048) 11.22 10:20 -> 11.22 12:54 [layover: 3:03:00]
+  LGA -> MCO (B6 0499) 11.22 15:57 -> 11.22 19:00 [layover: 4:59:00]
+  MCO -> BQN (B6 0430) 11.22 23:59 -> 11.23 03:40 [layover: 2:20:00]
+  BQN -> JFK (B6 2838) 11.23 06:00 -> 11.23 09:00 [layover: 4:17:00]
+  JFK -> MSY (B6 0575) 11.23 13:17 -> 11.23 15:39 [layover: 4:04:00]
+  MSY -> BOS (B6 1300) 11.23 19:43 -> 11.23 23:51
+  Total duration: 18 days, 15:21:00
+  Effective duration: 5 days, 5:06:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'DTW', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'MSY', 'ORH', 'PBI', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 4 new best: Plan: 22 flights, 20 destinations:
+  BOS -> DTW (B6 1037) 11.05 08:30 -> 11.05 10:47 [layover: 3:53:00]
+  DTW -> JFK (B6 1120) 11.05 14:40 -> 11.05 16:26 [layover: 3:21:00]
+  JFK -> LAS (B6 0711) 11.05 19:47 -> 11.05 22:49 [layover: 1:10:00]
+  LAS -> FLL (B6 0608) 11.05 23:59 -> 11.06 07:33 [layover: 4:12:00]
+  FLL -> ORH (B6 2020) 11.06 11:45 -> 11.06 14:45 [layover: 6 days, 16:15:00 (night)]
+  BOS -> PHL (B6 0359) 11.13 07:00 -> 11.13 08:36 [layover: 3:24:00]
+  PHL -> FLL (B6 2275) 11.13 12:00 -> 11.13 14:42 [layover: 1:28:00]
+  FLL -> LAX (B6 0301) 11.13 16:10 -> 11.13 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.13 20:50 -> 11.14 05:00 [layover: 4:05:00]
+  EWR -> RSW (B6 1811) 11.14 09:05 -> 11.14 12:15 [layover: 1:20:00]
+  RSW -> PVD (B6 1892) 11.14 13:35 -> 11.14 16:30 [layover: 6 days, 15:40:00 (night)]
+  BOS -> DCA (B6 1555) 11.21 08:10 -> 11.21 09:57 [layover: 3:12:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 2:10:00]
+  TPA -> LGA (B6 0048) 11.22 10:20 -> 11.22 12:54 [layover: 3:03:00]
+  LGA -> MCO (B6 0499) 11.22 15:57 -> 11.22 19:00 [layover: 4:59:00]
+  MCO -> BQN (B6 0430) 11.22 23:59 -> 11.23 03:40 [layover: 2:20:00]
+  BQN -> JFK (B6 2838) 11.23 06:00 -> 11.23 09:00 [layover: 4:59:00]
+  JFK -> RDU (B6 2485) 11.23 13:59 -> 11.23 15:47 [layover: 2:38:00]
+  RDU -> BOS (B6 0384) 11.23 18:25 -> 11.23 20:26
+  Total duration: 18 days, 11:56:00
+  Effective duration: 5 days, 4:01:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'DTW', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PHL', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 4 new best: Plan: 22 flights, 20 destinations:
+  BOS -> DTW (B6 1037) 11.05 08:30 -> 11.05 10:47 [layover: 3:53:00]
+  DTW -> JFK (B6 1120) 11.05 14:40 -> 11.05 16:26 [layover: 3:21:00]
+  JFK -> LAS (B6 0711) 11.05 19:47 -> 11.05 22:49 [layover: 1:10:00]
+  LAS -> FLL (B6 0608) 11.05 23:59 -> 11.06 07:33 [layover: 4:12:00]
+  FLL -> ORH (B6 2020) 11.06 11:45 -> 11.06 14:45 [layover: 6 days, 16:15:00 (night)]
+  BOS -> PHL (B6 0359) 11.13 07:00 -> 11.13 08:36 [layover: 3:24:00]
+  PHL -> FLL (B6 2275) 11.13 12:00 -> 11.13 14:42 [layover: 1:28:00]
+  FLL -> LAX (B6 0301) 11.13 16:10 -> 11.13 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.13 20:50 -> 11.14 05:00 [layover: 4:05:00]
+  EWR -> RSW (B6 1811) 11.14 09:05 -> 11.14 12:15 [layover: 1:20:00]
+  RSW -> PVD (B6 1892) 11.14 13:35 -> 11.14 16:30 [layover: 6 days, 17:30:00 (night)]
+  BOS -> DCA (B6 1455) 11.21 10:00 -> 11.21 11:41 [layover: 1:28:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 2:10:00]
+  TPA -> LGA (B6 0048) 11.22 10:20 -> 11.22 12:54 [layover: 3:03:00]
+  LGA -> MCO (B6 0499) 11.22 15:57 -> 11.22 19:00 [layover: 4:59:00]
+  MCO -> BQN (B6 0430) 11.22 23:59 -> 11.23 03:40 [layover: 2:20:00]
+  BQN -> JFK (B6 2838) 11.23 06:00 -> 11.23 09:00 [layover: 4:59:00]
+  JFK -> RDU (B6 2485) 11.23 13:59 -> 11.23 15:47 [layover: 2:38:00]
+  RDU -> BOS (B6 0384) 11.23 18:25 -> 11.23 20:26
+  Total duration: 18 days, 11:56:00
+  Effective duration: 5 days, 2:11:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'DTW', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PHL', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+Chunk 4: 34.0B processed. 1402 items in queue
+Chunk 0: 29.0B processed. 707 items in queue
+Chunk 8: 35.0B processed. 1629 items in queue
+Chunk 2: 27.0B processed. 1129 items in queue
+Chunk 10: 45.0B processed. 1507 items in queue
+Chunk 3: 37.0B processed. 1322 items in queue
+Chunk 5: 37.0B processed. 1283 items in queue
+Chunk 7: 34.0B processed. 1185 items in queue
+Chunk 9: 34.0B processed. 1060 items in queue
+Chunk 6: 38.0B processed. 985 items in queue
+Chunk 12: 34.0B processed. 918 items in queue
+Chunk 13: 39.0B processed. 970 items in queue
+Chunk 1: 34.0B processed. 1039 items in queue
+Chunk 14: 37.0B processed. 1468 items in queue
+Chunk 4: 35.0B processed. 841 items in queue
+Chunk 11: 30.0B processed. 917 items in queue
+Chunk 10: 46.0B processed. 1310 items in queue
+Chunk 8: 36.0B processed. 1170 items in queue
+Chunk 3: 38.0B processed. 1137 items in queue
+Chunk 5: 38.0B processed. 1114 items in queue
+Chunk 0: 30.0B processed. 978 items in queue
+Chunk 2: 28.0B processed. 714 items in queue
+Chunk 6: 39.0B processed. 955 items in queue
+Chunk 9: 35.0B processed. 755 items in queue
+Chunk 13: 40.0B processed. 909 items in queue
+Chunk 7: 35.0B processed. 1145 items in queue
+Chunk 14: 38.0B processed. 1211 items in queue
+Chunk 4: 36.0B processed. 762 items in queue
+Chunk 1: 35.0B processed. 1665 items in queue
+Chunk 12: 35.0B processed. 874 items in queue
+Chunk 10: 47.0B processed. 1080 items in queue
+Chunk 8: 37.0B processed. 747 items in queue
+Chunk 11: 31.0B processed. 770 items in queue
+Chunk 3: 39.0B processed. 1062 items in queue
+Chunk 5: 39.0B processed. 862 items in queue
+Chunk 0: 31.0B processed. 626 items in queue
+Chunk 6: 40.0B processed. 1348 items in queue
+Chunk 14: 39.0B processed. 1240 items in queue
+Chunk 2: 29.0B processed. 1038 items in queue
+Chunk 13: 41.0B processed. 573 items in queue
+Chunk 9: 36.0B processed. 1236 items in queue
+Chunk 7: 36.0B processed. 841 items in queue
+Chunk 4: 37.0B processed. 1040 items in queue
+Chunk 1: 36.0B processed. 1200 items in queue
+Chunk 10: 48.0B processed. 813 items in queue
+Chunk 12: 36.0B processed. 764 items in queue
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 4:09:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:36:00]
+  MCO -> ORH (B6 0488) 11.21 08:30 -> 11.21 11:17 [layover: 3 days, 22:43:00 (night)]
+  BOS -> DCA (B6 1455) 11.25 10:00 -> 11.25 11:41 [layover: 1:28:00]
+  DCA -> PBI (B6 0023) 11.25 13:09 -> 11.25 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.25 17:31 -> 11.25 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.25 22:20 -> 11.26 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.26 06:00 -> 11.26 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.26 09:00 -> 11.26 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.26 13:00 -> 11.26 16:02 [layover: 2:28:00]
+  FLL -> LAS (B6 0607) 11.26 18:30 -> 11.26 20:57 [layover: 2:53:00]
+  LAS -> JFK (B6 0948) 11.26 23:50 -> 11.27 07:45 [layover: 1:35:00]
+  JFK -> BUF (B6 2902) 11.27 09:20 -> 11.27 10:50 [layover: 0:51:00]
+  BUF -> FLL (B6 2465) 11.27 11:41 -> 11.27 14:45 [layover: 1:45:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 4:51:00]
+  RSW -> PVD (B6 1892) 11.28 14:02 -> 11.28 16:59 [layover: 6 days, 23:16:00 (night)]
+  BOS -> RIC (B6 1081) 12.05 16:15 -> 12.05 18:03 [layover: 0:57:00]
+  RIC -> BOS (B6 1182) 12.05 19:00 -> 12.05 20:37
+  Total duration: 15 days, 9:00:00
+  Effective duration: 4 days, 11:01:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BQN', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PVD', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 4:09:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:36:00]
+  MCO -> ORH (B6 0488) 11.21 08:30 -> 11.21 11:17 [layover: 3 days, 22:43:00 (night)]
+  BOS -> DCA (B6 1455) 11.25 10:00 -> 11.25 11:41 [layover: 1:28:00]
+  DCA -> PBI (B6 0023) 11.25 13:09 -> 11.25 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.25 17:31 -> 11.25 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.25 22:20 -> 11.26 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.26 06:00 -> 11.26 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.26 09:00 -> 11.26 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.26 13:00 -> 11.26 16:02 [layover: 2:28:00]
+  FLL -> LAS (B6 0607) 11.26 18:30 -> 11.26 20:57 [layover: 2:53:00]
+  LAS -> JFK (B6 0948) 11.26 23:50 -> 11.27 07:45 [layover: 1:35:00]
+  JFK -> BUF (B6 2902) 11.27 09:20 -> 11.27 10:50 [layover: 0:51:00]
+  BUF -> FLL (B6 2465) 11.27 11:41 -> 11.27 14:45 [layover: 1:45:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 4:51:00]
+  RSW -> PVD (B6 1892) 11.28 14:02 -> 11.28 16:59 [layover: 3 days, 0:13:00 (night)]
+  BOS -> PHL (B6 0859) 12.01 17:12 -> 12.01 18:54 [layover: 0:55:00]
+  PHL -> BOS (B6 0860) 12.01 19:49 -> 12.01 21:08
+  Total duration: 11 days, 9:31:00
+  Effective duration: 4 days, 10:35:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BQN', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PVD', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 4:09:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:36:00]
+  MCO -> ORH (B6 0488) 11.21 08:30 -> 11.21 11:17 [layover: 3 days, 22:43:00 (night)]
+  BOS -> DCA (B6 1455) 11.25 10:00 -> 11.25 11:41 [layover: 1:28:00]
+  DCA -> PBI (B6 0023) 11.25 13:09 -> 11.25 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.25 17:31 -> 11.25 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.25 22:20 -> 11.26 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.26 06:00 -> 11.26 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.26 09:00 -> 11.26 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.26 13:00 -> 11.26 16:02 [layover: 2:28:00]
+  FLL -> LAS (B6 0607) 11.26 18:30 -> 11.26 20:57 [layover: 2:53:00]
+  LAS -> JFK (B6 0948) 11.26 23:50 -> 11.27 07:45 [layover: 1:35:00]
+  JFK -> BUF (B6 2902) 11.27 09:20 -> 11.27 10:50 [layover: 0:51:00]
+  BUF -> FLL (B6 2465) 11.27 11:41 -> 11.27 14:45 [layover: 1:45:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 4:51:00]
+  RSW -> PVD (B6 1892) 11.28 14:02 -> 11.28 16:59 [layover: 6 days, 22:01:00 (night)]
+  BOS -> PHL (B6 0759) 12.05 15:00 -> 12.05 16:37 [layover: 0:55:00]
+  PHL -> BOS (B6 0760) 12.05 17:32 -> 12.05 18:50
+  Total duration: 15 days, 7:13:00
+  Effective duration: 4 days, 10:29:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BQN', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PVD', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 4:09:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:36:00]
+  MCO -> ORH (B6 0488) 11.21 08:30 -> 11.21 11:17 [layover: 3 days, 22:43:00 (night)]
+  BOS -> DCA (B6 1455) 11.25 10:00 -> 11.25 11:41 [layover: 1:28:00]
+  DCA -> PBI (B6 0023) 11.25 13:09 -> 11.25 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.25 17:31 -> 11.25 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.25 22:20 -> 11.26 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.26 06:00 -> 11.26 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.26 09:00 -> 11.26 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.26 13:00 -> 11.26 16:02 [layover: 2:28:00]
+  FLL -> LAS (B6 0607) 11.26 18:30 -> 11.26 20:57 [layover: 2:53:00]
+  LAS -> JFK (B6 0948) 11.26 23:50 -> 11.27 07:45 [layover: 1:35:00]
+  JFK -> BUF (B6 2902) 11.27 09:20 -> 11.27 10:50 [layover: 0:51:00]
+  BUF -> FLL (B6 2465) 11.27 11:41 -> 11.27 14:45 [layover: 1:45:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 4:51:00]
+  RSW -> PVD (B6 1892) 11.28 14:02 -> 11.28 16:59 [layover: 3 days, 3:01:00 (night)]
+  BOS -> PHL (B6 0759) 12.01 20:00 -> 12.01 21:33 [layover: 1:00:00]
+  PHL -> BOS (B6 0760) 12.01 22:33 -> 12.01 23:48
+  Total duration: 11 days, 12:11:00
+  Effective duration: 4 days, 10:27:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BQN', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PVD', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 4:09:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:54:00]
+  MCO -> DCA (B6 2024) 11.21 08:48 -> 11.21 11:00 [layover: 2:09:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.22 17:03 -> 11.22 20:01 [layover: 4 days, 9:59:00 (night)]
+  BOS -> RDU (B6 1883) 11.27 06:00 -> 11.27 08:13 [layover: 2:42:00]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 5:36:00 (night)]
+  BOS -> PHX (B6 1970) 12.01 18:40 -> 12.01 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 12.01 23:40 -> 12.02 05:40 [layover: 1:20:00]
+  FLL -> CHS (B6 1130) 12.02 07:00 -> 12.02 08:35 [layover: 2:05:00]
+  CHS -> BOS (B6 0068) 12.02 10:40 -> 12.02 12:49
+  Total duration: 12 days, 1:12:00
+  Effective duration: 4 days, 9:37:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BQN', 'CHS', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+Chunk 5: 40.0B processed. 817 items in queue
+Chunk 8: 38.0B processed. 1256 items in queue
+Chunk 3: 40.0B processed. 1314 items in queue
+Chunk 11: 32.0B processed. 1361 items in queue
+Chunk 6: 41.0B processed. 758 items in queue
+Chunk 14: 40.0B processed. 1321 items in queue
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 4:09:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:54:00]
+  MCO -> DCA (B6 2024) 11.21 08:48 -> 11.21 11:00 [layover: 2:09:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.22 17:03 -> 11.22 20:01 [layover: 4 days, 17:59:00 (night)]
+  BOS -> LAX (B6 0487) 11.27 14:00 -> 11.27 17:25 [layover: 3:25:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 6 days, 6:16:00 (night)]
+  BOS -> LAS (B6 0177) 12.04 19:20 -> 12.04 22:19 [layover: 1:40:00]
+  LAS -> JFK (B6 0948) 12.04 23:59 -> 12.05 07:54 [layover: 2:36:00]
+  JFK -> SYR (B6 2101) 12.05 10:30 -> 12.05 11:43 [layover: 1:02:00]
+  SYR -> JFK (B6 2802) 12.05 12:45 -> 12.05 13:58 [layover: 1:42:00]
+  JFK -> BUF (B6 1202) 12.05 15:40 -> 12.05 17:07 [layover: 2:28:00]
+  BUF -> BOS (B6 0916) 12.05 19:35 -> 12.05 20:58
+  Total duration: 15 days, 9:21:00
+  Effective duration: 4 days, 9:06:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BQN', 'BUF', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PVD', 'RSW', 'SJU', 'SYR', 'TPA']
+
+
+Chunk 0 new best: Plan: 22 flights, 20 destinations:
+  BOS -> ATL (B6 1097) 11.20 11:37 -> 11.20 14:22 [layover: 1:08:00]
+  ATL -> JFK (B6 0520) 11.20 15:30 -> 11.20 17:43 [layover: 4:09:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:54:00]
+  MCO -> DCA (B6 2024) 11.21 08:48 -> 11.21 11:00 [layover: 2:09:00]
+  DCA -> PBI (B6 0023) 11.21 13:09 -> 11.21 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.21 17:31 -> 11.21 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.21 22:20 -> 11.22 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.22 06:00 -> 11.22 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.22 09:00 -> 11.22 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.22 13:00 -> 11.22 16:02 [layover: 1:01:00]
+  FLL -> PVD (B6 1196) 11.22 17:03 -> 11.22 20:01 [layover: 4 days, 11:59:00 (night)]
+  BOS -> BUF (B6 0915) 11.27 08:00 -> 11.27 09:36 [layover: 1:59:00]
+  BUF -> JFK (B6 2901) 11.27 11:35 -> 11.27 13:00 [layover: 2:40:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 0:54:00]
+  RSW -> ORH (B6 2834) 11.28 10:05 -> 11.28 13:04 [layover: 3 days, 5:36:00 (night)]
+  BOS -> PHX (B6 1970) 12.01 18:40 -> 12.01 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 12.01 23:40 -> 12.02 05:40 [layover: 1:20:00]
+  FLL -> CHS (B6 1130) 12.02 07:00 -> 12.02 08:35 [layover: 2:05:00]
+  CHS -> BOS (B6 0068) 12.02 10:40 -> 12.02 12:49
+  Total duration: 12 days, 1:12:00
+  Effective duration: 4 days, 7:37:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['ATL', 'BDL', 'BOS', 'BQN', 'BUF', 'CHS', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RSW', 'SJU', 'TPA']
+
+Chunk 0: 32.0B processed. 1201 items in queue
+Chunk 9: 37.0B processed. 996 items in queue
+
+Chunk 4 new best: Plan: 22 flights, 20 destinations:
+  BOS -> DTW (B6 1037) 11.06 08:30 -> 11.06 10:47 [layover: 3:53:00]
+  DTW -> JFK (B6 1120) 11.06 14:40 -> 11.06 16:26 [layover: 3:21:00]
+  JFK -> LAS (B6 0711) 11.06 19:47 -> 11.06 22:49 [layover: 1:10:00]
+  LAS -> FLL (B6 0608) 11.06 23:59 -> 11.07 07:33 [layover: 4:12:00]
+  FLL -> ORH (B6 2020) 11.07 11:45 -> 11.07 14:45 [layover: 6 days, 16:45:00 (night)]
+  BOS -> RDU (B6 1883) 11.14 07:30 -> 11.14 09:42 [layover: 2:58:00]
+  RDU -> FLL (B6 0625) 11.14 12:40 -> 11.14 14:47 [layover: 1:23:00]
+  FLL -> LAX (B6 0301) 11.14 16:10 -> 11.14 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.14 20:50 -> 11.15 05:00 [layover: 4:05:00]
+  EWR -> RSW (B6 1811) 11.15 09:05 -> 11.15 12:15 [layover: 1:20:00]
+  RSW -> PVD (B6 1892) 11.15 13:35 -> 11.15 16:30 [layover: 6 days, 15:40:00 (night)]
+  BOS -> DCA (B6 1555) 11.22 08:10 -> 11.22 09:57 [layover: 1:03:00]
+  DCA -> PBI (B6 1023) 11.22 11:00 -> 11.22 13:39 [layover: 4:51:00]
+  PBI -> BDL (B6 1242) 11.22 18:30 -> 11.22 21:21 [layover: 0:59:00]
+  BDL -> SJU (B6 1475) 11.22 22:20 -> 11.23 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.23 06:00 -> 11.23 08:10 [layover: 2:10:00]
+  TPA -> LGA (B6 0048) 11.23 10:20 -> 11.23 12:54 [layover: 3:03:00]
+  LGA -> MCO (B6 0499) 11.23 15:57 -> 11.23 19:00 [layover: 4:59:00]
+  MCO -> BQN (B6 0430) 11.23 23:59 -> 11.24 03:40 [layover: 2:20:00]
+  BQN -> JFK (B6 2838) 11.24 06:00 -> 11.24 09:00 [layover: 1:55:00]
+  JFK -> BUF (B6 0902) 11.24 10:55 -> 11.24 12:24 [layover: 1:46:00]
+  BUF -> BOS (B6 0716) 11.24 14:10 -> 11.24 15:33
+  Total duration: 18 days, 7:03:00
+  Effective duration: 4 days, 22:38:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'BUF', 'DCA', 'DTW', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+Chunk 4: 38.0B processed. 1017 items in queue
+Chunk 10: 49.0B processed. 1177 items in queue
+Chunk 2: 30.0B processed. 1015 items in queue
+Chunk 13: 42.0B processed. 937 items in queue
+Chunk 1: 37.0B processed. 1291 items in queue
+Chunk 3: 41.0B processed. 710 items in queue
+Chunk 5: 41.0B processed. 977 items in queue
+Chunk 7: 37.0B processed. 1239 items in queue
+Chunk 8: 39.0B processed. 1047 items in queue
+Chunk 12: 37.0B processed. 1088 items in queue
+Chunk 6: 42.0B processed. 1054 items in queue
+Chunk 11: 33.0B processed. 1042 items in queue
+Chunk 9: 38.0B processed. 694 items in queue
+Chunk 10: 50.0B processed. 1309 items in queue
+Chunk 14: 41.0B processed. 1095 items in queue
+Chunk 4: 39.0B processed. 851 items in queue
+Chunk 0: 33.0B processed. 778 items in queue
+Chunk 1: 38.0B processed. 778 items in queue
+Chunk 13: 43.0B processed. 814 items in queue
+Chunk 2: 31.0B processed. 762 items in queue
+Chunk 5: 42.0B processed. 1019 items in queue
+Chunk 3: 42.0B processed. 1368 items in queue
+Chunk 7: 38.0B processed. 1004 items in queue
+Chunk 10: 51.0B processed. 751 items in queue
+Chunk 6: 43.0B processed. 974 items in queue
+Chunk 8: 40.0B processed. 1094 items in queue
+Chunk 14: 42.0B processed. 913 items in queue
+Chunk 9: 39.0B processed. 541 items in queue
+Chunk 4: 40.0B processed. 688 items in queue
+Chunk 12: 38.0B processed. 1121 items in queue
+Chunk 11: 34.0B processed. 715 items in queue
+Chunk 0: 34.0B processed. 1391 items in queue
+Chunk 13: 44.0B processed. 1427 items in queue
+Chunk 10: 52.0B processed. 766 items in queue
+Chunk 5: 43.0B processed. 1016 items in queue
+Chunk 3: 43.0B processed. 1449 items in queue
+Chunk 1: 39.0B processed. 1107 items in queue
+Chunk 6: 44.0B processed. 1116 items in queue
+Chunk 2: 32.0B processed. 1095 items in queue
+Chunk 14: 43.0B processed. 1240 items in queue
+Chunk 8: 41.0B processed. 552 items in queue
+Chunk 4: 41.0B processed. 1176 items in queue
+Chunk 12: 39.0B processed. 1402 items in queue
+Chunk 7: 39.0B processed. 1016 items in queue
+Chunk 9: 40.0B processed. 1003 items in queue
+Chunk 11: 35.0B processed. 826 items in queue
+Chunk 10: 53.0B processed. 1080 items in queue
+Chunk 0: 35.0B processed. 822 items in queue
+Chunk 13: 45.0B processed. 1249 items in queue
+Chunk 5: 44.0B processed. 752 items in queue
+Chunk 3: 44.0B processed. 1272 items in queue
+Chunk 6: 45.0B processed. 1168 items in queue
+Chunk 14: 44.0B processed. 1538 items in queue
+Chunk 12: 40.0B processed. 1230 items in queue
+Chunk 4: 42.0B processed. 1045 items in queue
+Chunk 8: 42.0B processed. 744 items in queue
+Chunk 1: 40.0B processed. 1092 items in queue
+Chunk 9: 41.0B processed. 1384 items in queue
+Chunk 10: 54.0B processed. 719 items in queue
+Chunk 2: 33.0B processed. 730 items in queue
+Chunk 13: 46.0B processed. 1192 items in queue
+Chunk 7: 40.0B processed. 721 items in queue
+Chunk 11: 36.0B processed. 683 items in queue
+Chunk 0: 36.0B processed. 1010 items in queue
+Chunk 5: 45.0B processed. 789 items in queue
+Chunk 3: 45.0B processed. 1239 items in queue
+Chunk 6: 46.0B processed. 1038 items in queue
+Chunk 14: 45.0B processed. 867 items in queue
+Chunk 9: 42.0B processed. 1147 items in queue
+Chunk 12: 41.0B processed. 1373 items in queue
+Chunk 1: 41.0B processed. 1003 items in queue
+Chunk 4: 43.0B processed. 1210 items in queue
+Chunk 8: 43.0B processed. 1197 items in queue
+Chunk 10: 55.0B processed. 1305 items in queue
+Chunk 13: 47.0B processed. 1052 items in queue
+Chunk 2: 34.0B processed. 949 items in queue
+Chunk 5: 46.0B processed. 667 items in queue
+Chunk 7: 41.0B processed. 1146 items in queue
+Chunk 11: 37.0B processed. 488 items in queue
+Chunk 0: 37.0B processed. 976 items in queue
+Chunk 3: 46.0B processed. 1519 items in queue
+Chunk 12: 42.0B processed. 1124 items in queue
+Chunk 6: 47.0B processed. 861 items in queue
+Chunk 9: 43.0B processed. 1194 items in queue
+
+Chunk 4 new best: Plan: 22 flights, 20 destinations:
+  BOS -> DTW (B6 1037) 11.09 08:30 -> 11.09 10:47 [layover: 3:53:00]
+  DTW -> JFK (B6 1120) 11.09 14:40 -> 11.09 16:26 [layover: 3:21:00]
+  JFK -> LAS (B6 0711) 11.09 19:47 -> 11.09 22:49 [layover: 1:10:00]
+  LAS -> FLL (B6 0608) 11.09 23:59 -> 11.10 07:33 [layover: 4:12:00]
+  FLL -> ORH (B6 2020) 11.10 11:45 -> 11.10 14:45 [layover: 6 days, 23:15:00 (night)]
+  BOS -> LAX (B6 0487) 11.17 14:00 -> 11.17 17:25 [layover: 3:25:00]
+  LAX -> EWR (B6 1574) 11.17 20:50 -> 11.18 05:00 [layover: 4:05:00]
+  EWR -> RSW (B6 1811) 11.18 09:05 -> 11.18 12:15 [layover: 1:20:00]
+  RSW -> PVD (B6 1892) 11.18 13:35 -> 11.18 16:30 [layover: 4 days, 17:30:00 (night)]
+  BOS -> DCA (B6 1455) 11.23 10:00 -> 11.23 11:41 [layover: 1:28:00]
+  DCA -> PBI (B6 0023) 11.23 13:09 -> 11.23 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.23 17:31 -> 11.23 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.23 22:20 -> 11.24 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.24 06:00 -> 11.24 08:10 [layover: 2:10:00]
+  TPA -> LGA (B6 0048) 11.24 10:20 -> 11.24 12:54 [layover: 3:03:00]
+  LGA -> MCO (B6 0499) 11.24 15:57 -> 11.24 19:00 [layover: 4:59:00]
+  MCO -> BQN (B6 0430) 11.24 23:59 -> 11.25 03:40 [layover: 2:20:00]
+  BQN -> JFK (B6 2838) 11.25 06:00 -> 11.25 09:00 [layover: 2:30:00]
+  JFK -> SYR (B6 2101) 11.25 11:30 -> 11.25 12:43 [layover: 1:01:00]
+  SYR -> JFK (B6 2802) 11.25 13:44 -> 11.25 14:59 [layover: 2:16:00]
+  JFK -> BUF (B6 1202) 11.25 17:15 -> 11.25 18:47 [layover: 2:33:00]
+  BUF -> BOS (B6 1116) 11.25 21:20 -> 11.25 22:39
+  Total duration: 16 days, 14:09:00
+  Effective duration: 4 days, 21:24:00
+  Days taken: 7
+  Overnight layovers: 2
+  Airports visited: ['BDL', 'BOS', 'BQN', 'BUF', 'DCA', 'DTW', 'EWR', 'FLL', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PVD', 'RSW', 'SJU', 'SYR', 'TPA']
+
+Chunk 4: 44.0B processed. 1265 items in queue
+Chunk 14: 46.0B processed. 838 items in queue
+Chunk 1: 42.0B processed. 1402 items in queue
+Chunk 10: 56.0B processed. 1111 items in queue
+Chunk 13: 48.0B processed. 1147 items in queue
+Chunk 8: 44.0B processed. 865 items in queue
+Chunk 5: 47.0B processed. 876 items in queue
+Chunk 2: 35.0B processed. 1217 items in queue
+Chunk 12: 43.0B processed. 1196 items in queue
+Chunk 3: 47.0B processed. 1347 items in queue
+Chunk 11: 38.0B processed. 697 items in queue
+Chunk 10: 57.0B processed. 918 items in queue
+Chunk 14: 47.0B processed. 1132 items in queue
+Chunk 0: 38.0B processed. 804 items in queue
+Chunk 4: 45.0B processed. 682 items in queue
+Chunk 6: 48.0B processed. 924 items in queue
+Chunk 9: 44.0B processed. 1004 items in queue
+Chunk 7: 42.0B processed. 564 items in queue
+Chunk 13: 49.0B processed. 797 items in queue
+Chunk 1: 43.0B processed. 954 items in queue
+Chunk 8: 45.0B processed. 1461 items in queue
+Chunk 5: 48.0B processed. 821 items in queue
+Chunk 12: 44.0B processed. 931 items in queue
+Chunk 3: 48.0B processed. 1364 items in queue
+Chunk 10: 58.0B processed. 1157 items in queue
+Chunk 11: 39.0B processed. 1087 items in queue
+Chunk 14: 48.0B processed. 1237 items in queue
+Chunk 6: 49.0B processed. 922 items in queue
+Chunk 2: 36.0B processed. 862 items in queue
+Chunk 4: 46.0B processed. 952 items in queue
+Chunk 9: 45.0B processed. 1029 items in queue
+Chunk 13: 50.0B processed. 812 items in queue
+Chunk 0: 39.0B processed. 554 items in queue
+Chunk 1: 44.0B processed. 550 items in queue
+Chunk 8: 46.0B processed. 1108 items in queue
+Chunk 7: 43.0B processed. 872 items in queue
+Chunk 5: 49.0B processed. 1334 items in queue
+Chunk 10: 59.0B processed. 968 items in queue
+Chunk 3: 49.0B processed. 814 items in queue
+Chunk 12: 45.0B processed. 972 items in queue
+Chunk 11: 40.0B processed. 578 items in queue
+Chunk 9: 46.0B processed. 1087 items in queue
+Chunk 6: 50.0B processed. 562 items in queue
+Chunk 14: 49.0B processed. 913 items in queue
+Chunk 4: 47.0B processed. 640 items in queue
+Chunk 13: 51.0B processed. 1173 items in queue
+Chunk 0: 40.0B processed. 896 items in queue
+Chunk 8: 47.0B processed. 961 items in queue
+Chunk 2: 37.0B processed. 926 items in queue
+Chunk 5: 50.0B processed. 957 items in queue
+Chunk 7: 44.0B processed. 1196 items in queue
+Chunk 1: 45.0B processed. 885 items in queue
+Chunk 10: 60.0B processed. 963 items in queue
+Chunk 12: 46.0B processed. 927 items in queue
+Chunk 9: 47.0B processed. 994 items in queue
+
+Chunk 7 new best: Plan: 22 flights, 20 destinations:
+  BOS -> LAS (B6 2677) 11.20 07:40 -> 11.20 10:52 [layover: 1:57:00]
+  LAS -> JFK (B6 0348) 11.20 12:49 -> 11.20 21:00 [layover: 0:52:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:36:00]
+  MCO -> ORH (B6 0488) 11.21 08:30 -> 11.21 11:17 [layover: 3 days, 9:31:00 (night)]
+  BOS -> RDU (B6 0783) 11.24 20:48 -> 11.24 22:57 [layover: 8:03:00 (night)]
+  RDU -> FLL (B6 2625) 11.25 07:00 -> 11.25 09:17 [layover: 0:50:00]
+  FLL -> LGA (B6 0472) 11.25 10:07 -> 11.25 12:57 [layover: 0:53:00]
+  LGA -> PBI (B6 1761) 11.25 13:50 -> 11.25 16:55 [layover: 1:36:00]
+  PBI -> BDL (B6 0342) 11.25 18:31 -> 11.25 21:22 [layover: 0:58:00]
+  BDL -> SJU (B6 1475) 11.25 22:20 -> 11.26 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.26 06:00 -> 11.26 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.26 09:00 -> 11.26 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.26 13:00 -> 11.26 16:02 [layover: 3:58:00]
+  FLL -> DCA (B6 2080) 11.26 20:00 -> 11.26 22:29 [layover: 11:31:00 (night)]
+  DCA -> FLL (B6 0579) 11.27 10:00 -> 11.27 12:38 [layover: 3:52:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 4:51:00]
+  RSW -> PVD (B6 1892) 11.28 14:02 -> 11.28 16:59 [layover: 6 days, 20:02:00 (night)]
+  BOS -> SAV (B6 0349) 12.05 13:01 -> 12.05 15:42 [layover: 0:58:00]
+  SAV -> BOS (B6 0250) 12.05 16:40 -> 12.05 19:10
+  Total duration: 15 days, 11:30:00
+  Effective duration: 5 days, 5:57:00
+  Days taken: 8
+  Overnight layovers: 4
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PVD', 'RDU', 'RSW', 'SAV', 'SJU', 'TPA']
+
+
+Chunk 7 new best: Plan: 22 flights, 20 destinations:
+  BOS -> LAS (B6 2677) 11.20 07:40 -> 11.20 10:52 [layover: 1:57:00]
+  LAS -> JFK (B6 0348) 11.20 12:49 -> 11.20 21:00 [layover: 0:52:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:36:00]
+  MCO -> ORH (B6 0488) 11.21 08:30 -> 11.21 11:17 [layover: 3 days, 9:31:00 (night)]
+  BOS -> RDU (B6 0783) 11.24 20:48 -> 11.24 22:57 [layover: 8:03:00 (night)]
+  RDU -> FLL (B6 2625) 11.25 07:00 -> 11.25 09:17 [layover: 0:50:00]
+  FLL -> LGA (B6 0472) 11.25 10:07 -> 11.25 12:57 [layover: 0:53:00]
+  LGA -> PBI (B6 1761) 11.25 13:50 -> 11.25 16:55 [layover: 1:36:00]
+  PBI -> BDL (B6 0342) 11.25 18:31 -> 11.25 21:22 [layover: 0:58:00]
+  BDL -> SJU (B6 1475) 11.25 22:20 -> 11.26 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.26 06:00 -> 11.26 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.26 09:00 -> 11.26 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.26 13:00 -> 11.26 16:02 [layover: 3:58:00]
+  FLL -> DCA (B6 2080) 11.26 20:00 -> 11.26 22:29 [layover: 11:31:00 (night)]
+  DCA -> FLL (B6 0579) 11.27 10:00 -> 11.27 12:38 [layover: 3:52:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 4:51:00]
+  RSW -> PVD (B6 1892) 11.28 14:02 -> 11.28 16:59 [layover: 6 days, 23:16:00 (night)]
+  BOS -> RIC (B6 1081) 12.05 16:15 -> 12.05 18:03 [layover: 0:57:00]
+  RIC -> BOS (B6 1182) 12.05 19:00 -> 12.05 20:37
+  Total duration: 15 days, 12:57:00
+  Effective duration: 5 days, 4:10:00
+  Days taken: 8
+  Overnight layovers: 4
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PVD', 'RDU', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 7 new best: Plan: 22 flights, 20 destinations:
+  BOS -> LAS (B6 2677) 11.20 07:40 -> 11.20 10:52 [layover: 1:57:00]
+  LAS -> JFK (B6 0348) 11.20 12:49 -> 11.20 21:00 [layover: 0:52:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:36:00]
+  MCO -> ORH (B6 0488) 11.21 08:30 -> 11.21 11:17 [layover: 3 days, 9:31:00 (night)]
+  BOS -> RDU (B6 0783) 11.24 20:48 -> 11.24 22:57 [layover: 8:03:00 (night)]
+  RDU -> FLL (B6 2625) 11.25 07:00 -> 11.25 09:17 [layover: 0:50:00]
+  FLL -> LGA (B6 0472) 11.25 10:07 -> 11.25 12:57 [layover: 0:53:00]
+  LGA -> PBI (B6 1761) 11.25 13:50 -> 11.25 16:55 [layover: 1:36:00]
+  PBI -> BDL (B6 0342) 11.25 18:31 -> 11.25 21:22 [layover: 0:58:00]
+  BDL -> SJU (B6 1475) 11.25 22:20 -> 11.26 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.26 06:00 -> 11.26 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.26 09:00 -> 11.26 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.26 13:00 -> 11.26 16:02 [layover: 3:58:00]
+  FLL -> DCA (B6 2080) 11.26 20:00 -> 11.26 22:29 [layover: 11:31:00 (night)]
+  DCA -> FLL (B6 0579) 11.27 10:00 -> 11.27 12:38 [layover: 3:52:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 4:51:00]
+  RSW -> PVD (B6 1892) 11.28 14:02 -> 11.28 16:59 [layover: 3 days, 0:13:00 (night)]
+  BOS -> PHL (B6 0859) 12.01 17:12 -> 12.01 18:54 [layover: 0:55:00]
+  PHL -> BOS (B6 0860) 12.01 19:49 -> 12.01 21:08
+  Total duration: 11 days, 13:28:00
+  Effective duration: 5 days, 3:44:00
+  Days taken: 8
+  Overnight layovers: 4
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PHL', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 7 new best: Plan: 22 flights, 20 destinations:
+  BOS -> LAS (B6 2677) 11.20 07:40 -> 11.20 10:52 [layover: 1:57:00]
+  LAS -> JFK (B6 0348) 11.20 12:49 -> 11.20 21:00 [layover: 0:52:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:36:00]
+  MCO -> ORH (B6 0488) 11.21 08:30 -> 11.21 11:17 [layover: 3 days, 9:31:00 (night)]
+  BOS -> RDU (B6 0783) 11.24 20:48 -> 11.24 22:57 [layover: 8:03:00 (night)]
+  RDU -> FLL (B6 2625) 11.25 07:00 -> 11.25 09:17 [layover: 0:50:00]
+  FLL -> LGA (B6 0472) 11.25 10:07 -> 11.25 12:57 [layover: 0:53:00]
+  LGA -> PBI (B6 1761) 11.25 13:50 -> 11.25 16:55 [layover: 1:36:00]
+  PBI -> BDL (B6 0342) 11.25 18:31 -> 11.25 21:22 [layover: 0:58:00]
+  BDL -> SJU (B6 1475) 11.25 22:20 -> 11.26 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.26 06:00 -> 11.26 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.26 09:00 -> 11.26 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.26 13:00 -> 11.26 16:02 [layover: 3:58:00]
+  FLL -> DCA (B6 2080) 11.26 20:00 -> 11.26 22:29 [layover: 11:31:00 (night)]
+  DCA -> FLL (B6 0579) 11.27 10:00 -> 11.27 12:38 [layover: 3:52:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 4:51:00]
+  RSW -> PVD (B6 1892) 11.28 14:02 -> 11.28 16:59 [layover: 6 days, 22:01:00 (night)]
+  BOS -> PHL (B6 0759) 12.05 15:00 -> 12.05 16:37 [layover: 0:55:00]
+  PHL -> BOS (B6 0760) 12.05 17:32 -> 12.05 18:50
+  Total duration: 15 days, 11:10:00
+  Effective duration: 5 days, 3:38:00
+  Days taken: 8
+  Overnight layovers: 4
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PHL', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 7 new best: Plan: 22 flights, 20 destinations:
+  BOS -> LAS (B6 2677) 11.20 07:40 -> 11.20 10:52 [layover: 1:57:00]
+  LAS -> JFK (B6 0348) 11.20 12:49 -> 11.20 21:00 [layover: 0:52:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:36:00]
+  MCO -> ORH (B6 0488) 11.21 08:30 -> 11.21 11:17 [layover: 3 days, 9:31:00 (night)]
+  BOS -> RDU (B6 0783) 11.24 20:48 -> 11.24 22:57 [layover: 8:03:00 (night)]
+  RDU -> FLL (B6 2625) 11.25 07:00 -> 11.25 09:17 [layover: 0:50:00]
+  FLL -> LGA (B6 0472) 11.25 10:07 -> 11.25 12:57 [layover: 0:53:00]
+  LGA -> PBI (B6 1761) 11.25 13:50 -> 11.25 16:55 [layover: 1:36:00]
+  PBI -> BDL (B6 0342) 11.25 18:31 -> 11.25 21:22 [layover: 0:58:00]
+  BDL -> SJU (B6 1475) 11.25 22:20 -> 11.26 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.26 06:00 -> 11.26 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.26 09:00 -> 11.26 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.26 13:00 -> 11.26 16:02 [layover: 3:58:00]
+  FLL -> DCA (B6 2080) 11.26 20:00 -> 11.26 22:29 [layover: 11:31:00 (night)]
+  DCA -> FLL (B6 0579) 11.27 10:00 -> 11.27 12:38 [layover: 3:52:00]
+  FLL -> LAX (B6 0301) 11.27 16:30 -> 11.27 19:22 [layover: 1:28:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 4:51:00]
+  RSW -> PVD (B6 1892) 11.28 14:02 -> 11.28 16:59 [layover: 3 days, 3:01:00 (night)]
+  BOS -> PHL (B6 0759) 12.01 20:00 -> 12.01 21:33 [layover: 1:00:00]
+  PHL -> BOS (B6 0760) 12.01 22:33 -> 12.01 23:48
+  Total duration: 11 days, 16:08:00
+  Effective duration: 5 days, 3:36:00
+  Days taken: 8
+  Overnight layovers: 4
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'LGA', 'MCO', 'ORH', 'PBI', 'PHL', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+Chunk 3: 50.0B processed. 984 items in queue
+Chunk 11: 41.0B processed. 770 items in queue
+Chunk 6: 51.0B processed. 801 items in queue
+Chunk 14: 50.0B processed. 832 items in queue
+Chunk 4: 48.0B processed. 1113 items in queue
+
+
+Chunk 7 new best: Plan: 22 flights, 20 destinations:
+  BOS -> LAS (B6 2677) 11.20 07:40 -> 11.20 10:52 [layover: 1:57:00]
+  LAS -> JFK (B6 0348) 11.20 12:49 -> 11.20 21:00 [layover: 0:52:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:36:00]
+  MCO -> ORH (B6 0488) 11.21 08:30 -> 11.21 11:17 [layover: 3 days, 7:23:00 (night)]
+  BOS -> PHX (B6 1970) 11.24 18:40 -> 11.24 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.24 23:40 -> 11.25 05:40 [layover: 4:08:00]
+  FLL -> DCA (B6 1680) 11.25 09:48 -> 11.25 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.25 13:09 -> 11.25 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.25 17:31 -> 11.25 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.25 22:20 -> 11.26 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.26 06:00 -> 11.26 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.26 09:00 -> 11.26 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.26 13:00 -> 11.26 16:02 [layover: 4:29:00]
+  FLL -> RDU (B6 2626) 11.26 20:31 -> 11.26 22:38 [layover: 12:17:00 (night)]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 4:51:00]
+  RSW -> PVD (B6 1892) 11.28 14:02 -> 11.28 16:59 [layover: 6 days, 20:02:00 (night)]
+  BOS -> SAV (B6 0349) 12.05 13:01 -> 12.05 15:42 [layover: 0:58:00]
+  SAV -> BOS (B6 0250) 12.05 16:40 -> 12.05 19:10
+  Total duration: 15 days, 11:30:00
+  Effective duration: 5 days, 8:05:00
+  Days taken: 8
+  Overnight layovers: 3
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RDU', 'RSW', 'SAV', 'SJU', 'TPA']
+
+
+Chunk 7 new best: Plan: 22 flights, 20 destinations:
+  BOS -> LAS (B6 2677) 11.20 07:40 -> 11.20 10:52 [layover: 1:57:00]
+  LAS -> JFK (B6 0348) 11.20 12:49 -> 11.20 21:00 [layover: 0:52:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:36:00]
+  MCO -> ORH (B6 0488) 11.21 08:30 -> 11.21 11:17 [layover: 3 days, 7:23:00 (night)]
+  BOS -> PHX (B6 1970) 11.24 18:40 -> 11.24 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.24 23:40 -> 11.25 05:40 [layover: 4:08:00]
+  FLL -> DCA (B6 1680) 11.25 09:48 -> 11.25 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.25 13:09 -> 11.25 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.25 17:31 -> 11.25 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.25 22:20 -> 11.26 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.26 06:00 -> 11.26 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.26 09:00 -> 11.26 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.26 13:00 -> 11.26 16:02 [layover: 4:29:00]
+  FLL -> RDU (B6 2626) 11.26 20:31 -> 11.26 22:38 [layover: 12:17:00 (night)]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 4:51:00]
+  RSW -> PVD (B6 1892) 11.28 14:02 -> 11.28 16:59 [layover: 6 days, 23:16:00 (night)]
+  BOS -> RIC (B6 1081) 12.05 16:15 -> 12.05 18:03 [layover: 0:57:00]
+  RIC -> BOS (B6 1182) 12.05 19:00 -> 12.05 20:37
+  Total duration: 15 days, 12:57:00
+  Effective duration: 5 days, 6:18:00
+  Days taken: 8
+  Overnight layovers: 3
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHX', 'PVD', 'RDU', 'RIC', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 7 new best: Plan: 22 flights, 20 destinations:
+  BOS -> LAS (B6 2677) 11.20 07:40 -> 11.20 10:52 [layover: 1:57:00]
+  LAS -> JFK (B6 0348) 11.20 12:49 -> 11.20 21:00 [layover: 0:52:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:36:00]
+  MCO -> ORH (B6 0488) 11.21 08:30 -> 11.21 11:17 [layover: 3 days, 7:23:00 (night)]
+  BOS -> PHX (B6 1970) 11.24 18:40 -> 11.24 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.24 23:40 -> 11.25 05:40 [layover: 4:08:00]
+  FLL -> DCA (B6 1680) 11.25 09:48 -> 11.25 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.25 13:09 -> 11.25 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.25 17:31 -> 11.25 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.25 22:20 -> 11.26 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.26 06:00 -> 11.26 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.26 09:00 -> 11.26 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.26 13:00 -> 11.26 16:02 [layover: 4:29:00]
+  FLL -> RDU (B6 2626) 11.26 20:31 -> 11.26 22:38 [layover: 12:17:00 (night)]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 4:51:00]
+  RSW -> PVD (B6 1892) 11.28 14:02 -> 11.28 16:59 [layover: 3 days, 0:13:00 (night)]
+  BOS -> PHL (B6 0859) 12.01 17:12 -> 12.01 18:54 [layover: 0:55:00]
+  PHL -> BOS (B6 0860) 12.01 19:49 -> 12.01 21:08
+  Total duration: 11 days, 13:28:00
+  Effective duration: 5 days, 5:52:00
+  Days taken: 8
+  Overnight layovers: 3
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 7 new best: Plan: 22 flights, 20 destinations:
+  BOS -> LAS (B6 2677) 11.20 07:40 -> 11.20 10:52 [layover: 1:57:00]
+  LAS -> JFK (B6 0348) 11.20 12:49 -> 11.20 21:00 [layover: 0:52:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:36:00]
+  MCO -> ORH (B6 0488) 11.21 08:30 -> 11.21 11:17 [layover: 3 days, 7:23:00 (night)]
+  BOS -> PHX (B6 1970) 11.24 18:40 -> 11.24 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.24 23:40 -> 11.25 05:40 [layover: 4:08:00]
+  FLL -> DCA (B6 1680) 11.25 09:48 -> 11.25 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.25 13:09 -> 11.25 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.25 17:31 -> 11.25 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.25 22:20 -> 11.26 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.26 06:00 -> 11.26 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.26 09:00 -> 11.26 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.26 13:00 -> 11.26 16:02 [layover: 4:29:00]
+  FLL -> RDU (B6 2626) 11.26 20:31 -> 11.26 22:38 [layover: 12:17:00 (night)]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 4:51:00]
+  RSW -> PVD (B6 1892) 11.28 14:02 -> 11.28 16:59 [layover: 6 days, 22:01:00 (night)]
+  BOS -> PHL (B6 0759) 12.05 15:00 -> 12.05 16:37 [layover: 0:55:00]
+  PHL -> BOS (B6 0760) 12.05 17:32 -> 12.05 18:50
+  Total duration: 15 days, 11:10:00
+  Effective duration: 5 days, 5:46:00
+  Days taken: 8
+  Overnight layovers: 3
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+
+
+Chunk 7 new best: Plan: 22 flights, 20 destinations:
+  BOS -> LAS (B6 2677) 11.20 07:40 -> 11.20 10:52 [layover: 1:57:00]
+  LAS -> JFK (B6 0348) 11.20 12:49 -> 11.20 21:00 [layover: 0:52:00]
+  JFK -> BQN (B6 2839) 11.20 21:52 -> 11.21 02:40 [layover: 2:20:00]
+  BQN -> MCO (B6 0229) 11.21 05:00 -> 11.21 06:54 [layover: 1:36:00]
+  MCO -> ORH (B6 0488) 11.21 08:30 -> 11.21 11:17 [layover: 3 days, 7:23:00 (night)]
+  BOS -> PHX (B6 1970) 11.24 18:40 -> 11.24 22:48 [layover: 0:52:00]
+  PHX -> FLL (B6 0658) 11.24 23:40 -> 11.25 05:40 [layover: 4:08:00]
+  FLL -> DCA (B6 1680) 11.25 09:48 -> 11.25 12:14 [layover: 0:55:00]
+  DCA -> PBI (B6 0023) 11.25 13:09 -> 11.25 15:46 [layover: 1:45:00]
+  PBI -> BDL (B6 1242) 11.25 17:31 -> 11.25 20:22 [layover: 1:58:00]
+  BDL -> SJU (B6 1475) 11.25 22:20 -> 11.26 03:04 [layover: 2:56:00]
+  SJU -> TPA (B6 2752) 11.26 06:00 -> 11.26 08:10 [layover: 0:50:00]
+  TPA -> HPN (B6 0548) 11.26 09:00 -> 11.26 11:47 [layover: 1:13:00]
+  HPN -> FLL (B6 0413) 11.26 13:00 -> 11.26 16:02 [layover: 4:29:00]
+  FLL -> RDU (B6 2626) 11.26 20:31 -> 11.26 22:38 [layover: 12:17:00 (night)]
+  RDU -> JFK (B6 0686) 11.27 10:55 -> 11.27 12:26 [layover: 3:14:00]
+  JFK -> LAX (B6 0723) 11.27 15:40 -> 11.27 19:02 [layover: 1:48:00]
+  LAX -> EWR (B6 1574) 11.27 20:50 -> 11.28 05:00 [layover: 1:00:00]
+  EWR -> RSW (B6 1811) 11.28 06:00 -> 11.28 09:11 [layover: 4:51:00]
+  RSW -> PVD (B6 1892) 11.28 14:02 -> 11.28 16:59 [layover: 3 days, 3:01:00 (night)]
+  BOS -> PHL (B6 0759) 12.01 20:00 -> 12.01 21:33 [layover: 1:00:00]
+  PHL -> BOS (B6 0760) 12.01 22:33 -> 12.01 23:48
+  Total duration: 11 days, 16:08:00
+  Effective duration: 5 days, 5:44:00
+  Days taken: 8
+  Overnight layovers: 3
+  Airports visited: ['BDL', 'BOS', 'BQN', 'DCA', 'EWR', 'FLL', 'HPN', 'JFK', 'LAS', 'LAX', 'MCO', 'ORH', 'PBI', 'PHL', 'PHX', 'PVD', 'RDU', 'RSW', 'SJU', 'TPA']
+Chunk 13: 52.0B processed. 1134 items in queue
+Chunk 5: 51.0B processed. 1069 items in queue
+Chunk 0: 41.0B processed. 1256 items in queue
+Chunk 8: 48.0B processed. 953 items in queue
+Chunk 10: 61.0B processed. 815 items in queue
+Chunk 2: 38.0B processed. 574 items in queue

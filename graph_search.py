@@ -13,7 +13,11 @@ num_parallel = mp.cpu_count() - 1
 dest_cap = 25
 min_dest_airports = 15
 max_dup_airports = 2
+# end_airports = ['RDU', 'AVL', 'ISM']
+end_airports = ['BOS', 'PVD', 'ORH']
+allowed_overnight_airports = ['RDU', 'DCA', 'BUF', 'PVD', 'PIT']
 
+infile = 'flights.csv'
 stime = dt(2025, 8, 1)
 etime = dt(2025, 11, 21)
 latest_start_time = dt(2025, 10, 15)
@@ -30,12 +34,10 @@ overnight_check_time = datetime.time(3, 0)
 min_trip_gap = datetime.timedelta(days=3)
 max_trip_gap = datetime.timedelta(days=7)
 
-allowed_overnight_airports = ['RDU', 'DCA', 'BUF', 'PVD', 'PIT']
-start_airport = 'RDU'
-regional_end = ['AVL', 'ISM']
+start_airport = end_airports[0]
+regional_end = end_airports[1:]
 end_airports = [start_airport] + regional_end
 regional_endtime_exempt = []
-
 flight_graph = {}
 
 
@@ -275,16 +277,16 @@ def search_from_chunk(chunk_data):
 
 
 def bench_one():
-    city_graph = build_city_graph('flights.csv')
+    city_graph = build_city_graph(infile)
     flight_graph = build_flight_graph(city_graph)
     print(f'Build flight graph, starting search')
-    search_from_chunk(
+    return search_from_chunk(
         (list(city_graph[start_airport]), 0, city_graph, flight_graph))
 
 
 def main():
     print("Building city graph...")
-    city_graph = build_city_graph('flights.csv')
+    city_graph = build_city_graph(infile)
     print(f"City graph built with {len(city_graph)} airports.")
     flight_graph = build_flight_graph(city_graph)
     conns = sum(len(v) for v in flight_graph.values())
@@ -309,10 +311,14 @@ def main():
     print(f"Partitioned into {len(chunks)} chunks of size ~{chunk_size}")
 
     # Process chunks in parallel
-    with Pool(processes=min(num_parallel, mp.cpu_count())) as pool:
-        print(
-            f"Starting parallel processing with {pool._processes} processes...")
-        results = pool.map(search_from_chunk, chunks)
+    results = []
+    if num_parallel <= 1:
+        results = [bench_one()]
+    else:
+        with Pool(processes=min(num_parallel, mp.cpu_count())) as pool:
+            print(
+                f"Starting parallel processing with {num_parallel} processes...")
+            results = pool.map(search_from_chunk, chunks)
 
     # Find the best plan across all chunks
     best_plan = None

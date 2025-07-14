@@ -4,6 +4,7 @@ ACK,Nantucket,577
 ALB,Albany,725
 ATL,Atlanta,893
 AUS,Austin,926
+AVL,Asheville,939
 BDL,Hartford,1084
 BNA,Nashville,1298
 BOS,Boston,1335
@@ -11,6 +12,7 @@ BQN,Aguadilla,1367
 BUF,Buffalo,8653
 CHS,Charleston,1720
 CLE,Cleveland,1784
+CUN,Cancun,1987
 DCA,Washington,2106
 DEN,Denver,2130
 DFW,Dallas-Fort Worth,2138
@@ -20,23 +22,29 @@ FLL,Fort Lauderdale,2694
 HPN,White Plains,3394
 HYA,Hyannis,3482
 IAH,Houston,3503
+ILM,Wilmington,3590
 ISP,Islip,3684
 JAX,Jacksonville,3762
 JFK,New York City,3799
+KIN,Kingston,4117
 LAS,Las Vegas,4425
 LAX,Los Angeles,4429
 LGA,New York City,4521
+MBJ,Montego Bay,4859
 MCO,Orlando,4888
 MHT,Manchester,5008
 MKE,Milwaukee,5060
 MSY,New Orleans,5248
 MVY,Martha's Vineyard,5318
+NAS,Nassau,5419
 ORD,Chicago,5662
 ORH,Worcester,5666
 PBI,West Palm Beach,5736
 PHL,Philadelphia,8651
 PHX,Phoenix,5799
 PIT,Pittsburgh,5811
+PJU,Punta Cana,5960
+POP,Puerto Plata,5883
 PSE,Ponce,5926
 PVD,Providence,5970
 PWM,Portland,5984
@@ -45,10 +53,10 @@ RIC,Richmond,6097
 ROC,Rochester,6143
 RSW,Fort Myers,6170
 SAV,Savannah,6217
+SDQ,Santo Domingo,6260
 SJU,San Juan,7848
+STI,Santiago de los Caballeros,6384
 STT,Saint Thomas,6393
 STX,Saint Croix,6396
 SYR,Syracuse,6450
 TPA,Tampa,6622
-ILM,Wilmington,3590
-AVL,Asheville,939
