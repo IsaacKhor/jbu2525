@@ -99,12 +99,12 @@ class ValidPlan:
             if i < len(self.flights) - 1:  # Not the last flight
                 next_flight = self.flights[i + 1]
                 layover = next_flight.dtime - flight.atime
-                ret += (f"  {flight.src} -> {flight.dst} (B6 {flight.fnum:04d}) "
+                ret += (f"  {flight.src} -> {flight.dst} (B6 {flight.fnum:4d}) "
                         f"{flight.dtime.strftime('%m.%d %H:%M')} -> "
                         f"{flight.atime.strftime('%m.%d %H:%M')} "
                         f"[layover: {layover}{' (night)' if is_overnight(flight, next_flight) else ''}]\n")
             else:  # Last flight
-                ret += (f"  {flight.src} -> {flight.dst} (B6 {flight.fnum:04d}) "
+                ret += (f"  {flight.src} -> {flight.dst} (B6 {flight.fnum:4d}) "
                         f"{flight.dtime.strftime('%m.%d %H:%M')} -> "
                         f"{flight.atime.strftime('%m.%d %H:%M')}\n")
         ret += (f"  Total duration: {self.total_dur}\n"
