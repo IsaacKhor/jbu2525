@@ -12,34 +12,40 @@ import random
 
 num_parallel = mp.cpu_count() - 1
 dest_cap = 25
-min_dest_airports = 17
-max_dup_airports = 3
-end_airports = ['RDU', 'AVL', 'ISM']
-# end_airports = ['BOS', 'PVD', 'ORH']
-allowed_overnight_airports = ['RDU', 'DCA', 'BUF', 'PVD', 'PIT']
+min_dest_airports = 21
+max_dup_airports = 4
+# end_airports = ['RDU', 'AVL', 'ISM']
+end_airports = ['BOS', 'PVD', 'ORH']
+
+# good in-airport hotels: PVD (cat 1), PIT (cat 3), DCA (subway), BUF (walk)
+allowed_overnight_airports = [
+    'BUF', 'PVD', 'PIT',
+    'DCA', 'RDU', 'RIC', 'BDL'  # need uber
+    'MCO', 'FLL',  # please not too many of these
+]
 
 # ban international airports (i'm a poor international student)
-# banned_airports = ['CUN', 'PJU', 'MBJ', 'NAS', 'POP', 'SDQ', 'STI']
-banned_airports = []
+banned_airports = ['CUN', 'PJU', 'MBJ', 'NAS', 'POP', 'SDQ', 'STI']
+# banned_airports = []
 
 infile = 'flights.csv'
-stime = dt(2025, 8, 1)
-etime = dt(2025, 11, 21)
+stime = dt(2025, 9, 20)
+etime = dt(2025, 12, 10)
 latest_start_time = etime - datetime.timedelta(days=15)
 max_plan_dur = datetime.timedelta(days=45)
 
 # layovers
 min_day_layover = datetime.timedelta(minutes=50)
 max_day_layover = datetime.timedelta(hours=5)
-# min_night_layover = datetime.timedelta(hours=7)
+min_night_layover = datetime.timedelta(hours=7)
 max_night_layover = datetime.timedelta(hours=18)
 regional_arrival_earliest = datetime.time(0, 0)
 regional_arrival_latest = datetime.time(23, 59)
 home_arrival_cutoff = datetime.time(23, 00)
 overnight_threshold = datetime.timedelta(hours=3)
 overnight_check_time = datetime.time(3, 0)
-min_trip_gap = datetime.timedelta(days=3)
-max_trip_gap = datetime.timedelta(days=7)
+min_trip_gap = datetime.timedelta(days=3, hours=12)
+max_trip_gap = datetime.timedelta(days=9)
 
 # calculated constants
 start_airport = end_airports[0]
@@ -139,12 +145,12 @@ def get_valid_outgoing(incoming, city_graph):
     cur = incoming.dst
     for outgoing in city_graph[cur]:
         layover = outgoing.dtime - incoming.atime
-        if not (min_day_layover <= layover <= max_night_layover):
+        if not (min_day_layover <= layover <= max_day_layover):
             continue
 
         if is_overnight(incoming, outgoing):
             # If overnight, disallow if too long or not in allowed airports
-            if layover > max_night_layover or incoming.dst not in allowed_overnight_airports:
+            if not (min_night_layover <= layover <= max_night_layover and incoming.dst in allowed_overnight_airports):
                 continue
         else:
             if layover > max_day_layover:
@@ -206,7 +212,7 @@ def is_valid_endpoint(flight):
 
 
 def is_better_plan(old_plan: ValidPlan, new_plan: ValidPlan):
-    # compare in order: # of destinations, # of days used, # of flights + overnight layovers, effective duration
+    # compare in order: # of destinations, # of days used, # of flights + # of overnight layovers, effective duration
     old_tupl = (-min(len(old_plan.airports), dest_cap),
                 old_plan.total_days,
                 len(old_plan.flights) + old_plan.num_overnights,
