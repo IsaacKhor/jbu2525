@@ -196,6 +196,40 @@
         .hidden {
             display: none;
         }
+
+        .airports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 8px;
+            margin: 15px 0;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 15px;
+            background: white;
+        }
+
+        .airport-item {
+            display: flex;
+            align-items: center;
+            padding: 6px 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .airport-code {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-right: 10px;
+            min-width: 45px;
+        }
+
+        .airport-name {
+            color: #34495e;
+            flex: 1;
+        }
     </style>
 </head>
 
@@ -322,6 +356,7 @@
                 Search</button>
             <button onclick="stopSearch()" id="stopBtn" disabled>Stop
                 Search</button>
+            <button onclick="showIncludedAirports()" id="airportsBtn">Show Airports in Dataset</button>
         </div>
 
         <div class="progress-section" id="progressSection"
@@ -338,6 +373,11 @@
         <div class="results-section" id="resultsSection" style="display: none;">
             <h3>Best Flight Plan Found</h3>
             <div id="bestPlan"></div>
+        </div>
+
+        <div class="results-section" id="airportsSection" style="display: none;">
+            <h3>Included Airports</h3>
+            <div id="airportsList"></div>
         </div>
     </div>
 
@@ -799,6 +839,46 @@
             const planDiv = document.getElementById('bestPlan');
             planDiv.innerHTML = `<div class="flight-plan">${plan.toString().replace(/\n/g, '<br>')}</div>`;
             updateStatus(`New best plan found: ${plan.airports.size} destinations, ${plan.flights.length} flights`);
+        }
+
+        // Load and display airports from CSV
+        async function showIncludedAirports() {
+            try {
+                const response = await fetch('airports.csv');
+                const csvText = await response.text();
+                const lines = csvText.trim().split('\n');
+                
+                // Skip header line
+                const airports = [];
+                for (let i = 1; i < lines.length; i++) {
+                    const [code, name] = lines[i].split(',');
+                    airports.push({ code: code.trim(), name: name.trim() });
+                }
+                
+                // Sort airports by code
+                airports.sort((a, b) => a.code.localeCompare(b.code));
+                
+                // Generate HTML
+                const airportsHtml = airports.map(airport => 
+                    `<div class="airport-item">
+                        <span class="airport-code">${airport.code}</span>
+                        <span class="airport-name">${airport.name}</span>
+                    </div>`
+                ).join('');
+                
+                // Display the airports
+                document.getElementById('airportsSection').style.display = 'block';
+                document.getElementById('airportsList').innerHTML = 
+                    `<div class="airports-grid">${airportsHtml}</div>
+                     <div class="small-text" style="margin-top: 10px;">
+                        Total: ${airports.length} airports available
+                     </div>`;
+                
+                updateStatus(`Loaded ${airports.length} airports from airports.csv`);
+                
+            } catch (error) {
+                showError('Error loading airports data: ' + error.message);
+            }
         }
 
         // Initialize default values
