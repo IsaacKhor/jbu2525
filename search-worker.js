@@ -201,6 +201,8 @@ function performSearch(flightData, config) {
         plan: [flight],
         visited: new Set([flight.dst])
     }));
+    queue.sort((a, b) => b.plan[0].dtime - a.plan[0].dtime);
+    console.log(`Starting with queue: ${queue}`)
     
     let iteration = 0;
     const maxIterations = config.maxIterations;

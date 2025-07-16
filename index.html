@@ -234,7 +234,7 @@
                 </div>
                 <div class="form-row">
                     <label>Max Search Iterations:</label>
-                    <input type="number" id="maxIterations" value="1000000"
+                    <input type="number" id="maxIterations" value="1000000000"
                         min="1000" max="10000000" step="1000">
                 </div>
             </div>
@@ -318,8 +318,7 @@
         </div>
 
         <div class="button-group">
-            <button onclick="loadFlightData()">Load Flight Data</button>
-            <button onclick="startSearch()" id="searchBtn" disabled>Start
+            <button onclick="startSearch()" id="searchBtn">Start
                 Search</button>
             <button onclick="stopSearch()" id="stopBtn" disabled>Stop
                 Search</button>
@@ -405,11 +404,11 @@
                         const layover = nextFlight.dtime - flight.atime;
                         const layoverStr = formatDuration(layover);
                         const overnightStr = isOvernight(flight, nextFlight) ? ' (night)' : '';
-                        ret += `  ${flight.src} -> ${flight.dst} (B6 ${flight.fnum.toString().padStart(4, ' ')}) `;
+                        ret += `  ${flight.src} -> ${flight.dst} (B6 ${String(flight.fnum).padStart(4, '0')}) `;
                         ret += `${formatDateTime(flight.dtime)} -> ${formatDateTime(flight.atime)} `;
                         ret += `[layover: ${layoverStr}${overnightStr}]\n`;
                     } else {
-                        ret += `  ${flight.src} -> ${flight.dst} (B6 ${flight.fnum.toString().padStart(4, ' ')}) `;
+                        ret += `  ${flight.src} -> ${flight.dst} (B6 ${String(flight.fnum).padStart(4, '0')}) `;
                         ret += `${formatDateTime(flight.dtime)} -> ${formatDateTime(flight.atime)}\n`;
                     }
                 }
@@ -437,13 +436,11 @@
             const hours = Math.floor((totalMinutes % (24 * 60)) / 60);
             const minutes = totalMinutes % 60;
 
-            if (days > 0) {
-                return `${days}d ${hours}h ${minutes}m`;
-            } else if (hours > 0) {
-                return `${hours}h ${minutes}m`;
-            } else {
-                return `${minutes}m`;
-            }
+            const daystr = days > 0 ? String(days).padStart(2, ' ') + 'd ' : '';
+            const hourstr = hours > 0 ? String(hours).padStart(2, '0') : '00';
+            const minstr = minutes > 0 ? String(minutes).padStart(2, '0') : '00';
+
+            return `${daystr}${hourstr}:${minstr}`;
         }
 
         function parseTime(timeStr) {
@@ -528,13 +525,15 @@
 
                 updateStatus(`Loaded ${flightData.length} flights from ${Object.keys(cityGraph).length} airports`);
                 updateProgress(100);
-                document.getElementById('searchBtn').disabled = false;
 
                 const connections = Object.values(flightGraph).reduce((sum, arr) => sum + arr.length, 0);
                 updateStatus(`Flight graph: ${Object.keys(flightGraph).length} flights, ${connections} connections`);
 
+                return true; // Return success indicator
+
             } catch (error) {
                 showError('Error loading flight data: ' + error.message);
+                return false; // Return failure indicator
             }
         }
 
@@ -586,15 +585,27 @@
         }
 
         // Search algorithm using Web Worker
-        function startSearch() {
-            const config = getConfig();
-            isSearching = true;
-            bestPlan = null;
-
+        async function startSearch() {
+            // Disable search button immediately
             document.getElementById('searchBtn').disabled = true;
             document.getElementById('stopBtn').disabled = false;
             document.getElementById('progressSection').style.display = 'block';
             document.getElementById('resultsSection').style.display = 'none';
+
+            // Load flight data first
+            updateStatus('Loading flight data...');
+            const loadSuccess = await loadFlightData();
+            
+            if (!loadSuccess) {
+                // Reset UI state if loading failed
+                document.getElementById('searchBtn').disabled = false;
+                document.getElementById('stopBtn').disabled = true;
+                return;
+            }
+
+            const config = getConfig();
+            isSearching = true;
+            bestPlan = null;
 
             updateStatus('Starting search...');
             updateProgress(0);
@@ -792,7 +803,7 @@
 
         // Initialize default values
         document.addEventListener('DOMContentLoaded', function () {
-            updateStatus('Ready to load flight data');
+            updateStatus('Ready to start search (flight data will be loaded automatically)');
         });
     </script>
 </body>
