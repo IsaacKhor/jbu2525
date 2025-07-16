@@ -51,6 +51,17 @@ function isOvernight(incoming, outgoing) {
     return false;
 }
 
+function getNewAirportsCount(visitedAirports, alreadyVisitedAirports) {
+    // Count only airports that are visited but not in the already visited list
+    let newCount = 0;
+    for (const airport of visitedAirports) {
+        if (!alreadyVisitedAirports.includes(airport)) {
+            newCount++;
+        }
+    }
+    return newCount;
+}
+
 function buildCityGraph(flightData) {
     const cityGraph = {};
     for (const flight of flightData) {
@@ -160,15 +171,18 @@ function calcEffectiveDuration(flights, config) {
 }
 
 function isBetterPlan(oldPlan, newPlan, config) {
+    const oldNewDestinations = getNewAirportsCount(oldPlan.airports, config.alreadyVisitedAirports);
+    const newNewDestinations = getNewAirportsCount(newPlan.airports, config.alreadyVisitedAirports);
+    
     const oldTuple = [
-        -Math.min(oldPlan.airports.size, config.destCap),
+        -Math.min(oldNewDestinations, config.destCap),
         oldPlan.totalDays,
         oldPlan.flights.length + oldPlan.numOvernights,
         oldPlan.effectiveDur
     ];
     
     const newTuple = [
-        -Math.min(newPlan.airports.size, config.destCap),
+        -Math.min(newNewDestinations, config.destCap),
         newPlan.totalDays,
         newPlan.flights.length + newPlan.numOvernights,
         newPlan.effectiveDur
@@ -225,7 +239,8 @@ function performSearch(flightData, config) {
         
         // Check if valid endpoint
         if (isValidEndpoint(curFlight, config)) {
-            if (visitedAirports.size >= config.minDestAirports) {
+            const newDestinationsCount = getNewAirportsCount(visitedAirports, config.alreadyVisitedAirports);
+            if (newDestinationsCount >= config.minDestAirports) {
                 const newPlan = new ValidPlan(
                     curPlan.slice(),
                     new Set(visitedAirports),
@@ -235,11 +250,13 @@ function performSearch(flightData, config) {
                 
                 if (!bestPlan || isBetterPlan(bestPlan, newPlan, config)) {
                     bestPlan = newPlan;
+                    const newDestinations = getNewAirportsCount(newPlan.airports, config.alreadyVisitedAirports);
                     postMessage({ 
                         type: 'newBest', 
                         plan: {
                             flights: newPlan.flights,
                             airports: Array.from(newPlan.airports),
+                            newDestinations: newDestinations,
                             totalDur: newPlan.totalDur,
                             effectiveDur: newPlan.effectiveDur,
                             totalDays: newPlan.totalDays,
@@ -250,7 +267,8 @@ function performSearch(flightData, config) {
             }
             
             // Start new trip
-            if (visitedAirports.size < config.destCap) {
+            const currentNewDestinations = getNewAirportsCount(visitedAirports, config.alreadyVisitedAirports);
+            if (currentNewDestinations < config.destCap) {
                 const newFlights = getNewStartOutgoing(curFlight.atime, cityGraph, config);
                 for (const flight of newFlights) {
                     const newVisited = new Set(visitedAirports);

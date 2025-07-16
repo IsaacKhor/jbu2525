@@ -291,6 +291,11 @@
                         value="CUN,PJU,MBJ,NAS,POP,SDQ,STI"
                         placeholder="CUN,PJU,MBJ">
                 </div>
+                <div class="form-row">
+                    <label>Already Visited Airports (won't count as new destinations):</label>
+                    <textarea id="alreadyVisitedAirports" rows="2"
+                        placeholder="LAX,LAS,DEN,ATL"></textarea>
+                </div>
             </div>
 
             <div class="config-group">
@@ -407,13 +412,14 @@
 
         // ValidPlan class
         class ValidPlan {
-            constructor(flights, airports, totalDur, effectiveDur) {
+            constructor(flights, airports, totalDur, effectiveDur, newDestinations = null) {
                 this.flights = flights;
                 this.airports = airports;
                 this.totalDur = totalDur;
                 this.totalDays = this.calcDaysTaken();
                 this.effectiveDur = effectiveDur;
                 this.numOvernights = this.calcOvernights();
+                this.newDestinations = newDestinations;
             }
 
             calcDaysTaken() {
@@ -436,7 +442,11 @@
             }
 
             toString() {
-                let ret = `Plan: ${this.flights.length} flights, ${this.airports.size} destinations:\n`;
+                let ret = `Plan: ${this.flights.length} flights, ${this.airports.size} destinations`;
+                if (this.newDestinations !== null) {
+                    ret += ` (${this.newDestinations} new)`;
+                }
+                ret += `:\n`;
                 for (let i = 0; i < this.flights.length; i++) {
                     const flight = this.flights[i];
                     if (i < this.flights.length - 1) {
@@ -456,6 +466,9 @@
                 ret += `  Effective duration: ${formatDuration(this.effectiveDur)}\n`;
                 ret += `  Days taken: ${this.totalDays}\n`;
                 ret += `  Overnight layovers: ${this.numOvernights}\n`;
+                if (this.newDestinations !== null) {
+                    ret += `  New destinations: ${this.newDestinations}\n`;
+                }
                 ret += `  Airports visited: ${Array.from(this.airports).sort().join(', ')}\n`;
                 return ret;
             }
@@ -510,6 +523,7 @@
                 endAirports: document.getElementById('endAirports').value.split(',').map(s => s.trim()),
                 overnightAirports: document.getElementById('overnightAirports').value.split(',').map(s => s.trim()),
                 bannedAirports: document.getElementById('bannedAirports').value.split(',').map(s => s.trim()),
+                alreadyVisitedAirports: document.getElementById('alreadyVisitedAirports').value.split(',').map(s => s.trim()).filter(s => s.length > 0),
                 destCap: parseInt(document.getElementById('destCap').value),
                 minDestAirports: parseInt(document.getElementById('minDestAirports').value),
                 maxDupAirports: parseInt(document.getElementById('maxDupAirports').value),
@@ -673,7 +687,8 @@
                                 planData.flights.map(f => new Flight(f.src, f.dst, f.fnum, f.dtime, f.atime)),
                                 new Set(planData.airports),
                                 planData.totalDur,
-                                planData.effectiveDur
+                                planData.effectiveDur,
+                                planData.newDestinations
                             );
                             showBestPlan(bestPlan);
                             break;
@@ -838,7 +853,13 @@
             document.getElementById('resultsSection').style.display = 'block';
             const planDiv = document.getElementById('bestPlan');
             planDiv.innerHTML = `<div class="flight-plan">${plan.toString().replace(/\n/g, '<br>')}</div>`;
-            updateStatus(`New best plan found: ${plan.airports.size} destinations, ${plan.flights.length} flights`);
+            
+            let statusMsg = `New best plan found: ${plan.airports.size} destinations`;
+            if (plan.newDestinations !== null) {
+                statusMsg += ` (${plan.newDestinations} new)`;
+            }
+            statusMsg += `, ${plan.flights.length} flights`;
+            updateStatus(statusMsg);
         }
 
         // Load and display airports from CSV
