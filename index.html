@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Search Planner</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .config-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        .config-group {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+            min-width: 0;
+            /* Allow flex items to shrink */
+            word-wrap: break-word;
+        }
+
+        .config-group h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-bottom: 15px;
+        }
+
+        .form-row label {
+            font-weight: 500;
+            color: #34495e;
+            font-size: 14px;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+
+        .button-group {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover:not(:disabled) {
+            background: #2980b9;
+        }
+
+        button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .progress-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .status {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .results-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .flight-plan {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .airport-tag {
+            background: #3498db;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .overnight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .error {
+            background: #e74c3c;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+
+        .info {
+            background: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+
+        .small-text {
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Jetblue 25/25 Flight Search Tool</h1>
+
+        <div class="info">
+            ⚠️ <strong>Performance Warning:</strong> This tool performs an
+            exhaustive search and can be very slow.
+            Long date ranges or high iteration limits may take hours to
+            complete. Start with shorter durations
+            and lower iteration counts to test performance on your device.
+
+            It's also all AI translated to JS from another script I wrote so
+            it's definitely not well optimised.
+        </div>
+
+        <div class="config-section">
+            <div class="config-group">
+                <h3>Basic Settings</h3>
+                <div class="form-row">
+                    <label>Start</label>
+                    <input type="datetime-local" id="startDate"
+                        value="2025-08-01T19:00">
+                </div>
+                <div class="form-row">
+                    <label>End</label>
+                    <input type="datetime-local" id="endDate"
+                        value="2025-08-04T08:00">
+                </div>
+                <div class="form-row">
+                    <label>Max Plan Duration (days):</label>
+                    <input type="number" id="maxPlanDur" value="45" min="1"
+                        max="365">
+                </div>
+                <div class="form-row">
+                    <label>Max Search Iterations:</label>
+                    <input type="number" id="maxIterations" value="1000000"
+                        min="1000" max="10000000" step="1000">
+                </div>
+            </div>
+
+            <div class="config-group">
+                <h3>Airports</h3>
+                <div class="form-row">
+                    <label>End Airports (first will be used as start):</label>
+                    <input type="text" id="endAirports" value="BOS,PVD,ORH"
+                        placeholder="BOS,PVD,ORH">
+                </div>
+                <div class="form-row">
+                    <label>Overnight Airports:</label>
+                    <textarea id="overnightAirports" rows="3"
+                        placeholder="BUF,PVD,PIT,DCA,RDU,RIC,BDL,MCO,FLL">BUF,PVD,PIT,DCA,RDU,RIC,BDL,MCO,FLL</textarea>
+                </div>
+                <div class="form-row">
+                    <label>Banned Airports:</label>
+                    <input type="text" id="bannedAirports"
+                        value="CUN,PJU,MBJ,NAS,POP,SDQ,STI"
+                        placeholder="CUN,PJU,MBJ">
+                </div>
+            </div>
+
+            <div class="config-group">
+                <h3>Search Parameters</h3>
+                <div class="form-row">
+                    <label>Destination Cap:</label>
+                    <input type="number" id="destCap" value="25" min="1"
+                        max="100">
+                </div>
+                <div class="form-row">
+                    <label>Min Destinations:</label>
+                    <input type="number" id="minDestAirports" value="5" min="1"
+                        max="50">
+                </div>
+                <div class="form-row">
+                    <label>Max Duplicate Airports:</label>
+                    <input type="number" id="maxDupAirports" value="3" min="0"
+                        max="20">
+                </div>
+                <div class="form-row">
+                    <label>Home Arrival Cutoff:</label>
+                    <input type="time" id="homeArrivalCutoff" value="23:00">
+                </div>
+            </div>
+
+            <div class="config-group">
+                <h3>Layover Settings</h3>
+                <div class="form-row">
+                    <label>Min Day Layover (min):</label>
+                    <input type="number" id="minDayLayover" value="50" min="0"
+                        max="1440">
+                </div>
+                <div class="form-row">
+                    <label>Max Day Layover (hrs):</label>
+                    <input type="number" id="maxDayLayover" value="5" min="0"
+                        max="24" step="0.5">
+                </div>
+                <div class="form-row">
+                    <label>Min Night Layover (hrs):</label>
+                    <input type="number" id="minNightLayover" value="7" min="0"
+                        max="24" step="0.5">
+                </div>
+                <div class="form-row">
+                    <label>Max Night Layover (hrs):</label>
+                    <input type="number" id="maxNightLayover" value="18" min="0"
+                        max="48" step="0.5">
+                </div>
+                <div class="form-row hidden">
+                    <label>Min Trip Gap (hrs):</label>
+                    <input type="number" id="minTripGap" value="84" min="0"
+                        max="240" step="0.5">
+                </div>
+                <div class="form-row hidden">
+                    <label>Max Trip Gap (hrs):</label>
+                    <input type="number" id="maxTripGap" value="216" min="0"
+                        max="720" step="0.5">
+                </div>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button onclick="loadFlightData()">Load Flight Data</button>
+            <button onclick="startSearch()" id="searchBtn" disabled>Start
+                Search</button>
+            <button onclick="stopSearch()" id="stopBtn" disabled>Stop
+                Search</button>
+        </div>
+
+        <div class="progress-section" id="progressSection"
+            style="display: none;">
+            <h3>Search Progress</h3>
+            <div class="status" id="statusText">Ready to start...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="small-text" id="progressDetails">0 / 0 iterations
+                processed</div>
+        </div>
+
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <h3>Best Flight Plan Found</h3>
+            <div id="bestPlan"></div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let flightData = [];
+        let cityGraph = {};
+        let flightGraph = {};
+        let searchWorker = null;
+        let isSearching = false;
+        let bestPlan = null;
+
+        // Flight class
+        class Flight {
+            constructor(src, dst, fnum, dtime, atime) {
+                this.src = src;
+                this.dst = dst;
+                this.fnum = fnum;
+                this.dtime = new Date(dtime);
+                this.atime = new Date(atime);
+            }
+
+            toString() {
+                return `Flight(${this.src} -> ${this.dst}, ${this.fnum}, ${this.dtime}, ${this.atime})`;
+            }
+        }
+
+        // ValidPlan class
+        class ValidPlan {
+            constructor(flights, airports, totalDur, effectiveDur) {
+                this.flights = flights;
+                this.airports = airports;
+                this.totalDur = totalDur;
+                this.totalDays = this.calcDaysTaken();
+                this.effectiveDur = effectiveDur;
+                this.numOvernights = this.calcOvernights();
+            }
+
+            calcDaysTaken() {
+                const days = new Set();
+                for (const flight of this.flights) {
+                    days.add(flight.dtime.toDateString());
+                    days.add(flight.atime.toDateString());
+                }
+                return days.size;
+            }
+
+            calcOvernights() {
+                let count = 0;
+                for (let i = 0; i < this.flights.length - 1; i++) {
+                    if (isOvernight(this.flights[i], this.flights[i + 1])) {
+                        count++;
+                    }
+                }
+                return count;
+            }
+
+            toString() {
+                let ret = `Plan: ${this.flights.length} flights, ${this.airports.size} destinations:\n`;
+                for (let i = 0; i < this.flights.length; i++) {
+                    const flight = this.flights[i];
+                    if (i < this.flights.length - 1) {
+                        const nextFlight = this.flights[i + 1];
+                        const layover = nextFlight.dtime - flight.atime;
+                        const layoverStr = formatDuration(layover);
+                        const overnightStr = isOvernight(flight, nextFlight) ? ' (night)' : '';
+                        ret += `  ${flight.src} -> ${flight.dst} (B6 ${flight.fnum.toString().padStart(4, ' ')}) `;
+                        ret += `${formatDateTime(flight.dtime)} -> ${formatDateTime(flight.atime)} `;
+                        ret += `[layover: ${layoverStr}${overnightStr}]\n`;
+                    } else {
+                        ret += `  ${flight.src} -> ${flight.dst} (B6 ${flight.fnum.toString().padStart(4, ' ')}) `;
+                        ret += `${formatDateTime(flight.dtime)} -> ${formatDateTime(flight.atime)}\n`;
+                    }
+                }
+                ret += `  Total duration: ${formatDuration(this.totalDur)}\n`;
+                ret += `  Effective duration: ${formatDuration(this.effectiveDur)}\n`;
+                ret += `  Days taken: ${this.totalDays}\n`;
+                ret += `  Overnight layovers: ${this.numOvernights}\n`;
+                ret += `  Airports visited: ${Array.from(this.airports).sort().join(', ')}\n`;
+                return ret;
+            }
+        }
+
+        // Utility functions
+        function formatDateTime(date) {
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            const day = date.getDate().toString().padStart(2, '0');
+            const hours = date.getHours().toString().padStart(2, '0');
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+            return `${month}.${day} ${hours}:${minutes}`;
+        }
+
+        function formatDuration(ms) {
+            const totalMinutes = Math.floor(ms / (1000 * 60));
+            const days = Math.floor(totalMinutes / (24 * 60));
+            const hours = Math.floor((totalMinutes % (24 * 60)) / 60);
+            const minutes = totalMinutes % 60;
+
+            if (days > 0) {
+                return `${days}d ${hours}h ${minutes}m`;
+            } else if (hours > 0) {
+                return `${hours}h ${minutes}m`;
+            } else {
+                return `${minutes}m`;
+            }
+        }
+
+        function parseTime(timeStr) {
+            const [hours, minutes] = timeStr.split(':').map(Number);
+            return { hours, minutes };
+        }
+
+        function isOvernight(incoming, outgoing) {
+            const layover = outgoing.dtime - incoming.atime;
+            const overnightThreshold = 3 * 60 * 60 * 1000; // 3 hours in ms
+
+            if (layover > overnightThreshold) {
+                const overnightCheckTime = new Date(outgoing.dtime);
+                overnightCheckTime.setHours(3, 0, 0, 0); // 3:00 AM
+                return incoming.atime <= overnightCheckTime && overnightCheckTime <= outgoing.dtime;
+            }
+            return false;
+        }
+
+        // Configuration getters
+        function getConfig() {
+            return {
+                startDate: new Date(document.getElementById('startDate').value),
+                endDate: new Date(document.getElementById('endDate').value),
+                maxPlanDur: parseInt(document.getElementById('maxPlanDur').value) * 24 * 60 * 60 * 1000,
+                maxIterations: parseInt(document.getElementById('maxIterations').value),
+                endAirports: document.getElementById('endAirports').value.split(',').map(s => s.trim()),
+                overnightAirports: document.getElementById('overnightAirports').value.split(',').map(s => s.trim()),
+                bannedAirports: document.getElementById('bannedAirports').value.split(',').map(s => s.trim()),
+                destCap: parseInt(document.getElementById('destCap').value),
+                minDestAirports: parseInt(document.getElementById('minDestAirports').value),
+                maxDupAirports: parseInt(document.getElementById('maxDupAirports').value),
+                homeArrivalCutoff: parseTime(document.getElementById('homeArrivalCutoff').value),
+                minDayLayover: parseInt(document.getElementById('minDayLayover').value) * 60 * 1000,
+                maxDayLayover: parseFloat(document.getElementById('maxDayLayover').value) * 60 * 60 * 1000,
+                minNightLayover: parseFloat(document.getElementById('minNightLayover').value) * 60 * 60 * 1000,
+                maxNightLayover: parseFloat(document.getElementById('maxNightLayover').value) * 60 * 60 * 1000,
+                minTripGap: parseFloat(document.getElementById('minTripGap').value) * 60 * 60 * 1000,
+                maxTripGap: parseFloat(document.getElementById('maxTripGap').value) * 60 * 60 * 1000
+            };
+        }
+
+        // Load flight data from CSV
+        async function loadFlightData() {
+            try {
+                updateStatus('Loading flight data...');
+                document.getElementById('progressSection').style.display = 'block';
+
+                const response = await fetch('flights.csv');
+                const csvText = await response.text();
+                const lines = csvText.trim().split('\n');
+
+                flightData = [];
+                const config = getConfig();
+
+                // Skip header
+                for (let i = 1; i < lines.length; i++) {
+                    const [src, dst, fnum, dtimeStr, atimeStr] = lines[i].split(',');
+                    const dtime = new Date(dtimeStr);
+                    const atime = new Date(atimeStr);
+
+                    // Filter by banned airports and date range
+                    if (config.bannedAirports.includes(src) || config.bannedAirports.includes(dst)) {
+                        continue;
+                    }
+
+                    if (dtime < config.startDate || atime > config.endDate) {
+                        continue;
+                    }
+
+                    flightData.push(new Flight(src, dst, parseInt(fnum), dtime, atime));
+
+                    if (i % 25000 === 0) { // Reduced frequency from every 10k to every 25k
+                        updateProgress((i / lines.length) * 100);
+                        updateStatus(`Loading flight data... ${i}/${lines.length}`);
+                        await new Promise(resolve => setTimeout(resolve, 1)); // Allow UI update
+                    }
+                }
+
+                buildCityGraph();
+                buildFlightGraph();
+
+                updateStatus(`Loaded ${flightData.length} flights from ${Object.keys(cityGraph).length} airports`);
+                updateProgress(100);
+                document.getElementById('searchBtn').disabled = false;
+
+                const connections = Object.values(flightGraph).reduce((sum, arr) => sum + arr.length, 0);
+                updateStatus(`Flight graph: ${Object.keys(flightGraph).length} flights, ${connections} connections`);
+
+            } catch (error) {
+                showError('Error loading flight data: ' + error.message);
+            }
+        }
+
+        function buildCityGraph() {
+            cityGraph = {};
+            for (const flight of flightData) {
+                if (!cityGraph[flight.src]) {
+                    cityGraph[flight.src] = [];
+                }
+                cityGraph[flight.src].push(flight);
+            }
+        }
+
+        function buildFlightGraph() {
+            flightGraph = {};
+            const config = getConfig();
+
+            for (const flight of flightData) {
+                const outgoing = getValidOutgoing(flight, config);
+                flightGraph[flight] = outgoing.sort((a, b) => b.dtime - a.dtime);
+            }
+        }
+
+        function getValidOutgoing(incoming, config) {
+            const ret = [];
+            const current = incoming.dst;
+
+            if (!cityGraph[current]) return ret;
+
+            for (const outgoing of cityGraph[current]) {
+                const layover = outgoing.dtime - incoming.atime;
+
+                if (layover < config.minDayLayover || layover > config.maxDayLayover) {
+                    continue;
+                }
+
+                if (isOvernight(incoming, outgoing)) {
+                    if (layover < config.minNightLayover ||
+                        layover > config.maxNightLayover ||
+                        !config.overnightAirports.includes(incoming.dst)) {
+                        continue;
+                    }
+                }
+
+                ret.push(outgoing);
+            }
+
+            return ret;
+        }
+
+        // Search algorithm using Web Worker
+        function startSearch() {
+            const config = getConfig();
+            isSearching = true;
+            bestPlan = null;
+
+            document.getElementById('searchBtn').disabled = true;
+            document.getElementById('stopBtn').disabled = false;
+            document.getElementById('progressSection').style.display = 'block';
+            document.getElementById('resultsSection').style.display = 'none';
+
+            updateStatus('Starting search...');
+            updateProgress(0);
+
+            // Create and start Web Worker
+            if (searchWorker) {
+                searchWorker.terminate();
+            }
+            
+            try {
+                searchWorker = new Worker('search-worker.js');
+                
+                searchWorker.onmessage = function(e) {
+                    const { type } = e.data;
+                    
+                    switch (type) {
+                        case 'progress':
+                            updateProgress(e.data.progress);
+                            updateStatus(`Searching... ${e.data.iteration.toLocaleString()} / ${e.data.maxIterations.toLocaleString()} iterations, ${e.data.queueSize.toLocaleString()} in queue`);
+                            break;
+                            
+                        case 'newBest':
+                            const planData = e.data.plan;
+                            bestPlan = new ValidPlan(
+                                planData.flights.map(f => new Flight(f.src, f.dst, f.fnum, f.dtime, f.atime)),
+                                new Set(planData.airports),
+                                planData.totalDur,
+                                planData.effectiveDur
+                            );
+                            showBestPlan(bestPlan);
+                            break;
+                            
+                        case 'complete':
+                            stopSearch();
+                            break;
+                            
+                        case 'error':
+                            showError(e.data.message);
+                            stopSearch();
+                            break;
+                            
+                        case 'stopped':
+                            stopSearch();
+                            break;
+                    }
+                };
+                
+                searchWorker.onerror = function(error) {
+                    showError('Worker error: ' + error.message);
+                    stopSearch();
+                };
+                
+                // Send data to worker
+                searchWorker.postMessage({
+                    type: 'start',
+                    data: {
+                        flightData: flightData,
+                        config: config
+                    }
+                });
+                
+            } catch (error) {
+                showError('Failed to start Web Worker: ' + error.message);
+                stopSearch();
+            }
+        }
+
+        function isValidEndpoint(flight, config) {
+            if (!config.endAirports.includes(flight.dst)) {
+                return false;
+            }
+
+            const regionalEnd = config.endAirports.slice(1);
+            const startAirport = config.endAirports[0];
+
+            if (regionalEnd.includes(flight.dst)) {
+                const arrivalTime = flight.atime;
+                const cutoffHours = config.homeArrivalCutoff.hours;
+                const cutoffMinutes = config.homeArrivalCutoff.minutes;
+
+                return arrivalTime.getHours() < cutoffHours ||
+                    (arrivalTime.getHours() === cutoffHours && arrivalTime.getMinutes() <= cutoffMinutes);
+            }
+
+            return true;
+        }
+
+        function getNewStartOutgoing(intime, config) {
+            const startAirport = config.endAirports[0];
+            const ret = [];
+
+            if (!cityGraph[startAirport]) return ret;
+
+            for (const outgoing of cityGraph[startAirport]) {
+                const gap = outgoing.dtime - intime;
+                if (gap >= config.minTripGap && gap <= config.maxTripGap) {
+                    ret.push(outgoing);
+                }
+            }
+
+            return ret;
+        }
+
+        function calcTripDur(flights) {
+            if (flights.length === 0) return 0;
+            return flights[flights.length - 1].atime - flights[0].dtime;
+        }
+
+        function calcEffectiveDuration(flights, config) {
+            let dur = 0;
+            for (let i = 0; i < flights.length; i++) {
+                const flight = flights[i];
+                dur += flight.atime - flight.dtime;
+
+                if (i < flights.length - 1) {
+                    const nextFlight = flights[i + 1];
+                    const layoverDuration = nextFlight.dtime - flight.atime;
+
+                    if (!config.endAirports.includes(flight.dst) || layoverDuration <= config.minTripGap) {
+                        dur += layoverDuration;
+                    }
+                }
+            }
+            return dur;
+        }
+
+        function isBetterPlan(oldPlan, newPlan, config) {
+            const oldTuple = [
+                -Math.min(oldPlan.airports.size, config.destCap),
+                oldPlan.totalDays,
+                oldPlan.flights.length + oldPlan.numOvernights,
+                oldPlan.effectiveDur
+            ];
+
+            const newTuple = [
+                -Math.min(newPlan.airports.size, config.destCap),
+                newPlan.totalDays,
+                newPlan.flights.length + newPlan.numOvernights,
+                newPlan.effectiveDur
+            ];
+
+            for (let i = 0; i < oldTuple.length; i++) {
+                if (newTuple[i] < oldTuple[i]) return true;
+                if (newTuple[i] > oldTuple[i]) return false;
+            }
+
+            return false;
+        }
+
+        function stopSearch() {
+            isSearching = false;
+            
+            if (searchWorker) {
+                searchWorker.postMessage({ type: 'stop' });
+                searchWorker.terminate();
+                searchWorker = null;
+            }
+            
+            document.getElementById('searchBtn').disabled = false;
+            document.getElementById('stopBtn').disabled = true;
+
+            if (bestPlan) {
+                updateStatus('Search completed!');
+            } else {
+                updateStatus('Search stopped - no valid plans found');
+            }
+        }
+
+        // UI update functions
+        function updateStatus(message) {
+            document.getElementById('statusText').textContent = message;
+            console.log(message);
+        }
+
+        function updateProgress(percentage) {
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressDetails').textContent =
+                `${percentage.toFixed(1)}% complete`;
+        }
+
+        function showError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error';
+            errorDiv.textContent = message;
+            document.querySelector('.container').appendChild(errorDiv);
+            setTimeout(() => errorDiv.remove(), 5000);
+        }
+
+        function showBestPlan(plan) {
+            document.getElementById('resultsSection').style.display = 'block';
+            const planDiv = document.getElementById('bestPlan');
+            planDiv.innerHTML = `<div class="flight-plan">${plan.toString().replace(/\n/g, '<br>')}</div>`;
+            updateStatus(`New best plan found: ${plan.airports.size} destinations, ${plan.flights.length} flights`);
+        }
+
+        // Initialize default values
+        document.addEventListener('DOMContentLoaded', function () {
+            updateStatus('Ready to load flight data');
+        });
+    </script>
+</body>
+
+</html>
