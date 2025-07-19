@@ -238,14 +238,43 @@
         <h1>Jetblue 25/25 Flight Search Tool</h1>
 
         <div class="info">
-            ⚠️ <strong>Performance Warning:</strong> This tool performs an
-            exhaustive search and can be very slow.
-            Long date ranges or high iteration limits may take hours to
-            complete. Start with shorter durations
-            and lower iteration counts to test performance on your device.
+            <p>
+                ⚠️ <strong>Performance Warning:</strong> This tool performs an
+                exhaustive search and can be very slow.
+                Long date ranges will pretty much never complete before hitting
+                cap, so try shorter durations.
+            </p>
 
-            It's also all AI translated to JS from another script I wrote so
-            it's definitely not well optimised.
+            <p>
+                It's also all AI translated to JS from another script I wrote so
+                it's definitely not well optimised.
+                Usage notes and performance tips:
+            </p>
+
+            <ul>
+                <li>Each additional duplicate airport allowed multiplies search
+                    time by 2 times or more.</li>
+                <li>Trips are defined as leaving from the first end airport and
+                    coming back to any end airport. Trip gaps are how much time
+                    is between the arrival that ends a trip and departure from
+                    start airport that begins a trip.</li>
+                <li>Max search iterations controls how many plans to evaluate.
+                </li>
+                <li>Overnight airports are where overnight layovers are allowed.
+                    An overnight layover is defined as any layover longer than
+                    three hours that contains 03:00.
+                </li>
+                <li>Banned airports will not be used in any plans and greatly
+                    reduce search time the more you have.</li>
+                <li>Already visited airports won't count towards new
+                    destinations.</li>
+                <li>Evaluates the best plan in the following order: most
+                    destinations, fewest days taken (counted by total number of
+                    whole days that touches any flight), fewest flights +
+                    overnight layovers, shortest effective duration (total
+                    duration excluding time between trips).</li>
+            </ul>
+            </p>
         </div>
 
         <div class="config-section">
@@ -292,7 +321,8 @@
                         placeholder="CUN,PJU,MBJ">
                 </div>
                 <div class="form-row">
-                    <label>Already Visited Airports (won't count as new destinations):</label>
+                    <label>Already Visited Airports (won't count as new
+                        destinations):</label>
                     <textarea id="alreadyVisitedAirports" rows="2"
                         placeholder="LAX,LAS,DEN,ATL"></textarea>
                 </div>
@@ -343,12 +373,12 @@
                     <input type="number" id="maxNightLayover" value="18" min="0"
                         max="48" step="0.5">
                 </div>
-                <div class="form-row hidden">
+                <div class="form-row">
                     <label>Min Trip Gap (hrs):</label>
                     <input type="number" id="minTripGap" value="84" min="0"
                         max="240" step="0.5">
                 </div>
-                <div class="form-row hidden">
+                <div class="form-row">
                     <label>Max Trip Gap (hrs):</label>
                     <input type="number" id="maxTripGap" value="216" min="0"
                         max="720" step="0.5">
@@ -361,7 +391,8 @@
                 Search</button>
             <button onclick="stopSearch()" id="stopBtn" disabled>Stop
                 Search</button>
-            <button onclick="showIncludedAirports()" id="airportsBtn">Show Airports in Dataset</button>
+            <button onclick="showIncludedAirports()" id="airportsBtn">Show
+                Airports in Dataset</button>
         </div>
 
         <div class="progress-section" id="progressSection"
@@ -380,7 +411,8 @@
             <div id="bestPlan"></div>
         </div>
 
-        <div class="results-section" id="airportsSection" style="display: none;">
+        <div class="results-section" id="airportsSection"
+            style="display: none;">
             <h3>Included Airports</h3>
             <div id="airportsList"></div>
         </div>
@@ -567,7 +599,7 @@
 
                     flightData.push(new Flight(src, dst, parseInt(fnum), dtime, atime));
 
-                    if (i % 25000 === 0) { // Reduced frequency from every 10k to every 25k
+                    if (i % 100_000 === 0) {
                         updateProgress((i / lines.length) * 100);
                         updateStatus(`Loading flight data... ${i}/${lines.length}`);
                         await new Promise(resolve => setTimeout(resolve, 1)); // Allow UI update
@@ -649,7 +681,7 @@
             // Load flight data first
             updateStatus('Loading flight data...');
             const loadSuccess = await loadFlightData();
-            
+
             if (!loadSuccess) {
                 // Reset UI state if loading failed
                 document.getElementById('searchBtn').disabled = false;
@@ -668,19 +700,19 @@
             if (searchWorker) {
                 searchWorker.terminate();
             }
-            
+
             try {
                 searchWorker = new Worker('search-worker.js');
-                
-                searchWorker.onmessage = function(e) {
+
+                searchWorker.onmessage = function (e) {
                     const { type } = e.data;
-                    
+
                     switch (type) {
                         case 'progress':
                             updateProgress(e.data.progress);
                             updateStatus(`Searching... ${e.data.iteration.toLocaleString()} / ${e.data.maxIterations.toLocaleString()} iterations, ${e.data.queueSize.toLocaleString()} in queue`);
                             break;
-                            
+
                         case 'newBest':
                             const planData = e.data.plan;
                             bestPlan = new ValidPlan(
@@ -692,27 +724,27 @@
                             );
                             showBestPlan(bestPlan);
                             break;
-                            
+
                         case 'complete':
                             stopSearch();
                             break;
-                            
+
                         case 'error':
                             showError(e.data.message);
                             stopSearch();
                             break;
-                            
+
                         case 'stopped':
                             stopSearch();
                             break;
                     }
                 };
-                
-                searchWorker.onerror = function(error) {
+
+                searchWorker.onerror = function (error) {
                     showError('Worker error: ' + error.message);
                     stopSearch();
                 };
-                
+
                 // Send data to worker
                 searchWorker.postMessage({
                     type: 'start',
@@ -721,7 +753,7 @@
                         config: config
                     }
                 });
-                
+
             } catch (error) {
                 showError('Failed to start Web Worker: ' + error.message);
                 stopSearch();
@@ -812,13 +844,13 @@
 
         function stopSearch() {
             isSearching = false;
-            
+
             if (searchWorker) {
                 searchWorker.postMessage({ type: 'stop' });
                 searchWorker.terminate();
                 searchWorker = null;
             }
-            
+
             document.getElementById('searchBtn').disabled = false;
             document.getElementById('stopBtn').disabled = true;
 
@@ -853,7 +885,7 @@
             document.getElementById('resultsSection').style.display = 'block';
             const planDiv = document.getElementById('bestPlan');
             planDiv.innerHTML = `<div class="flight-plan">${plan.toString().replace(/\n/g, '<br>')}</div>`;
-            
+
             let statusMsg = `New best plan found: ${plan.airports.size} destinations`;
             if (plan.newDestinations !== null) {
                 statusMsg += ` (${plan.newDestinations} new)`;
@@ -868,35 +900,35 @@
                 const response = await fetch('airports.csv');
                 const csvText = await response.text();
                 const lines = csvText.trim().split('\n');
-                
+
                 // Skip header line
                 const airports = [];
                 for (let i = 1; i < lines.length; i++) {
                     const [code, name] = lines[i].split(',');
                     airports.push({ code: code.trim(), name: name.trim() });
                 }
-                
+
                 // Sort airports by code
                 airports.sort((a, b) => a.code.localeCompare(b.code));
-                
+
                 // Generate HTML
-                const airportsHtml = airports.map(airport => 
+                const airportsHtml = airports.map(airport =>
                     `<div class="airport-item">
                         <span class="airport-code">${airport.code}</span>
                         <span class="airport-name">${airport.name}</span>
                     </div>`
                 ).join('');
-                
+
                 // Display the airports
                 document.getElementById('airportsSection').style.display = 'block';
-                document.getElementById('airportsList').innerHTML = 
+                document.getElementById('airportsList').innerHTML =
                     `<div class="airports-grid">${airportsHtml}</div>
                      <div class="small-text" style="margin-top: 10px;">
                         Total: ${airports.length} airports available
                      </div>`;
-                
+
                 updateStatus(`Loaded ${airports.length} airports from airports.csv`);
-                
+
             } catch (error) {
                 showError('Error loading airports data: ' + error.message);
             }
