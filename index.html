@@ -254,7 +254,7 @@
             <ul>
                 <li>Each additional duplicate airport allowed multiplies search
                     time by 2 times or more.</li>
-                <li>Trips are defined as leaving from the first end airport and
+                <li>Trips are defined as leaving from the start airport and
                     coming back to any end airport. Trip gaps are how much time
                     is between the arrival that ends a trip and departure from
                     start airport that begins a trip.</li>
@@ -305,7 +305,12 @@
             <div class="config-group">
                 <h3>Airports</h3>
                 <div class="form-row">
-                    <label>End Airports (first will be used as start):</label>
+                    <label>Start Airport:</label>
+                    <input type="text" id="startAirport" value="BOS"
+                        placeholder="BOS">
+                </div>
+                <div class="form-row">
+                    <label>End Airports:</label>
                     <input type="text" id="endAirports" value="BOS,PVD,ORH"
                         placeholder="BOS,PVD,ORH">
                 </div>
@@ -552,6 +557,7 @@
                 endDate: new Date(document.getElementById('endDate').value),
                 maxPlanDur: parseInt(document.getElementById('maxPlanDur').value) * 24 * 60 * 60 * 1000,
                 maxIterations: parseInt(document.getElementById('maxIterations').value),
+                startAirport: document.getElementById('startAirport').value.trim(),
                 endAirports: document.getElementById('endAirports').value.split(',').map(s => s.trim()),
                 overnightAirports: document.getElementById('overnightAirports').value.split(',').map(s => s.trim()),
                 bannedAirports: document.getElementById('bannedAirports').value.split(',').map(s => s.trim()),
@@ -765,23 +771,17 @@
                 return false;
             }
 
-            const regionalEnd = config.endAirports.slice(1);
-            const startAirport = config.endAirports[0];
+            // Apply arrival time cutoff to all end airports
+            const arrivalTime = flight.atime;
+            const cutoffHours = config.homeArrivalCutoff.hours;
+            const cutoffMinutes = config.homeArrivalCutoff.minutes;
 
-            if (regionalEnd.includes(flight.dst)) {
-                const arrivalTime = flight.atime;
-                const cutoffHours = config.homeArrivalCutoff.hours;
-                const cutoffMinutes = config.homeArrivalCutoff.minutes;
-
-                return arrivalTime.getHours() < cutoffHours ||
-                    (arrivalTime.getHours() === cutoffHours && arrivalTime.getMinutes() <= cutoffMinutes);
-            }
-
-            return true;
+            return arrivalTime.getHours() < cutoffHours ||
+                (arrivalTime.getHours() === cutoffHours && arrivalTime.getMinutes() <= cutoffMinutes);
         }
 
         function getNewStartOutgoing(intime, config) {
-            const startAirport = config.endAirports[0];
+            const startAirport = config.startAirport;
             const ret = [];
 
             if (!cityGraph[startAirport]) return ret;

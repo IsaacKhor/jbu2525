@@ -117,22 +117,17 @@ function isValidEndpoint(flight, config) {
         return false;
     }
     
-    const regionalEnd = config.endAirports.slice(1);
+    // Apply arrival time cutoff to all end airports
+    const arrivalTime = flight.atime;
+    const cutoffHours = config.homeArrivalCutoff.hours;
+    const cutoffMinutes = config.homeArrivalCutoff.minutes;
     
-    if (regionalEnd.includes(flight.dst)) {
-        const arrivalTime = flight.atime;
-        const cutoffHours = config.homeArrivalCutoff.hours;
-        const cutoffMinutes = config.homeArrivalCutoff.minutes;
-        
-        return arrivalTime.getHours() < cutoffHours ||
-               (arrivalTime.getHours() === cutoffHours && arrivalTime.getMinutes() <= cutoffMinutes);
-    }
-    
-    return true;
+    return arrivalTime.getHours() < cutoffHours ||
+           (arrivalTime.getHours() === cutoffHours && arrivalTime.getMinutes() <= cutoffMinutes);
 }
 
 function getNewStartOutgoing(intime, cityGraph, config) {
-    const startAirport = config.endAirports[0];
+    const startAirport = config.startAirport;
     const ret = [];
     
     if (!cityGraph[startAirport]) return ret;
@@ -200,7 +195,7 @@ let isSearching = false;
 
 function performSearch(flightData, config) {
     const { cityGraph, flightGraph } = buildFlightGraph(flightData, config);
-    const startAirport = config.endAirports[0];
+    const startAirport = config.startAirport;
     const initialFlights = cityGraph[startAirport] || [];
     const validInitialFlights = initialFlights.filter(flight =>
         flight.dtime >= config.startDate
@@ -291,7 +286,7 @@ function performSearch(flightData, config) {
             }
             
             if (curPlan.length < config.minDestAirports &&
-                nextFlight.dst === startAirport) {
+                nextFlight.dst === config.startAirport) {
                 continue;
             }
             
