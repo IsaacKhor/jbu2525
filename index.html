@@ -557,11 +557,14 @@
                 endDate: new Date(document.getElementById('endDate').value),
                 maxPlanDur: parseInt(document.getElementById('maxPlanDur').value) * 24 * 60 * 60 * 1000,
                 maxIterations: parseInt(document.getElementById('maxIterations').value),
-                startAirport: document.getElementById('startAirport').value.trim(),
-                endAirports: document.getElementById('endAirports').value.split(',').map(s => s.trim()),
-                overnightAirports: document.getElementById('overnightAirports').value.split(',').map(s => s.trim()),
-                bannedAirports: document.getElementById('bannedAirports').value.split(',').map(s => s.trim()),
-                alreadyVisitedAirports: document.getElementById('alreadyVisitedAirports').value.split(',').map(s => s.trim()).filter(s => s.length > 0),
+                startAirport: document.getElementById('startAirport').value.trim().toUpperCase(),
+                endAirports: document.getElementById('endAirports').value.split(',').map(s => s.trim().toUpperCase()),
+                overnightAirports: document.getElementById('overnightAirports').value.split(',').map(s => s.trim().toUpperCase()),
+                bannedAirports: document.getElementById('bannedAirports').value.split(',').map(s => s.trim().toUpperCase()),
+                alreadyVisitedAirports: document.getElementById('alreadyVisitedAirports').value
+                    .split(',')
+                    .map(s => s.trim().toUpperCase())
+                    .filter(s => s.length > 0),
                 destCap: parseInt(document.getElementById('destCap').value),
                 minDestAirports: parseInt(document.getElementById('minDestAirports').value),
                 maxDupAirports: parseInt(document.getElementById('maxDupAirports').value),

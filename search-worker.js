@@ -224,17 +224,17 @@ function performSearch(flightData, config) {
     while (isSearching && queue.length > 0 && iteration < maxIterations) {
         const { plan: curPlan, visited: visitedAirports } = queue.pop();
         const curFlight = curPlan[curPlan.length - 1];
+        const newDestinationsCount = getNewAirportsCount(visitedAirports, config.alreadyVisitedAirports);
         
         // Check constraints
         if (curFlight.atime - curPlan[0].dtime > config.maxPlanDur ||
-            curPlan.length > visitedAirports.size + config.maxDupAirports) {
+            curPlan.length > newDestinationsCount + config.maxDupAirports) {
             iteration++;
             continue;
         }
         
         // Check if valid endpoint
         if (isValidEndpoint(curFlight, config)) {
-            const newDestinationsCount = getNewAirportsCount(visitedAirports, config.alreadyVisitedAirports);
             if (newDestinationsCount >= config.minDestAirports) {
                 const newPlan = new ValidPlan(
                     curPlan.slice(),
