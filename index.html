@@ -273,6 +273,7 @@
                     whole days that touches any flight), fewest flights +
                     overnight layovers, shortest effective duration (total
                     duration excluding time between trips).</li>
+                <li>Limitation: the tool doesn't search for ground transfers.</li>
             </ul>
             </p>
         </div>
@@ -283,12 +284,12 @@
                 <div class="form-row">
                     <label>Start</label>
                     <input type="datetime-local" id="startDate"
-                        value="2025-08-01T18:00">
+                        value="2025-10-01T18:00">
                 </div>
                 <div class="form-row">
                     <label>End</label>
                     <input type="datetime-local" id="endDate"
-                        value="2025-08-04T09:00">
+                        value="2025-10-04T09:00">
                 </div>
                 <div class="form-row">
                     <label>Max Plan Duration (days):</label>
@@ -342,12 +343,12 @@
                 </div>
                 <div class="form-row">
                     <label>Min Destinations:</label>
-                    <input type="number" id="minDestAirports" value="5" min="1"
+                    <input type="number" id="minDestAirports" value="1" min="1"
                         max="50">
                 </div>
                 <div class="form-row">
                     <label>Max Duplicate Airports:</label>
-                    <input type="number" id="maxDupAirports" value="3" min="0"
+                    <input type="number" id="maxDupAirports" value="2" min="0"
                         max="20">
                 </div>
                 <div class="form-row">
