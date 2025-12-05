@@ -76,6 +76,7 @@ function buildCityGraph(flightData) {
 const CO_TERMINAL_RULES = [
     { arrivals: ['HPN', 'EWR', 'LGA', 'ISP'], departure: 'JFK' },
     { arrivals: ['PBI', 'FLL', 'MCO'], departure: 'FLL' },
+    { arrivals: ['ORH', 'PVD', 'MHT', 'BDL'], departure: 'BOS' },
 ];
 
 function getCoTerminalDepartures(arrivalAirport) {
