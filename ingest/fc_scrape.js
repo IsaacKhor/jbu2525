@@ -1,68 +1,71 @@
 // enable premium (enforced client-side lol)
 sessionStorage.setItem('userProfile', '"premium"');
 
-airport_map = new Map(([
-    [563, "ABQ,Albuquerque"],
-    [577, "ACK,Nantucket"],
-    [725, "ALB,Albany"],
-    [893, "ATL,Atlanta"],
-    [926, "AUS,Austin"],
-    [1084, "BDL,Hartford"],
-    [1298, "BNA,Nashville"],
-    [1335, "BOS,Boston"],
-    [1367, "BQN,Aguadilla"],
-    [8653, "BUF,Buffalo"],
-    [1720, "CHS,Charleston"],
-    [1784, "CLE,Cleveland"],
-    [2106, "DCA,Washington"],
-    [2130, "DEN,Denver"],
-    [2138, "DFW,Dallas-Fort Worth"],
-    [2296, "DTW,Detroit"],
-    [2554, "EWR,New York"],
-    [2694, "FLL,Fort Lauderdale"],
-    [3394, "HPN,White Plains"],
-    [3482, "HYA,Hyannis"],
-    [3503, "IAH,Houston"],
-    [3684, "ISP,Islip"],
-    [3762, "JAX,Jacksonville"],
-    [3799, "JFK,New York City"],
-    [4425, "LAS,Las Vegas"],
-    [4429, "LAX,Los Angeles"],
-    [4521, "LGA,New York City"],
-    [4888, "MCO,Orlando"],
-    [5008, "MHT,Manchester"],
-    [5060, "MKE,Milwaukee"],
-    [5248, "MSY,New Orleans"],
-    [5318, "MVY,Martha's Vineyard"],
-    [5662, "ORD,Chicago"],
-    [5666, "ORH,Worcester"],
-    [5736, "PBI,West Palm Beach"],
-    [8651, "PHL,Philadelphia"],
-    [5799, "PHX,Phoenix"],
-    [5811, "PIT,Pittsburgh"],
-    [5926, "PSE,Ponce"],
-    [5970, "PVD,Providence"],
-    [5984, "PWM,Portland"],
-    [6072, "RDU,Raleigh-Durham"],
-    [6097, "RIC,Richmond"],
-    [6143, "ROC,Rochester"],
-    [6170, "RSW,Fort Myers"],
-    [6217, "SAV,Savannah"],
-    [7848, "SJU,San Juan"],
-    [6393, "STT,Saint Thomas"],
-    [6396, "STX,Saint Croix"],
-    [6450, "SYR,Syracuse"],
-    [6622, "TPA,Tampa"],
-]));
-airport_ids = Array.from(airport_map.keys());
+airports_csv = `
+ALB,Albany,725
+ATL,Atlanta,893
+AUS,Austin,926
+BDL,Hartford,1084
+BNA,Nashville,1298
+BOS,Boston,1335
+BQN,Aguadilla,1367
+BUF,Buffalo,8653
+CHS,Charleston,1720
+CLE,Cleveland,1784
+CUN,Cancun,1987
+DCA,Washington,2106
+DEN,Denver,2130
+DFW,Dallas-Fort Worth,2138
+DTW,Detroit,2296
+EWR,New York,2554
+FLL,Fort Lauderdale,2694
+HPN,White Plains,3394
+HYA,Hyannis,3482
+IAH,Houston,3503
+ISP,Islip,3684
+JAX,Jacksonville,3762
+JFK,New York City,3799
+KIN,Kingston,4117
+LAS,Las Vegas,4425
+LAX,Los Angeles,4429
+LGA,New York City,4521
+MBJ,Montego Bay,4859
+MCO,Orlando,4888
+MHT,Manchester,5008
+MKE,Milwaukee,5060
+MSY,New Orleans,5248
+MVY,Martha's Vineyard,5318
+NAS,Nassau,5419
+ORD,Chicago,5662
+ORH,Worcester,5666
+PBI,West Palm Beach,5736
+PHL,Philadelphia,8651
+PHX,Phoenix,5799
+PIT,Pittsburgh,5811
+PJU,Punta Cana,5960
+POP,Puerto Plata,5883
+PSE,Ponce,5926
+PVD,Providence,5970
+PWM,Portland,5984
+RDU,Raleigh-Durham,6072
+RIC,Richmond,6097
+ROC,Rochester,6143
+RSW,Fort Myers,6170
+SAV,Savannah,6217
+SDQ,Santo Domingo,6260
+SJU,San Juan,7848
+STI,Santiago de los Caballeros,6384
+STT,Saint Thomas,6393
+STX,Saint Croix,6396
+SYR,Syracuse,6450
+TPA,Tampa,6622
+`
 
-airport_map = new Map(([
-    [1335, "BOS,Boston"],
-    [3590, "ILM,Wilmington"],
-    [939, "AVL,Asheville"],
-]));
+airport_map = new Map(airports_csv.trim().split('\n').map(line => {
+    let parts = line.split(',');
+    return [parseInt(parts[2]), parts[0] + ',' + parts[1]];
+}));
 airport_ids = Array.from(airport_map.keys());
-
 
 function wait_secs(seconds) {
     return new Promise(resolve => setTimeout(resolve, seconds * 1000));
@@ -136,3 +139,5 @@ async function get_all_schedules() {
     }
     return all_schedules;
 }
+
+scheds = await get_all_schedules();

@@ -73,30 +73,57 @@ function buildCityGraph(flightData) {
     return cityGraph;
 }
 
+const CO_TERMINAL_RULES = [
+    { arrivals: ['HPN', 'EWR', 'LGA', 'ISP'], departure: 'JFK' },
+    { arrivals: ['PBI', 'FLL', 'MCO'], departure: 'FLL' },
+];
+
+function getCoTerminalDepartures(arrivalAirport) {
+    const extras = [];
+    for (const rule of CO_TERMINAL_RULES) {
+        if (rule.arrivals.includes(arrivalAirport)) {
+            extras.push(rule.departure);
+        }
+    }
+    return extras;
+}
+
 function getValidOutgoing(incoming, cityGraph, config) {
     const ret = [];
     const current = incoming.dst;
-    
-    if (!cityGraph[current]) return ret;
-    
-    for (const outgoing of cityGraph[current]) {
-        const layover = outgoing.dtime - incoming.atime;
-        
-        if (layover < config.minDayLayover || layover > config.maxDayLayover) {
-            continue;
-        }
-        
-        if (isOvernight(incoming, outgoing)) {
-            if (layover < config.minNightLayover ||
-                layover > config.maxNightLayover ||
-                !config.overnightAirports.includes(incoming.dst)) {
+    const departures = new Set([current]);
+    const minCoTerminalGap = config.minimumCoTerminalGap ?? 0;
+
+    for (const airport of getCoTerminalDepartures(current)) {
+        departures.add(airport);
+    }
+
+    for (const departure of departures) {
+        if (!cityGraph[departure]) continue;
+
+        for (const outgoing of cityGraph[departure]) {
+            const layover = outgoing.dtime - incoming.atime;
+
+            if (departure !== current && layover < minCoTerminalGap) {
                 continue;
             }
+
+            if (layover < config.minDayLayover || layover > config.maxDayLayover) {
+                continue;
+            }
+
+            if (isOvernight(incoming, outgoing)) {
+                if (layover < config.minNightLayover ||
+                    layover > config.maxNightLayover ||
+                    !config.overnightAirports.includes(incoming.dst)) {
+                    continue;
+                }
+            }
+
+            ret.push(outgoing);
         }
-        
-        ret.push(outgoing);
     }
-    
+
     return ret;
 }
 

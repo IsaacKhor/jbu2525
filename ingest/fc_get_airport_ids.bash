@@ -1,4 +1,4 @@
-for airport in $(cat airports.txt); do
+for airport in $(cat data/airports.txt); do
     curl "https://www.flightconnections.com/airports_url.php?lang=en^&iata=${airport}" \
         -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:140.0) Gecko/20100101 Firefox/140.0' \
         -H 'Accept: */*' \

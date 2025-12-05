@@ -82,7 +82,7 @@ def convert_schedule_to_csv(json_file: str, airports_csv: str, output_csv: str):
         schedule_data = json.load(f)
     
     # Define target date range
-    start_date = datetime(2025, 7, 15)
+    start_date = datetime(2025, 12, 1)
     end_date = datetime(2025, 12, 31)
     
     print(f"Processing flights from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}")
@@ -151,9 +151,9 @@ def convert_schedule_to_csv(json_file: str, airports_csv: str, output_csv: str):
 
 def main():
     """Main function."""
-    json_file = 'fc_misc.json'
-    airports_csv = 'airports.csv'
-    output_csv = 'flights2.csv'
+    json_file = 'data/20251205_all.json'
+    airports_csv = 'data/airports.csv'
+    output_csv = 'data/flights_20251205.csv'
     
     try:
         convert_schedule_to_csv(json_file, airports_csv, output_csv)
